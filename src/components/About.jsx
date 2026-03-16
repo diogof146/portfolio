@@ -1,3 +1,4 @@
+import SpotifyCard from "@/components/SpotifyCard"
 import { Card } from "@/components/ui/card"
 import { Terminal, Gamepad2, Headphones, GuitarIcon, Dumbbell, ChessPawn, BookHeadphones } from "lucide-react"
 
@@ -49,13 +50,7 @@ export default function About() {
             </div>
           </Card>
 
-          <Card className="p-8 shadow-sm flex flex-col items-center justify-center text-center bg-card hover:border-primary/50 transition-colors">
-            <Headphones className="w-8 h-8 text-muted-foreground mb-4" />
-            <h3 className="font-medium text-foreground">Currently Listening</h3>
-            <p className="text-sm text-muted-foreground mt-2 font-mono">
-              PlaceHolder
-            </p>
-          </Card>
+          <SpotifyCard></SpotifyCard>
 
         </div>
       </div>
