@@ -47,7 +47,7 @@ export default function Navbar() {
             <Link href="/projects" className="text-lg font-medium hover:text-primary transition-colors">
               Projects
             </Link>
-            <Link href="/#contact" onClick={(e) => handleScroll(e, "contact")} className="text-lg font-medium hover:text-primary transition-colors">About</Link>
+            <Link href="/#contact" onClick={(e) => handleScroll(e, "contact")} className="text-lg font-medium hover:text-primary transition-colors">Contact</Link>
           </SheetContent>
 
         </Sheet>

@@ -32,11 +32,11 @@ export function CardImage({ image, badge, title, desc, tech, github, live, downl
         className="relative z-20 aspect-video w-full object-cover"
       />
       <CardHeader >
-        <div className="flex items-start justify-between gap-2">
+        <div className="flex flex-wrap items-start justify-between gap-2">
           <CardTitle className="text-xl">{title}</CardTitle>
           <Badge variant="secondary" className="shrink-0">{badge}</Badge>
         </div>
-        <CardDescription className="w-full">
+        <CardDescription className="w-full min-w-0">
           {desc}
         </CardDescription>
       </CardHeader>

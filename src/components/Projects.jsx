@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
@@ -14,7 +14,7 @@ export default function FeaturedProjects() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <div className="group relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm hover:shadow-md aspect-[4/3 transition-all cursor-pointer">
+        <div className="group relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm hover:shadow-md aspect-4/3 transition-all cursor-pointer">
           <img
             src="/images/acc.png"
             alt="Animal Care Centre"
