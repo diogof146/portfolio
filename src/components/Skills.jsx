@@ -18,7 +18,7 @@ export default function Skills() {
           </div>
           <h3 className="text-lg font-bold mb-3">Backend & Systems</h3>
           <p className="text-muted-foreground leading-relaxed text-sm">
-            Java, Spring Boot, Spring Security, MySQL, Python, and C.
+            Java, Spring Boot, Spring Security, MySQL, Node.js, Python, and C.
           </p>
         </Card>
 
