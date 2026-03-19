@@ -90,7 +90,7 @@ export default function Contact() {
             </FieldGroup>
           </FieldSet>
           <div className="flex items-center justify-center md:justify-start gap-2 mt-3">
-            <Button type="reset" className="mt-4 bg-sidebar-accent-foreground">Clear</Button>
+            <Button type="reset" className="mt-4 bg-cyan-900 text-white">Clear</Button>
             <Button
               type="submit"
               disabled={status === 'loading' || status === 'success'}

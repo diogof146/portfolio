@@ -24,7 +24,7 @@ const icons = {
 
 export function CardImage({ image, badge, title, desc, tech, github, live, download }) {
   return (
-    <Card className="relative mx-auto w-full pt-0 flex flex-col h-full overflow-hidden">
+    <Card className="relative mx-auto w-full pt-0 flex flex-col h-full overflow-hidden shadow-sm">
       <div className="absolute inset-0 z-40 aspect-video bg-black/10" />
       <img
         src={image}

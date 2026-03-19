@@ -8,7 +8,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="mb-10">
-          <span className="text-primary font-semibold tracking-wider text-sm">A BIT ABOUT ME</span>
+          <span className="text-primary font-semibold tracking-wider text-sm">A Bit About Me</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2">My Interests</h2>
         </div>
 

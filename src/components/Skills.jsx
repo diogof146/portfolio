@@ -6,7 +6,7 @@ export default function Skills() {
     <section id="skills" className="py-24 max-w-7xl mx-auto px-6">
 
       <div className="mb-10 text-center md:text-left">
-        <span className="text-primary font-semibold tracking-wider text-sm">SKILLS</span>
+        <span className="text-primary font-semibold tracking-wider text-sm">Skills</span>
         <h2 className="text-3xl md:text-4xl font-bold mt-2">Tech Stack</h2>
       </div>
 

@@ -34,7 +34,7 @@ export default function Hero() {
         <img
           src="/images/me.png"
           alt="Diogo Ferreira"
-          className="w-full rounded-3xl object-cover shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]"
+          className="w-full rounded-3xl object-cover shadow-md"
         />
       </div>
     </section>
