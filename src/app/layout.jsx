@@ -2,7 +2,8 @@ import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider"
+import { ThemeProvider } from "./providers/ThemeProvider"
+import LenisProvider from "./providers/LenisProvider"
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -21,16 +22,19 @@ export default function RootLayout({ children }) {
       <html lang="en" suppressHydrationWarning>
         <head />
         <body>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            {children}
-            <Footer />
-          </ThemeProvider>
+          <LenisProvider>
+
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Navbar />
+              {children}
+              <Footer />
+            </ThemeProvider>
+          </LenisProvider>
         </body>
       </html>
     </>
