@@ -1,26 +1,21 @@
-import { SpotifyMainCard } from "@/components/Spotify/SpotifyMainCard"
+import Globe from "@/components/Globe"
 import { Card } from "@/components/ui/card"
 import { Terminal, Gamepad2, GuitarIcon, Dumbbell, ChessPawn, BookHeadphones } from "lucide-react"
 
 export function AboutCard() {
   return (
-
     <div>
-
       <div className="mb-10">
         <span className="text-primary font-semibold tracking-wider text-sm">A Bit About Me</span>
         <h2 className="text-3xl md:text-4xl font-bold mt-2">My Interests</h2>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
         <Card className="md:col-span-2 p-8 shadow-sm">
           <div className="flex flex-col gap-6 text-lg text-muted-foreground leading-relaxed">
             <p>
               I'm a Junior Software Engineer with a passion for exploring and learning about various tech areas. Currently game development peaks my interest.<br />
               Always open to learn, collaborate and connect with others who share similar passions.
             </p>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-6 border-t border-border">
               <div className="flex items-center gap-3">
                 <Terminal className="text-primary w-5 h-5" />
@@ -49,9 +44,9 @@ export function AboutCard() {
             </div>
           </div>
         </Card>
-
-        <SpotifyMainCard></SpotifyMainCard>
-
+        <Card className="shadow-sm overflow-hidden">
+          <Globe />
+        </Card>
       </div>
     </div>
   )
