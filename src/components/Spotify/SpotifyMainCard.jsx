@@ -11,15 +11,15 @@ const SpotifyIcon = ({ className }) => (
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export default function SpotifyCard() {
-  const { data, isLoading } = useSWR('/api/spotify', fetcher, {
+export function SpotifyMainCard() {
+  const { data, isLoading } = useSWR('/api/spotify/main', fetcher, {
     refreshInterval: 30000,
   });
 
   if (isLoading || !data) {
     return (
       <Card className="p-8 shadow-sm flex flex-col items-center justify-center text-center bg-card hover:border-primary/50 transition-colors">
-        <SpotifyIcon className="w-8 h-8 text-muted-foreground mb-4" />
+        <SpotifyIcon className="w-8 h-8 text-muted-foreground mb-4 animate-pulse" />
         <h3 className="font-medium text-foreground text-sm uppercase tracking-wider">Loading...</h3>
       </Card>
     );

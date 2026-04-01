@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
-import { getNowPlaying, getMostPlayed } from "@/lib/spotify";
+import { getNowPlaying, getMonthlyTrack, getAccessToken } from "@/lib/spotify";
 
 export async function GET() {
 
-  let response = await getNowPlaying();
+  const { access_token } = await getAccessToken();
+  let response = await getNowPlaying(access_token);
   let song;
 
   if (response.status === 200) {
@@ -20,7 +21,7 @@ export async function GET() {
     }
   }
 
-  response = await getMostPlayed();
+  response = await getMonthlyTrack(access_token);
   song = (await response.json()).items[0];
 
   return NextResponse.json({

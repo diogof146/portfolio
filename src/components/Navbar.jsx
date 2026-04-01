@@ -30,7 +30,7 @@ export default function Navbar() {
 
       <div className="hidden md:flex gap-8">
         <ThemeToggle></ThemeToggle>
-        <Link href="/#about" onClick={(e) => handleScroll(e, "about")}>About</Link>
+        <Link href="/about">About</Link>
         <Link href="/projects">Projects</Link>
         <Link href="/#contact" onClick={(e) => handleScroll(e, "contact")}>Contact</Link>
       </div>
@@ -47,10 +47,8 @@ export default function Navbar() {
           </SheetTrigger>
 
           <SheetContent side="right" className="flex flex-col gap-6 pt-16 px-6">
-            <Link href="/#about" onClick={(e) => handleScroll(e, "about")} className="text-lg font-medium hover:text-primary transition-colors">About</Link>
-            <Link href="/projects" className="text-lg font-medium hover:text-primary transition-colors">
-              Projects
-            </Link>
+            <Link href="/about" className="text-lg font-medium hover:text-primary transition-colors">About</Link>
+            <Link href="/projects" className="text-lg font-medium hover:text-primary transition-colors"> Projects</Link>
             <Link href="/#contact" onClick={(e) => handleScroll(e, "contact")} className="text-lg font-medium hover:text-primary transition-colors">Contact</Link>
             <div className="mt-auto flex w-full items-center justify-between border-t pb-6 pt-6">
               <div className="flex items-center gap-4 text-muted-foreground">
@@ -68,6 +66,6 @@ export default function Navbar() {
 
         </Sheet>
       </div>
-    </nav>
+    </nav >
   )
 }
