@@ -5,7 +5,7 @@ import { TopGame } from "@/components/Steam/TopGame"
 
 export function Games() {
   return (
-    <section id="games" className="py-24 max-w-7xl mx-auto px-6">
+    <section id="games" className="py-12 max-w-7xl mx-auto px-6">
 
       <div className="mb-10 text-center md:text-left">
         <span className="text-primary font-semibold tracking-wider text-sm">Steam</span>

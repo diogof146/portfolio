@@ -4,7 +4,7 @@ import { Terminal, Gamepad2, GuitarIcon, Dumbbell, ChessPawn, BookHeadphones } f
 
 export function AboutCard() {
   return (
-    <div>
+    <div className="py-12">
       <div className="mb-10">
         <span className="text-primary font-semibold tracking-wider text-sm">A Bit About Me</span>
         <h2 className="text-3xl md:text-4xl font-bold mt-2">My Interests</h2>
