@@ -5,17 +5,23 @@ import { Games } from "@/components/Games";
 export default function About() {
   return (
     <main>
-      <section id="about" className="max-w-7xl mx-auto p-12">
-        <div className="mb-6 text-center md:text-left">
+      <section id="about" className="w-full p-12">
+        <div className="max-w-7xl mx-auto mb-6 text-center md:text-left">
           <AboutCard></AboutCard>
         </div>
-        <div className="mb-6 text-center md:text-left">
+      </section>
+
+      <section id="about" className="w-full p-12 bg-muted/30">
+        <div className="max-w-7xl mx-auto mb-6 text-center md:text-left">
           <Music></Music>
         </div>
-        <div className="mb-6 text-center md:text-left">
+      </section>
+
+      <section id="about" className="w-full p-12">
+        <div className="max-w-7xl mx-auto mb-6 text-center md:text-left">
           <Games></Games>
         </div>
       </section>
-    </main>
+    </main >
   )
 }

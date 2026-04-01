@@ -16,35 +16,39 @@ export default function FeaturedProjects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-          <div className="group relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm hover:shadow-md aspect-4/3 transition-all cursor-pointer">
-            <img
-              src="/images/acc.png"
-              alt="Animal Care Centre"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+          <a href="https://github.com/Animal-Care-UPT/Equipa3_comp3" target="_blank">
+            <div className="group relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm hover:shadow-md aspect-4/3 transition-all cursor-pointer">
+              <img
+                src="/images/acc.png"
+                alt="Animal Care Centre"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
 
-            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
-            <div className="absolute bottom-0 w-full p-6 md:p-8 flex flex-col gap-1 z-10">
-              <h3 className="text-white font-bold text-xl md:text-2xl">Animal Care Centre</h3>
-              <p className="text-gray-300 font-medium text-sm">REST API • Spring Boot • MySQL</p>
+              <div className="absolute bottom-0 w-full p-6 md:p-8 flex flex-col gap-1 z-10">
+                <h3 className="text-white font-bold text-xl md:text-2xl">Animal Care Centre</h3>
+                <p className="text-gray-300 font-medium text-sm">REST API • Spring Boot • MySQL</p>
+              </div>
             </div>
-          </div>
+          </a>
 
-          <div className="group relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm hover:shadow-md aspect-4/3 transition-all cursor-pointer">
-            <img
-              src="/images/neovim.png"
-              alt="Neovim Configuration"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+          <a href="https://github.com/diogof146/nvim-config" target="_blank">
+            <div className="group relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm hover:shadow-md aspect-4/3 transition-all cursor-pointer">
+              <img
+                src="/images/neovim.png"
+                alt="Neovim Configuration"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
 
-            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
-            <div className="absolute bottom-0 w-full p-6 md:p-8 flex flex-col gap-1 z-10">
-              <h3 className="text-white font-bold text-xl md:text-2xl">Neovim Configuration</h3>
-              <p className="text-gray-300 font-medium text-sm">Lua • Neovim • Unix</p>
+              <div className="absolute bottom-0 w-full p-6 md:p-8 flex flex-col gap-1 z-10">
+                <h3 className="text-white font-bold text-xl md:text-2xl">Neovim Configuration</h3>
+                <p className="text-gray-300 font-medium text-sm">Lua • Neovim • Unix</p>
+              </div>
             </div>
-          </div>
+          </a>
 
         </div>
 
