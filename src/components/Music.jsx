@@ -4,7 +4,7 @@ import { SpotifyMainCard } from "@/components/Spotify/SpotifyMainCard";
 
 export function Music() {
   return (
-    <section id="music" className="py-12 max-w-7xl mx-auto px-6">
+    <section id="music" className="py-12 max-w-7xl mx-auto">
       <div className="mb-10 text-center md:text-left">
         <span className="text-primary font-semibold tracking-wider text-sm">Spotify</span>
         <h2 className="text-3xl md:text-4xl font-bold mt-2">My Music</h2>

@@ -32,7 +32,7 @@ export default function Hero() {
                 <Instagram className="h-5 w-5" />
               </Button>
             </a>
-            <TerminalButton></TerminalButton>
+            <TerminalButton variant={"button"}></TerminalButton>
 
           </div>
         </div>

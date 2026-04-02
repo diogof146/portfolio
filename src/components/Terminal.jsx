@@ -104,8 +104,8 @@ function RPSGame({ onQuit }) {
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="text-xs text-primary/60 mb-1">RPS · r=rock p=paper s=scissors · q to quit</div>
-      <div className="text-xs text-primary/60 mb-2">W:{score.w} L:{score.l} D:{score.d}</div>
+      <div className="text-sm text-primary/60 mb-1">RPS · r=rock p=paper s=scissors · q to quit</div>
+      <div className="text-sm text-primary/60 mb-2">W:{score.w} L:{score.l} D:{score.d}</div>
       {history.length === 0 && <div className="text-primary/40">press r, p, or s to play</div>}
       {history.map((h, i) => (
         <div key={i} className={`text-sm ${color[h.result]}`}>
@@ -153,7 +153,7 @@ function GuessGame({ onQuit }) {
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="text-xs text-primary/60 mb-1">GUESS THE NUMBER (1-100) · q to quit</div>
+      <div className="text-sm text-primary/60 mb-1">GUESS THE NUMBER (1-100) · q to quit</div>
       {history.map((h, i) => <div key={i} className="text-sm text-primary/80">{h}</div>)}
       {!won && (
         <form onSubmit={submit} className="flex items-center gap-2 mt-1">
@@ -234,8 +234,8 @@ function DinoGame({ onQuit }) {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="text-xs text-primary/60">DINO · space/↑ to jump · q to quit · score: {score}</div>
-      {dead && <div className="text-red-400 text-xs">game over! score: {score} · q to quit</div>}
+      <div className="text-sm text-primary/60">DINO · space/↑ to jump · q to quit · score: {score}</div>
+      {dead && <div className="text-red-400 text-sm">game over! score: {score} · q to quit</div>}
       <div className="font-mono border border-primary/20 p-1 bg-primary/5">
         {Array.from({ length: H }, (_, r) => (
           <div key={r} className="flex" style={{ height: 10 }}>
@@ -575,7 +575,7 @@ function TerminalModal({ open, onClose }) {
                     <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
                     <div className="w-3 h-3 rounded-full bg-green-500/70" />
                   </div>
-                  <span className="text-xs text-primary/50 ml-2 font-mono">diogo@portfolio ~</span>
+                  <span className="text-sm text-primary/50 ml-2 font-mono">diogo@portfolio ~</span>
                 </div>
                 <button onClick={onClose} className="text-primary/40 hover:text-primary transition-colors">
                   <X className="w-4 h-4" />
@@ -605,13 +605,13 @@ function TerminalModal({ open, onClose }) {
               {/* input bar — hidden while a game is active */}
               {!game && (
                 <div className="flex items-center gap-2 px-4 py-3 border-t border-primary/20 shrink-0">
-                  <span className="text-primary font-mono text-sm">›</span>
+                  <span className="text-primary font-mono text-base md:text-sm">›</span>
                   <input
                     ref={inputRef}
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     onKeyDown={e => { if (e.key === "Enter") run(input) }}
-                    className="flex-1 bg-transparent outline-none font-mono text-sm text-primary placeholder:text-primary/30"
+                    className="flex-1 bg-transparent outline-none font-mono text-base md:text-sm text-primary placeholder:text-primary/30"
                     placeholder="type a command..."
                     autoComplete="off"
                     spellCheck={false}

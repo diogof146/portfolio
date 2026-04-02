@@ -81,7 +81,7 @@ export default function Projects() {
     : projectData.filter(project => project.category === filter);
   return (
     <main>
-      <section id="projects" className="max-w-8xl mx-auto p-12">
+      <section id="projects" className="max-w-8xl mx-auto py-12 px-6">
         <div className="mb-6 text-center md:text-left">
           <span className="text-primary font-semibold tracking-wider text-sm">THE ARCHIVE</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2">My Projects</h2>

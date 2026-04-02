@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Github, Linkedin } from "lucide-react"
-import LikeButton from "./LikeButton"
+import LikeButton from "@/components/LikeButton"
+import { TerminalButton } from "@/components/TerminalButton"
 import { getLikeCount } from "@/lib/actions"
 
 export default async function Footer() {
@@ -21,6 +22,7 @@ export default async function Footer() {
           <Link href="https://linkedin.com/in/diogof146" target="_blank" className="hover:text-foreground transition-colors">
             <Linkedin className="w-5 h-5" />
           </Link>
+          <TerminalButton></TerminalButton>
         </div>
       </div>
       <div className="hidden md:flex absolute inset-0 items-center justify-center z-10">

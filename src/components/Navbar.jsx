@@ -1,5 +1,6 @@
 "use client"
 
+import { TerminalButton } from "@/components/TerminalButton"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/ThemeToggle"
@@ -60,8 +61,10 @@ export default function Navbar() {
                 <Link href="https://linkedin.com" target="_blank" className="hover:text-primary transition-colors">
                   <Linkedin className="h-5 w-5" />
                 </Link>
+                <TerminalButton></TerminalButton>
               </div>
               <ThemeToggle />
+
 
             </div>
           </SheetContent>
