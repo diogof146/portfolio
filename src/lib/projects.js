@@ -2,6 +2,7 @@ export const projectData = [
   {
     id: 1,
     title: "Neovim Configuration",
+    cmd: "nvim",
     image: "/images/neovim.png",
     category: "Tools & Config",
     desc: "This is my favourite project, as it was the spark that ignited my passion for programming and obsession with customization.",
@@ -11,6 +12,7 @@ export const projectData = [
   {
     id: 2,
     title: "Animal Care Centre",
+    cmd: "acc",
     image: "/images/acc.png",
     category: "Backend & Systems",
     desc: "A pet adoption portal REST API built with Spring.",
@@ -20,16 +22,18 @@ export const projectData = [
   {
     id: 3,
     title: "Personal Website",
+    cmd: "portfolio",
     image: "/images/portfolio.png",
     category: "Web",
     desc: "A custom-designed personal portfolio built with Next.js Tailwind CSS and Shadcn UI.",
     tech: ["Next.js", "React", "Tailwind"],
     github: "https://github.com/diogof146/portfolio",
-    live: "https://diogo-portfolio.vercel.app" // not yet
+    live: "https://diogof146.com"
   },
   {
     id: 4,
     title: "Dotfiles",
+    cmd: "dotfiles",
     image: "/images/dotfiles.png",
     category: "Tools & Config",
     desc: "My macOS/Unix configuration files.",
@@ -39,6 +43,7 @@ export const projectData = [
   {
     id: 5,
     title: "Vivre Bar",
+    cmd: "vivre",
     image: "/images/vivre.png",
     category: "Applications",
     desc: "A delightfully useless macOS menu bar app that brings GIFs to the menu bar with customizable effects and colours.",
@@ -48,6 +53,7 @@ export const projectData = [
   {
     id: 6,
     title: "PePe Tours & Travels",
+    cmd: "pepe",
     image: "/images/ptt.png",
     category: "Web",
     desc: "A website developed as a freelance project for a local tourism company.",
@@ -58,6 +64,7 @@ export const projectData = [
   {
     id: 7,
     title: "Riff Hero",
+    cmd: "riff",
     image: "/images/riffhero.png",
     category: "Games",
     desc: "A Guitar Hero clone built in Java with FXGL.",
@@ -67,6 +74,7 @@ export const projectData = [
   {
     id: 8,
     title: "Farmers Market",
+    cmd: "farmers",
     image: "/images/farmersmarket.png",
     category: "Backend & Systems",
     desc: "A Farmers Marketplace GUI App developed as a group using the SCRUM framework.",
@@ -76,6 +84,7 @@ export const projectData = [
   {
     id: 9,
     title: "Penalty Shootout Simulator",
+    cmd: "fbsim",
     image: "/images/fbsim.png",
     category: "Games",
     desc: "A 2D penalty shootout simulator built with Python/Pygame to learn the fundamentals of game development.",
@@ -85,6 +94,7 @@ export const projectData = [
   {
     id: 10,
     title: "Pollution Management System",
+    cmd: "pms",
     image: "/images/pms.png",
     category: "Backend & Systems",
     desc: "A terminal-based Python application that helps manage and analyze pollution data. This was my first programming project.",

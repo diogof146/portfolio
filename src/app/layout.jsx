@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./providers/ThemeProvider"
 import LenisProvider from "./providers/LenisProvider"
+import { Terminal } from "@/components/Terminal"
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -24,15 +25,12 @@ export default function RootLayout({ children }) {
         <body>
           <LenisProvider>
 
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <Navbar />
-              {children}
-              <Footer />
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+              <Terminal>
+                <Navbar />
+                {children}
+                <Footer />
+              </Terminal>
             </ThemeProvider>
           </LenisProvider>
         </body>

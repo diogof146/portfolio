@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Github, Instagram, Linkedin, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
+import { TerminalButton } from "@/components/TerminalButton"
 
 export default function Hero() {
   return (
@@ -31,6 +32,8 @@ export default function Hero() {
                 <Instagram className="h-5 w-5" />
               </Button>
             </a>
+            <TerminalButton></TerminalButton>
+
           </div>
         </div>
 
