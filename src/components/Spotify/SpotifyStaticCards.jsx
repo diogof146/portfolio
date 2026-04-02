@@ -6,6 +6,23 @@ const SpotifyIcon = ({ className }) => (
   </svg>
 );
 
+export function SpotifyCardSkeleton() {
+  return (
+    <Card className="p-8 shadow-sm flex flex-col items-center justify-center text-center bg-card hover:border-primary/50 transition-colors h-full">
+      <SpotifyIcon className="w-8 h-8 text-muted-foreground mb-4 animate-pulse" />
+      <h3 className="font-medium text-foreground text-sm uppercase tracking-wider">Loading...</h3>
+    </Card>
+  )
+}
+
+export function SpotifyArtistsSkeleton() {
+  return (
+    <Card className="md:col-span-3 p-8 shadow-sm flex flex-col items-center justify-center text-center bg-card hover:border-primary/50 transition-colors h-full">
+      <SpotifyIcon className="w-8 h-8 text-muted-foreground mb-4 animate-pulse" />
+      <h3 className="font-medium text-foreground text-sm uppercase tracking-wider">Loading...</h3>
+    </Card>
+  )
+}
 
 export async function SpotifyTopSong() {
   const response = await fetch(process.env.APP_URL + "/api/spotify/top");

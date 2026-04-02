@@ -6,6 +6,15 @@ import { SteamLogoIcon } from "@phosphor-icons/react"
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
+export function SteamCardSkeleton() {
+  return (
+    <Card className="p-6 shadow-sm border-border/50 flex flex-col items-center justify-center h-full opacity-50 min-h-[300px]">
+      <SteamLogoIcon className="w-8 h-8 text-muted-foreground animate-pulse mb-3" />
+      <p className="text-sm font-mono text-muted-foreground">Loading...</p>
+    </Card>
+  )
+}
+
 export function RecentGame() {
   const { data, isLoading } = useSWR('/api/steam/recent', fetcher, {
     refreshInterval: 60000,
