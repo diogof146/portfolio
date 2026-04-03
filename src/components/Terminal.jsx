@@ -515,6 +515,10 @@ function TerminalModal({ open, onClose }) {
         break
       }
 
+      case "inshallah":
+        push(["hehehe siuuuuuuuuu"])
+        break
+
       case "nvim":
       case "vim":
       case "vi":
@@ -528,12 +532,19 @@ function TerminalModal({ open, onClose }) {
         window.open("https://www.fflogs.com/character/eu/alpha/the%20king?zone=43", "_blank")
         break
       default: {
+
         if (PROJECT_CMDS[command]) {
           const p = PROJECT_CMDS[command]
           push([`opening ${p.title} on GitHub...`])
           window.open(p.github, "_blank")
           break
         }
+
+        if (command.match(/^siu+$/)) {
+          push(["SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"])
+          break
+        }
+
         push([`command not found: ${command} — type 'help' for available commands`])
       }
     }
