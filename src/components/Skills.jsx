@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card"
 import { Server, Layout, Wrench, Gamepad2 } from "lucide-react"
+import Link from "next/link"
 
 export default function Skills() {
   return (
@@ -12,47 +13,55 @@ export default function Skills() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
 
-        <Card className="p-6 shadow-sm border-border/50 hover:shadow-md transition-all">
-          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-            <Server className="w-6 h-6 text-primary" />
-          </div>
-          <h3 className="text-lg font-bold mb-3">Backend & Systems</h3>
-          <p className="text-muted-foreground leading-relaxed text-sm">
-            Java, Spring Boot, Spring Security, MySQL, Node.js, Python, and C.
-          </p>
-        </Card>
+        <Link href="/projects?category=Backend%20%26%20Systems">
+          <Card className="p-6 shadow-sm border-border/50 hover:shadow-sm hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 cursor-pointer">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+              <Server className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-lg font-bold mb-3">Backend & Systems</h3>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              Java, Spring Boot, Spring Security, MySQL, Node.js, Python and C.
+            </p>
+          </Card>
+        </Link>
 
-        <Card className="p-6 shadow-sm border-border/50 hover:shadow-md transition-all">
-          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-            <Layout className="w-6 h-6 text-primary" />
-          </div>
-          <h3 className="text-lg font-bold mb-3">Frontend Development</h3>
-          <p className="text-muted-foreground leading-relaxed text-sm">
-            React, Next.js, Tailwind CSS, JavaScript, and HTML.
-          </p>
-        </Card>
+        <Link href="/projects?category=Web">
+          <Card className="p-6 shadow-sm border-border/50 hover:shadow-sm hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 cursor-pointer">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+              <Layout className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-lg font-bold mb-3">Frontend Development</h3>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              React, Next.js, Tailwind CSS, JavaScript and HTML.
+            </p>
+          </Card>
+        </Link>
 
-        <Card className="p-6 shadow-sm border-border/50 hover:shadow-md transition-all">
-          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-            <Wrench className="w-6 h-6 text-primary" />
-          </div>
-          <h3 className="text-lg font-bold mb-3">Tools & Workflow</h3>
-          <p className="text-muted-foreground leading-relaxed text-sm">
-            Git, GitHub, Unix/Linux Environments, Bash Scripting, Lua, and Neovim.
-          </p>
-        </Card>
+        <Link href="/projects?category=Tools%20%26%20Config">
+          <Card className="p-6 shadow-sm border-border/50 hover:shadow-sm hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 cursor-pointer">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+              <Wrench className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-lg font-bold mb-3">Tools & Workflow</h3>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              Git, GitHub, Unix/Linux Environments, Bash Scripting, Lua and Neovim.
+            </p>
+          </Card>
+        </Link>
 
-        <Card className="p-6 shadow-sm border-border/50 hover:shadow-md transition-all">
-          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-            <Gamepad2 className="w-6 h-6 text-primary" />
-          </div>
-          <h3 className="text-lg font-bold mb-3">Games & Applications</h3>
-          <p className="text-muted-foreground leading-relaxed text-sm">
-            Unity, C#, Swift and Blender.
-          </p>
-        </Card>
+        <Link href="/projects?category=Games">
+          <Card className="p-6 shadow-sm border-border/50 hover:shadow-sm hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 cursor-pointer">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+              <Gamepad2 className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-lg font-bold mb-3">Games & Applications</h3>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              Unity, C#, Swift and Blender.
+            </p>
+          </Card>
+        </Link>
 
-      </div>
-    </section>
+      </div >
+    </section >
   )
 }

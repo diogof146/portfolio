@@ -1,73 +1,142 @@
-import { Card } from "@/components/ui/card"
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
+"use client"
 
-export default function FeaturedProjects() {
+import { useState, useEffect } from "react"
+import { useSearchParams, useRouter } from "next/navigation"
+import { projectData } from "@/lib/projects"
+import { Globe, Gamepad2, Server, Wrench, AppWindow, LayoutGrid, Download, Github, ExternalLink } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+const icons = {
+  "All": <LayoutGrid className="w-4 h-4 mr-1" />,
+  "Web": <Globe className="w-4 h-4 mr-1" />,
+  "Games": <Gamepad2 className="w-4 h-4 mr-1" />,
+  "Backend & Systems": <Server className="w-4 h-4 mr-1" />,
+  "Tools & Config": <Wrench className="w-4 h-4 mr-1" />,
+  "Applications": <AppWindow className="w-4 h-4 mr-1" />,
+};
+
+export function CardImage({ image, badge, title, desc, tech, github, live, download }) {
   return (
-    <section className="py-24 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-6">
-
-
-        <div className="mb-10 text-center md:text-left">
-          <span className="text-primary font-semibold tracking-wider text-sm">Experience</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2">Featured Projects</h2>
+    <Card className="relative mx-auto w-full pt-0 flex flex-col h-full shadow-sm group">
+      <a href={live ? live : github} target="_blank" rel="noreferrer">
+        <div className="overflow-hidden aspect-video w-full cursor-pointer">
+          <div className="absolute inset-0 z-40 aspect-video bg-black/10" />
+          <img
+            src={image}
+            alt={title}
+            className="relative z-20 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
         </div>
-
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-          <a href="https://github.com/Animal-Care-UPT/Equipa3_comp3" target="_blank">
-            <div className="group relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm hover:shadow-md aspect-4/3 transition-all cursor-pointer">
-              <img
-                src="/images/acc.png"
-                alt="Animal Care Centre"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-
-              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
-
-              <div className="absolute bottom-0 w-full p-6 md:p-8 flex flex-col gap-1 z-10">
-                <h3 className="text-white font-bold text-xl md:text-2xl">Animal Care Centre</h3>
-                <p className="text-gray-300 font-medium text-sm">REST API • Spring Boot • MySQL</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="https://github.com/diogof146/nvim-config" target="_blank">
-            <div className="group relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm hover:shadow-md aspect-4/3 transition-all cursor-pointer">
-              <img
-                src="/images/neovim.png"
-                alt="Neovim Configuration"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-
-              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
-
-              <div className="absolute bottom-0 w-full p-6 md:p-8 flex flex-col gap-1 z-10">
-                <h3 className="text-white font-bold text-xl md:text-2xl">Neovim Configuration</h3>
-                <p className="text-gray-300 font-medium text-sm">Lua • Neovim • Unix</p>
-              </div>
-            </div>
-          </a>
-
+      </a>
+      <CardHeader >
+        <div className="flex flex-wrap items-start justify-between gap-2">
+          <CardTitle className="text-xl">{title}</CardTitle>
+          <Badge variant="secondary" className="shrink-0">{badge}</Badge>
         </div>
-
-        <div className="mt-12">
-          <Link href="/projects">
-            <Card className="group flex flex-col sm:flex-row items-center justify-between p-8 border-primary/20 hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-md">
-              <div className="text-center sm:text-left mb-4 sm:mb-0">
-                <h3 className="text-xl font-bold text-foreground">View Full Archive</h3>
-                <p className="text-muted-foreground">Explore all my applications, configurations, and games.</p>
-              </div>
-
-              <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
-                <ArrowRight className="w-5 h-5 text-primary group-hover:text-primary-foreground" />
-              </div>
-            </Card>
-          </Link>
-        </div>
+        <CardDescription className="w-full min-w-0">
+          {desc}
+        </CardDescription>
+      </CardHeader>
+      <div className="mt-auto px-4 flex flex-wrap gap-2">
+        {tech && tech.map((skill, index) => (
+          <Badge key={index} variant="outline" className="text-xs font-normal">
+            {skill}
+          </Badge>
+        ))}
       </div>
+      <CardFooter className="flex gap-4 pt-4 border-t border-border/50">
+        {github && (
+          <Button variant="outline" className="flex-1" asChild>
+            <a href={github} target="_blank" rel="noreferrer">
+              <Github className="w-4 h-4 mr-1" />Github</a>
+          </Button>
+        )}
 
-    </section>
+        {live && (
+          <Button className="flex-1" asChild>
+            <a href={live} target="_blank" rel="noreferrer">
+              <ExternalLink className="w-4 h-4 mr-1" />Visit</a>
+          </Button>
+        )}
+
+        {download && (
+          <Button className="flex-1" asChild>
+            <a href={download} target="_blank" rel="noreferrer">
+              <Download className="w-4 h-4 mr-1" />Download</a>
+          </Button>
+        )}
+      </CardFooter>
+    </Card>
   )
 }
+
+export default function Projects() {
+  const categories = ["All", ...new Set(projectData.map(item => item.category))]
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const param = searchParams.get("category")
+  const matched = categories.find(c => c.toLowerCase() === param?.toLowerCase()) ?? "All"
+  const [filter, setFilter] = useState(matched)
+
+  const filteredProjects = filter === "All"
+    ? projectData
+    : projectData.filter(project => project.category === filter);
+
+  useEffect(() => {
+    router.replace("/projects", { scroll: false })
+  }, [])
+
+
+  return (
+    <main>
+      <section id="projects" className="max-w-8xl mx-auto py-12 px-6">
+        <div className="mb-6 text-center md:text-left">
+          <span className="text-primary font-semibold tracking-wider text-sm">THE ARCHIVE</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2">My Projects</h2>
+          <p className="text-muted-foreground mt-4 mx-auto md:mx-0">
+            A collection of things I've built, ranging from web applications to configurations and games.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-2 mb-10 justify-center md:justify-start">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={filter === category ? "default" : "outline"}
+              onClick={() => setFilter(category)}
+              className="rounded-full cursor-pointer"
+            >
+              {icons[category]}
+              {category}
+            </Button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+          {filteredProjects.map((project) => (
+            <CardImage
+              key={project.id}
+              image={project.image}
+              badge={project.category}
+              title={project.title}
+              desc={project.desc}
+              tech={project.tech}
+              github={project.github}
+              live={project.live}
+              download={project.download}
+            />
+          ))}
+        </div>
+      </section>
+    </main >
+  )
+}
+

@@ -28,7 +28,6 @@ export const projectData = [
     desc: "A custom-designed personal portfolio built with Next.js Tailwind CSS and Shadcn UI.",
     tech: ["Next.js", "React", "Tailwind"],
     github: "https://github.com/diogof146/portfolio",
-    live: "https://diogof146.com"
   },
   {
     id: 4,

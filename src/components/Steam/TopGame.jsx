@@ -2,8 +2,8 @@ import { Card } from "@/components/ui/card"
 import { SteamLogoIcon } from "@phosphor-icons/react/dist/ssr"
 
 export async function TopGame() {
-  const response = await fetch(process.env.APP_URL + "/api/steam/top", { next: { revalidate: 3600 } });
-  if (!response.ok) return null;
+  const response = await fetch(process.env.APP_URL + "/api/steam/top", { next: { revalidate: 86400 } }).catch(() => null)
+  if (!response || !response.ok) return null;
   const data = await response.json();
 
   if (!data || data.error) return null;
@@ -19,8 +19,11 @@ export async function TopGame() {
           <h3 className="text-lg font-bold">Most Played Game</h3>
         </div>
 
-        <div className="overflow-hidden rounded-lg mb-5 border border-border/50 shadow-sm mx-auto">
-          <img src={data.imageUrl} alt={data.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div className="overflow-hidden rounded-lg mb-5 border border-border/50 shadow-sm mx-auto group-hover:scale-105 transition-transform duration-500">
+          <img
+            src={data.imageUrl}
+            alt={data.title}
+            className="w-full h-full object-cover" />
         </div>
 
         <div className="mt-auto">

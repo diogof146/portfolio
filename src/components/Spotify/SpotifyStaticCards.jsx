@@ -25,8 +25,8 @@ export function SpotifyArtistsSkeleton() {
 }
 
 export async function SpotifyTopSong() {
-  const response = await fetch(process.env.APP_URL + "/api/spotify/top");
-  if (!response.ok) return null;
+  const response = await fetch(process.env.APP_URL + "/api/spotify/top", { next: { revalidate: 86400 } }).catch(() => null)
+  if (!response || !response.ok) return null;
   const data = await response.json();
 
   if (!data) {
@@ -39,13 +39,17 @@ export async function SpotifyTopSong() {
   }
 
   return (
-    <a href={data.songUrl} target="_blank" rel="noopener noreferrer" className="block h-full">
+    <a href={data.songUrl} target="_blank" rel="noopener noreferrer" className="block h-full group">
       <Card className="p-8 shadow-sm flex flex-col items-center justify-center text-center bg-card hover:border-primary/50 transition-colors h-full">
         <SpotifyIcon className="w-8 h-8 text-muted-foreground mb-4" />
         <h3 className="text-sm text-foreground">Top Track</h3>
 
-        <div style={{ width: 140, height: 140 }} className="overflow-hidden rounded-lg flex-none mx-auto mt-3">
-          <img src={data.albumImageUrl} alt={data.title} className="w-full h-full object-cover shadow-md" />
+        <div style={{ width: 140, height: 140 }} className="overflow-hidden rounded-lg flex-none mx-auto mt-3 group-hover:scale-110 transition-transform duration-500">
+          <img
+            src={data.albumImageUrl}
+            alt={data.title}
+            className="w-full h-full object-cover shadow-md"
+          />
         </div>
 
         <div className="mt-4 flex flex-col items-center">
@@ -58,8 +62,8 @@ export async function SpotifyTopSong() {
 }
 
 export async function SpotifyPlaylist() {
-  const response = await fetch(process.env.APP_URL + "/api/spotify/playlist");
-  if (!response.ok) return null;
+  const response = await fetch(process.env.APP_URL + "/api/spotify/playlist", { next: { revalidate: 86400 } }).catch(() => null)
+  if (!response || !response.ok) return null;
   const data = await response.json();
 
   if (!data) {
@@ -72,12 +76,12 @@ export async function SpotifyPlaylist() {
   }
 
   return (
-    <a href={data.url} target="_blank" rel="noopener noreferrer" className="block h-full">
+    <a href={data.url} target="_blank" rel="noopener noreferrer" className="block h-full group">
       <Card className="p-8 shadow-sm flex flex-col items-center justify-center text-center bg-card hover:border-primary/50 transition-colors h-full">
         <SpotifyIcon className="w-8 h-8 text-muted-foreground mb-4" />
         <h3 className="text-sm text-foreground">Top Playlist</h3>
 
-        <div style={{ width: 140, height: 140 }} className="overflow-hidden rounded-lg flex-none mx-auto mt-3">
+        <div style={{ width: 140, height: 140 }} className="overflow-hidden rounded-lg flex-none mx-auto mt-3 group-hover:scale-110 transition-transform duration-500">
           <img src={data.imageURL} alt={data.title} className="w-full h-full object-cover shadow-md" />
         </div>
 
@@ -91,8 +95,8 @@ export async function SpotifyPlaylist() {
 }
 
 export async function SpotifyTopArtists() {
-  const response = await fetch(process.env.APP_URL + "/api/spotify/artists");
-  if (!response.ok) return null;
+  const response = await fetch(process.env.APP_URL + "/api/spotify/artists", { next: { revalidate: 86400 } }).catch(() => null)
+  if (!response || !response.ok) return null;
   const data = await response.json();
 
   if (!data) {
@@ -119,7 +123,7 @@ export async function SpotifyTopArtists() {
 
         <div className="p-8 pt-4 flex flex-col items-center justify-center text-center">
           <a href={topArtist.url} target="_blank" rel="noopener noreferrer" className="group">
-            <div style={{ width: 140, height: 140 }} className="overflow-hidden rounded-lg shadow-md border border-border group-hover:border-primary/50 transition-colors">
+            <div style={{ width: 140, height: 140 }} className="overflow-hidden rounded-lg flex-none mx-auto mt-3 group-hover:scale-110 transition-transform duration-500">
               <img src={topArtist.image} alt={topArtist.name} className="w-full h-full object-cover" />
             </div>
 
@@ -141,7 +145,7 @@ export async function SpotifyTopArtists() {
                 <span className="text-xs text-muted-foreground font-mono w-4 shrink-0 py-6">
                   {index + 2}
                 </span>
-                <div style={{ width: 40, height: 40 }} className="overflow-hidden rounded-full shrink-0 border border-border">
+                <div style={{ width: 40, height: 40 }} className="overflow-hidden rounded-full shrink-0 border border-border group-hover:scale-110 transition-transform duration-500">
                   <img src={artist.image} alt={artist.name} className="w-full h-full object-cover" />
                 </div>
                 <div className="min-w-0">

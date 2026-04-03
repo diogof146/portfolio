@@ -42,12 +42,11 @@ export function RecentGame() {
           </h3>
         </div>
 
-        <div className="overflow-hidden rounded-lg mb-5 border border-border/50 shadow-sm mx-auto">
+        <div className="overflow-hidden rounded-lg mb-5 border border-border/50 shadow-sm mx-auto group-hover:scale-105 transition-transform duration-500">
           <img
             src={data.imageUrl}
             alt={data.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
+            className="w-full h-full object-cover" />
         </div>
 
         <div className="mt-auto">

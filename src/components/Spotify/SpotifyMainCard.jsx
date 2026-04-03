@@ -26,7 +26,7 @@ export function SpotifyMainCard() {
   }
 
   return (
-    <a href={data.songUrl} target="_blank" rel="noopener noreferrer" className="block h-full">
+    <a href={data.songUrl} target="_blank" rel="noopener noreferrer" className="block h-full group">
       <Card className="p-8 shadow-sm flex flex-col items-center justify-center text-center bg-card hover:border-primary/50 transition-colors">
         <SpotifyIcon className="w-8 h-8 text-muted-foreground mb-4" />
 
@@ -34,7 +34,7 @@ export function SpotifyMainCard() {
           {data.isPlaying ? "Currently Listening" : "Top Track This Month"}
         </h3>
 
-        <div style={{ width: 140, height: 140 }} className="overflow-hidden rounded-lg flex-none mx-auto mt-3">
+        <div style={{ width: 140, height: 140 }} className="overflow-hidden rounded-lg flex-none mx-auto mt-3 group-hover:scale-110 transition-transform duration-500">
           <img
             src={data.albumImageUrl}
             alt={data.title}
