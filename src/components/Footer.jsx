@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Github, Linkedin } from "lucide-react"
+import { Github, Linkedin, Gamepad2 } from "lucide-react"
 import LikeButton from "@/components/LikeButton"
 import { TerminalButton } from "@/components/TerminalButton"
 import { getLikeCount } from "@/lib/actions"
@@ -21,6 +21,9 @@ export default async function Footer() {
           </Link>
           <Link href="https://linkedin.com/in/diogof146" target="_blank" className="hover:text-foreground transition-colors">
             <Linkedin className="w-5 h-5" />
+          </Link>
+          <Link href="https://diogof146.itch.io" target="_blank" className="hover:text-primary transition-colors">
+            <Gamepad2 className="h-5 w-5" />
           </Link>
           <TerminalButton></TerminalButton>
         </div>

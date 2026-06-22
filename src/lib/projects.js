@@ -1,6 +1,28 @@
 export const projectData = [
   {
     id: 1,
+    title: "Forsaken Elegy",
+    cmd: "forsakenelegy",
+    image: "/images/forsakenelegy2.png",
+    category: "Games",
+    desc: "Single Player 3D Action RPG with MMO-style raid mechanics and fast-paced action combat. Built with Unity and C#.",
+    tech: ["Unity", "C#"],
+    github: "https://github.com/diogof146/forsaken-elegy",
+    download: "https://github.com/diogof146/forsaken-elegy",
+  },
+  {
+    id: 2,
+    title: "Wano University",
+    cmd: "nvim",
+    image: "/images/wanouni.png",
+    category: "Web",
+    desc: "A campus management platform designed to monitor and optimize university resources in real time. Built with React, Express, PostgreSQL, Prisma, and a custom System Specific Language parsed via Python's PLY.",
+    tech: ["React", "Express.js", "Prisma", "PostgreSQL", "PLY"],
+    github: "https://github.com/Wano-University/wano-university",
+    live: "https://wano-university.vercel.app"
+  },
+  {
+    id: 3,
     title: "Neovim Configuration",
     cmd: "nvim",
     image: "/images/neovim.png",
@@ -10,7 +32,7 @@ export const projectData = [
     github: "https://github.com/diogof146/nvim-config"
   },
   {
-    id: 2,
+    id: 4,
     title: "Animal Care Centre",
     cmd: "acc",
     image: "/images/acc.png",
@@ -20,37 +42,7 @@ export const projectData = [
     github: "https://github.com/Animal-Care-UPT/Equipa3_comp3"
   },
   {
-    id: 3,
-    title: "Personal Website",
-    cmd: "portfolio",
-    image: "/images/portfolio.png",
-    category: "Web",
-    desc: "A custom-designed personal portfolio built with Next.js Tailwind CSS and Shadcn UI.",
-    tech: ["Next.js", "React", "Tailwind"],
-    github: "https://github.com/diogof146/portfolio",
-  },
-  {
-    id: 4,
-    title: "Dotfiles",
-    cmd: "dotfiles",
-    image: "/images/dotfiles.png",
-    category: "Tools & Config",
-    desc: "My macOS/Unix configuration files.",
-    tech: ["Bash", "Unix"],
-    github: "https://github.com/diogof146/dotfiles"
-  },
-  {
     id: 5,
-    title: "Vivre Bar",
-    cmd: "vivre",
-    image: "/images/vivre.png",
-    category: "Applications",
-    desc: "A delightfully useless macOS menu bar app that brings GIFs to the menu bar with customizable effects and colours.",
-    tech: ["Swift", "AppKit", "macOS"],
-    github: "https://github.com/diogof146/vivre-bar"
-  },
-  {
-    id: 6,
     title: "PePe Tours & Travels",
     cmd: "pepe",
     image: "/images/ptt.png",
@@ -61,7 +53,37 @@ export const projectData = [
     live: "https://pepetourstravels.com"
   },
   {
+    id: 6,
+    title: "Dotfiles",
+    cmd: "dotfiles",
+    image: "/images/dotfiles.png",
+    category: "Tools & Config",
+    desc: "My macOS/Unix configuration files.",
+    tech: ["Bash", "Unix"],
+    github: "https://github.com/diogof146/dotfiles"
+  },
+  {
     id: 7,
+    title: "Vivre Bar",
+    cmd: "vivre",
+    image: "/images/vivre.png",
+    category: "Applications",
+    desc: "A delightfully useless macOS menu bar app that brings GIFs to the menu bar with customizable effects and colours.",
+    tech: ["Swift", "AppKit", "macOS"],
+    github: "https://github.com/diogof146/vivre-bar"
+  },
+  {
+    id: 8,
+    title: "Personal Website",
+    cmd: "portfolio",
+    image: "/images/portfolio.png",
+    category: "Web",
+    desc: "A custom-designed personal portfolio built with Next.js Tailwind CSS and Shadcn UI.",
+    tech: ["Next.js", "React", "Tailwind"],
+    github: "https://github.com/diogof146/portfolio",
+  },
+  {
+    id: 9,
     title: "Riff Hero",
     cmd: "riff",
     image: "/images/riffhero.png",
@@ -71,7 +93,7 @@ export const projectData = [
     github: "https://github.com/diogof146/riff-hero"
   },
   {
-    id: 8,
+    id: 10,
     title: "Farmers Market",
     cmd: "farmers",
     image: "/images/farmersmarket.png",
@@ -81,7 +103,7 @@ export const projectData = [
     github: "https://github.com/Farmers-Market-UPT/farmers-market"
   },
   {
-    id: 9,
+    id: 11,
     title: "Penalty Shootout Simulator",
     cmd: "fbsim",
     image: "/images/fbsim.png",
@@ -91,7 +113,7 @@ export const projectData = [
     github: "https://github.com/diogof146/fbsim"
   },
   {
-    id: 10,
+    id: 12,
     title: "Pollution Management System",
     cmd: "pms",
     image: "/images/pms.png",

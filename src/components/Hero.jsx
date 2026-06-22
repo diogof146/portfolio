@@ -3,6 +3,7 @@ import { Github, Instagram, Linkedin, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { TerminalButton } from "@/components/TerminalButton"
+import { Gamepad2 } from "lucide-react"
 
 export default function Hero() {
   return (
@@ -30,6 +31,11 @@ export default function Hero() {
             <a href="https://www.instagram.com/diogof146" target="_blank" rel="noreferrer">
               <Button variant="outline" size="icon" className="rounded-full cursor-pointer">
                 <Instagram className="h-5 w-5" />
+              </Button>
+            </a>
+            <a href="https://diogof146.itch.io" target="_blank" rel="noreferrer">
+              <Button variant="outline" size="icon" className="rounded-full cursor-pointer">
+                <Gamepad2 className="h-5 w-5" />
               </Button>
             </a>
             <TerminalButton variant={"button"}></TerminalButton>

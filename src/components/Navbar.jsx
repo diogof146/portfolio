@@ -10,7 +10,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { Menu, Github, Linkedin } from "lucide-react"
+import { Menu, Github, Linkedin, Gamepad2 } from "lucide-react"
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -60,6 +60,9 @@ export default function Navbar() {
                 </Link>
                 <Link href="https://linkedin.com" target="_blank" className="hover:text-primary transition-colors">
                   <Linkedin className="h-5 w-5" />
+                </Link>
+                <Link href="https://diogof146.itch.io" target="_blank" className="hover:text-primary transition-colors">
+                  <Gamepad2 className="h-5 w-5" />
                 </Link>
                 <TerminalButton></TerminalButton>
               </div>

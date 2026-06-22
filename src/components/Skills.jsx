@@ -11,7 +11,7 @@ export default function Skills() {
         <h2 className="text-3xl md:text-4xl font-bold mt-2">Tech Stack</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <Link href="/projects?category=Backend%20%26%20Systems">
           <Card className="p-6 shadow-sm border-border/50 hover:shadow-sm hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 cursor-pointer">
@@ -19,8 +19,8 @@ export default function Skills() {
               <Server className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-lg font-bold mb-3">Backend & Systems</h3>
-            <p className="text-muted-foreground leading-relaxed text-sm">
-              Java, Spring Boot, Spring Security, MySQL, Node.js, Python and C.
+            <p className="text-muted-foreground leading-relaxed text-sm h-12">
+              Java, Spring Boot, Spring Security, MySQL, PostgreSQL, Node.js, Express.js, Python and C.
             </p>
           </Card>
         </Link>
@@ -31,7 +31,7 @@ export default function Skills() {
               <Layout className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-lg font-bold mb-3">Frontend Development</h3>
-            <p className="text-muted-foreground leading-relaxed text-sm">
+            <p className="text-muted-foreground leading-relaxed text-sm h-12">
               React, Next.js, Tailwind CSS, JavaScript and HTML.
             </p>
           </Card>
@@ -43,7 +43,7 @@ export default function Skills() {
               <Wrench className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-lg font-bold mb-3">Tools & Workflow</h3>
-            <p className="text-muted-foreground leading-relaxed text-sm">
+            <p className="text-muted-foreground leading-relaxed text-sm h-12">
               Git, GitHub, Unix/Linux Environments, Bash Scripting, Lua and Neovim.
             </p>
           </Card>
@@ -55,7 +55,7 @@ export default function Skills() {
               <Gamepad2 className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-lg font-bold mb-3">Games & Applications</h3>
-            <p className="text-muted-foreground leading-relaxed text-sm">
+            <p className="text-muted-foreground leading-relaxed text-sm h-12">
               Unity, C#, Swift and Blender.
             </p>
           </Card>
