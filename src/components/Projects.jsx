@@ -6,6 +6,7 @@ import { projectData } from "@/lib/projects"
 import { Globe, Gamepad2, Server, Wrench, AppWindow, LayoutGrid, Download, Github, ExternalLink } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { DownloadModal } from "./DownloadModal"
 import {
   Card,
   CardDescription,
@@ -23,11 +24,12 @@ const icons = {
   "Applications": <AppWindow className="w-4 h-4 mr-1" />,
 };
 
-export function CardImage({ image, badge, title, desc, tech, github, live, download }) {
+export function CardImage({ image, badge, title, desc, tech, github, live, download, imglink, onDownloadClick }) {
   return (
-    <Card className="relative mx-auto w-full pt-0 flex flex-col h-full shadow-sm group">
-      <a href={live ? live : github} target="_blank" rel="noreferrer">
-        <div className="overflow-hidden aspect-video w-full cursor-pointer">
+    < Card className="relative mx-auto w-full pt-0 flex flex-col h-full shadow-sm" >
+
+      < a href={imglink} target="_blank" rel="noreferrer" className="group" >
+        <div className="relative overflow-hidden aspect-video w-full cursor-pointer">
           <div className="absolute inset-0 z-40 aspect-video bg-black/10" />
           <img
             src={image}
@@ -35,8 +37,9 @@ export function CardImage({ image, badge, title, desc, tech, github, live, downl
             className="relative z-20 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
         </div>
-      </a>
-      <CardHeader >
+      </a >
+
+      <CardHeader>
         <div className="flex flex-wrap items-start justify-between gap-2">
           <CardTitle className="text-xl">{title}</CardTitle>
           <Badge variant="secondary" className="shrink-0">{badge}</Badge>
@@ -45,6 +48,7 @@ export function CardImage({ image, badge, title, desc, tech, github, live, downl
           {desc}
         </CardDescription>
       </CardHeader>
+
       <div className="mt-auto px-4 flex flex-wrap gap-2">
         {tech && tech.map((skill, index) => (
           <Badge key={index} variant="outline" className="text-xs font-normal">
@@ -52,29 +56,31 @@ export function CardImage({ image, badge, title, desc, tech, github, live, downl
           </Badge>
         ))}
       </div>
+
       <CardFooter className="flex gap-4 pt-4 border-t border-border/50">
         {github && (
           <Button variant="outline" className="flex-1" asChild>
             <a href={github} target="_blank" rel="noreferrer">
-              <Github className="w-4 h-4 mr-1" />Github</a>
+              <Github className="w-4 h-4 mr-1" />Github
+            </a>
           </Button>
         )}
 
         {live && (
           <Button className="flex-1" asChild>
             <a href={live} target="_blank" rel="noreferrer">
-              <ExternalLink className="w-4 h-4 mr-1" />Visit</a>
+              <ExternalLink className="w-4 h-4 mr-1" />Visit
+            </a>
           </Button>
         )}
 
         {download && (
-          <Button className="flex-1" asChild>
-            <a href={download} target="_blank" rel="noreferrer">
-              <Download className="w-4 h-4 mr-1" />Download</a>
+          <Button className="flex-1 cursor-pointer" onClick={() => onDownloadClick(download)}>
+            <Download className="w-4 h-4 mr-1" />Download
           </Button>
         )}
       </CardFooter>
-    </Card>
+    </Card >
   )
 }
 
@@ -85,6 +91,7 @@ export default function Projects() {
   const param = searchParams.get("category")
   const matched = categories.find(c => c.toLowerCase() === param?.toLowerCase()) ?? "All"
   const [filter, setFilter] = useState(matched)
+  const [activeDownloadId, setActiveDownloadId] = useState(null)
 
   const filteredProjects = filter === "All"
     ? projectData
@@ -132,10 +139,17 @@ export default function Projects() {
               github={project.github}
               live={project.live}
               download={project.download}
+              imglink={project.imglink}
+              onDownloadClick={(id) => setActiveDownloadId(id)}
             />
           ))}
         </div>
       </section>
+      <DownloadModal
+        open={!!activeDownloadId}
+        onClose={() => setActiveDownloadId(null)}
+        gameId={activeDownloadId}
+      />
     </main >
   )
 }

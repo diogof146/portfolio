@@ -8,7 +8,8 @@ export const projectData = [
     desc: "Single Player 3D Action RPG with MMO-style raid mechanics and fast-paced action combat. Built with Unity and C#.",
     tech: ["Unity", "C#"],
     github: "https://github.com/diogof146/forsaken-elegy",
-    download: "https://github.com/diogof146/forsaken-elegy",
+    download: 4684152,
+    imglink: "https://diogof146.itch.io/forsaken-elegy"
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ export const projectData = [
     desc: "A campus management platform designed to monitor and optimize university resources in real time. Built with React, Express, PostgreSQL, Prisma, and a custom System Specific Language parsed via Python's PLY.",
     tech: ["React", "Express.js", "Prisma", "PostgreSQL", "PLY"],
     github: "https://github.com/Wano-University/wano-university",
-    live: "https://wano-university.vercel.app"
+    live: "https://wano-university.vercel.app",
+    imglink: "https://github.com/Wano-University/wano-university"
   },
   {
     id: 3,
@@ -29,7 +31,8 @@ export const projectData = [
     category: "Tools & Config",
     desc: "This is my favourite project, as it was the spark that ignited my passion for programming and obsession with customization.",
     tech: ["Lua", "Neovim", "Unix"],
-    github: "https://github.com/diogof146/nvim-config"
+    github: "https://github.com/diogof146/nvim-config",
+    imglink: "https://github.com/diogof146/nvim-config"
   },
   {
     id: 4,
@@ -39,7 +42,8 @@ export const projectData = [
     category: "Backend & Systems",
     desc: "A pet adoption portal REST API built with Spring.",
     tech: ["Java", "Spring Boot", "MySQL", "Spring Security", "JavaFX"],
-    github: "https://github.com/Animal-Care-UPT/Equipa3_comp3"
+    github: "https://github.com/Animal-Care-UPT/Equipa3_comp3",
+    imglink: "https://github.com/Animal-Care-UPT/Equipa3_comp3"
   },
   {
     id: 5,
@@ -50,7 +54,8 @@ export const projectData = [
     desc: "A website developed as a freelance project for a local tourism company.",
     tech: ["HTML/CSS", "Bootstrap", "JavaScript"],
     github: "https://github.com/diogof146/pepe-tours-travels",
-    live: "https://pepetourstravels.com"
+    live: "https://pepetourstravels.com",
+    imglink: "https://pepetourstravels.com"
   },
   {
     id: 6,
@@ -60,7 +65,8 @@ export const projectData = [
     category: "Tools & Config",
     desc: "My macOS/Unix configuration files.",
     tech: ["Bash", "Unix"],
-    github: "https://github.com/diogof146/dotfiles"
+    github: "https://github.com/diogof146/dotfiles",
+    imglink: "https://github.com/diogof146/dotfiles"
   },
   {
     id: 7,
@@ -70,7 +76,8 @@ export const projectData = [
     category: "Applications",
     desc: "A delightfully useless macOS menu bar app that brings GIFs to the menu bar with customizable effects and colours.",
     tech: ["Swift", "AppKit", "macOS"],
-    github: "https://github.com/diogof146/vivre-bar"
+    github: "https://github.com/diogof146/vivre-bar",
+    imglink: "https://github.com/diogof146/vivre-bar"
   },
   {
     id: 8,
@@ -81,6 +88,7 @@ export const projectData = [
     desc: "A custom-designed personal portfolio built with Next.js Tailwind CSS and Shadcn UI.",
     tech: ["Next.js", "React", "Tailwind"],
     github: "https://github.com/diogof146/portfolio",
+    imglink: "https://github.com/diogof146/portfolio"
   },
   {
     id: 9,
@@ -90,7 +98,8 @@ export const projectData = [
     category: "Games",
     desc: "A Guitar Hero clone built in Java with FXGL.",
     tech: ["Java", "FXGL", "Mido"],
-    github: "https://github.com/diogof146/riff-hero"
+    github: "https://github.com/diogof146/riff-hero",
+    imglink: "https://github.com/diogof146/riff-hero"
   },
   {
     id: 10,
@@ -100,7 +109,8 @@ export const projectData = [
     category: "Backend & Systems",
     desc: "A Farmers Marketplace GUI App developed as a group using the SCRUM framework.",
     tech: ["Java", "JavaFX", "SCRUM"],
-    github: "https://github.com/Farmers-Market-UPT/farmers-market"
+    github: "https://github.com/Farmers-Market-UPT/farmers-market",
+    imglink: "https://github.com/Farmers-Market-UPT/farmers-market"
   },
   {
     id: 11,
@@ -110,7 +120,8 @@ export const projectData = [
     category: "Games",
     desc: "A 2D penalty shootout simulator built with Python/Pygame to learn the fundamentals of game development.",
     tech: ["Python", "Pygame"],
-    github: "https://github.com/diogof146/fbsim"
+    github: "https://github.com/diogof146/fbsim",
+    imglink: "https://github.com/diogof146/fbsim"
   },
   {
     id: 12,
@@ -120,6 +131,7 @@ export const projectData = [
     category: "Backend & Systems",
     desc: "A terminal-based Python application that helps manage and analyze pollution data. This was my first programming project.",
     tech: ["Python", "CLI"],
-    github: "https://github.com/diogof146/pollution-management-system"
+    github: "https://github.com/diogof146/pollution-management-system",
+    imglink: "https://github.com/diogof146/pollution-management-system"
   }
 ]
