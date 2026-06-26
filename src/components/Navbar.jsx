@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetContent,
   SheetTrigger,
+  SheetClose,
 } from "@/components/ui/sheet"
 import { Menu, Github, Linkedin, Gamepad2 } from "lucide-react"
 
@@ -49,10 +50,18 @@ export default function Navbar() {
           </SheetTrigger>
 
           <SheetContent side="right" className="flex flex-col gap-6 pt-16 px-6">
-            <Link href="/" className="text-lg font-medium hover:text-primary transition-colors">Home</Link>
-            <Link href="/about" className="text-lg font-medium hover:text-primary transition-colors">About</Link>
-            <Link href="/projects" className="text-lg font-medium hover:text-primary transition-colors"> Projects</Link>
-            <Link href="/#contact" onClick={(e) => handleScroll(e, "contact")} className="text-lg font-medium hover:text-primary transition-colors">Contact</Link>
+            <SheetClose asChild>
+              <Link href="/" className="text-lg font-medium hover:text-primary transition-colors">Home</Link>
+            </SheetClose>
+            <SheetClose asChild>
+              <Link href="/about" className="text-lg font-medium hover:text-primary transition-colors">About</Link>
+            </SheetClose>
+            <SheetClose asChild>
+              <Link href="/projects" className="text-lg font-medium hover:text-primary transition-colors"> Projects</Link>
+            </SheetClose>
+            <SheetClose asChild>
+              <Link href="/#contact" onClick={(e) => handleScroll(e, "contact")} className="text-lg font-medium hover:text-primary transition-colors">Contact</Link>
+            </SheetClose>
             <div className="mt-auto flex w-full items-center justify-between border-t pb-6 pt-6">
               <div className="flex items-center gap-4 text-muted-foreground">
                 <Link href="https://github.com" target="_blank" className="hover:text-primary transition-colors">

@@ -60,7 +60,7 @@ export default function Hero() {
           <Card className="group flex flex-col sm:flex-row items-center justify-between p-8 border-primary/20 hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-md">
             <div className="text-center sm:text-left mb-4 sm:mb-0">
               <h3 className="text-xl font-bold text-foreground">More About Me</h3>
-              <p className="text-muted-foreground">Discover my interests, music, and more.</p>
+              <p className="text-muted-foreground">Discover my interests, music and more.</p>
             </div>
 
             <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:bg-primary transition-all duration-300">
