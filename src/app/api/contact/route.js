@@ -14,9 +14,9 @@ export async function POST(request) {
     const { data, error } = await resend.emails.send({
       from: `${body.name} <contact@diogof146.com>`,
       to: process.env.EMAIL,
-      reply_to: body.email,
+      replyTo: body.email,
       subject: body.subject,
-      text: body.message,
+      text: `From: ${body.name} <${body.email}>\n\n${body.message}`,
     });
 
     if (error) {

@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function FeaturedProjects() {
   return (
@@ -18,10 +19,12 @@ export default function FeaturedProjects() {
 
           <a href="https://github.com/Wano-University/wano-university" target="_blank">
             <div className="group relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm hover:shadow-md aspect-4/3 transition-all cursor-pointer">
-              <img
+              <Image
                 src="/images/wanouni.png"
                 alt="Wano University"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                fill
+                sizes="(min-width: 1280px) 600px, (min-width: 768px) 50vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
@@ -35,10 +38,12 @@ export default function FeaturedProjects() {
 
           <a href="https://diogof146.itch.io/forsaken-elegy" target="_blank">
             <div className="group relative overflow-hidden rounded-xl border border-border/50 bg-card shadow-sm hover:shadow-md aspect-4/3 transition-all cursor-pointer">
-              <img
+              <Image
                 src="/images/forsakenelegy.png"
                 alt="Forsaken Elegy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                fill
+                sizes="(min-width: 1280px) 600px, (min-width: 768px) 50vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
               <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />

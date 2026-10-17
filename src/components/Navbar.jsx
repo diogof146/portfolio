@@ -64,10 +64,10 @@ export default function Navbar() {
             </SheetClose>
             <div className="mt-auto flex w-full items-center justify-between border-t pb-6 pt-6">
               <div className="flex items-center gap-4 text-muted-foreground">
-                <Link href="https://github.com" target="_blank" className="hover:text-primary transition-colors">
+                <Link href="https://github.com/diogof146" target="_blank" className="hover:text-primary transition-colors">
                   <Github className="h-5 w-5" />
                 </Link>
-                <Link href="https://linkedin.com" target="_blank" className="hover:text-primary transition-colors">
+                <Link href="https://www.linkedin.com/in/diogof146" target="_blank" className="hover:text-primary transition-colors">
                   <Linkedin className="h-5 w-5" />
                 </Link>
                 <Link href="https://diogof146.itch.io" target="_blank" className="hover:text-primary transition-colors">

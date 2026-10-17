@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
+import Image from "next/image"
 import { projectData } from "@/lib/projects"
 import { Globe, Gamepad2, Server, Wrench, AppWindow, LayoutGrid, Download, Github, ExternalLink } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
@@ -31,10 +32,12 @@ export function CardImage({ image, badge, title, desc, tech, github, live, downl
       < a href={imglink} target="_blank" rel="noreferrer" className="group" >
         <div className="relative overflow-hidden aspect-video w-full cursor-pointer">
           <div className="absolute inset-0 z-40 aspect-video bg-black/10" />
-          <img
+          <Image
             src={image}
             alt={title}
-            className="relative z-20 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="z-20 object-cover group-hover:scale-105 transition-transform duration-700"
           />
         </div>
       </a >

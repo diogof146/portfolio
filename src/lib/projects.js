@@ -14,7 +14,7 @@ export const projectData = [
   {
     id: 2,
     title: "Wano University",
-    cmd: "nvim",
+    cmd: "wano",
     image: "/images/wanouni.png",
     category: "Web",
     desc: "A campus management platform designed to monitor and optimize university resources in real time. Built with React, Express, PostgreSQL, Prisma, and a custom System Specific Language parsed via Python's PLY.",

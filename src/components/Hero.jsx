@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Github, Instagram, Linkedin, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { TerminalButton } from "@/components/TerminalButton"
 import { Gamepad2 } from "lucide-react"
@@ -45,10 +46,14 @@ export default function Hero() {
 
         <div className="flex items-center justify-center col-span-2 order-1 md:order-2 w-full max-w-3xl mx-auto">
           <a href="/about">
-            <img
+            <Image
               src="/images/me.png"
               alt="Diogo Ferreira"
-              className="w-full rounded-3xl object-cover shadow-md"
+              width={3288}
+              height={2333}
+              sizes="(min-width: 768px) 768px, 100vw"
+              preload
+              className="w-full h-auto rounded-3xl object-cover shadow-md"
             />
           </a>
         </div>
