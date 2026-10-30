@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Diogo Ferreira",
+    "description": "Estudante de Engenharia Informática no Porto. Jogos, plataformas web, sistemas de backend e as minhas próprias ferramentas."
+  },
+  "nav": {
+    "home": "Início",
+    "projects": "Projetos",
+    "about": "Off the clock",
+    "language": "Idioma"
+  },
+  "home": {
+    "title": "Diogo Ferreira"
+  },
+  "projects": {
+    "title": "Projetos"
+  },
+  "about": {
+    "title": "Off the clock"
+  }
+}

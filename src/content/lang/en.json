@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Diogo Ferreira",
+    "description": "Computer Engineering student in Porto. Games, web platforms, backend systems and my own tools."
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "Off the clock",
+    "language": "Language"
+  },
+  "home": {
+    "title": "Diogo Ferreira"
+  },
+  "projects": {
+    "title": "Projects"
+  },
+  "about": {
+    "title": "Off the clock"
+  }
+}
