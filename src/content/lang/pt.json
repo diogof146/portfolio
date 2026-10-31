@@ -13,7 +13,71 @@
     "title": "Diogo Ferreira"
   },
   "projects": {
-    "title": "Projetos"
+    "title": "Projetos",
+    "early": "Primeiros projetos",
+    "freelance": "freelance",
+    "kinds": {
+      "game": "Jogo",
+      "web": "Web",
+      "app": "App",
+      "backend": "Backend",
+      "tools": "Ferramentas",
+      "cli": "CLI"
+    },
+    "links": {
+      "code": "Código",
+      "live": "Ver online"
+    },
+    "items": {
+      "forsaken-elegy": {
+        "line": "3D action RPG with MMO-style raids",
+        "description": "Single Player 3D Action RPG with MMO-style raid mechanics and fast-paced action combat. Built with Unity and C#."
+      },
+      "wano-university": {
+        "line": "Campus platform with its own mini-language",
+        "description": "A campus management platform designed to monitor and optimize university resources in real time. Built with React, Express, PostgreSQL, Prisma, and a custom System Specific Language parsed via Python's PLY."
+      },
+      "nvim-config": {
+        "line": "The editor that got me into all this",
+        "description": "This is my favourite project, as it was the spark that ignited my passion for programming and obsession with customization."
+      },
+      "animal-care-centre": {
+        "line": "Pet-adoption REST API",
+        "description": "A pet adoption portal REST API built with Spring."
+      },
+      "pepe-tours": {
+        "line": "Website for a local tourism company",
+        "description": "A website developed as a freelance project for a local tourism company."
+      },
+      "dotfiles": {
+        "line": "My macOS / Unix configuration",
+        "description": "My macOS/Unix configuration files."
+      },
+      "vivre-bar": {
+        "line": "GIFs in the macOS menu bar",
+        "description": "A delightfully useless macOS menu bar app that brings GIFs to the menu bar with customizable effects and colours."
+      },
+      "portfolio": {
+        "line": "The site you're on",
+        "description": "A custom-designed personal portfolio built with Next.js Tailwind CSS and Shadcn UI."
+      },
+      "riff-hero": {
+        "line": "A Guitar Hero clone",
+        "description": "A Guitar Hero clone built in Java with FXGL."
+      },
+      "farmers-market": {
+        "line": "Marketplace app, built as a SCRUM team",
+        "description": "A Farmers Marketplace GUI App developed as a group using the SCRUM framework."
+      },
+      "fbsim": {
+        "line": "Learning game dev with Pygame",
+        "description": "A 2D penalty shootout simulator built with Python/Pygame to learn the fundamentals of game development."
+      },
+      "pms": {
+        "line": "My first program",
+        "description": "A terminal-based Python application that helps manage and analyze pollution data. This was my first programming project."
+      }
+    }
   },
   "about": {
     "title": "Off the clock"
