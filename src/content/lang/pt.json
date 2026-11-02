@@ -147,6 +147,12 @@
       "topTrack": "Música mais ouvida de sempre",
       "topArtists": "Artistas mais ouvidos"
     },
+    "games": {
+      "title": "Jogos",
+      "playingNow": "A jogar agora",
+      "mostPlayed": "Mais jogado",
+      "lastPlayed": "Jogado recentemente"
+    },
     "intro": "I'm a Junior Software Engineer with a passion for exploring and learning about various tech areas. Currently game development piques my interest. Always open to learn, collaborate and connect with others who share similar passions.",
     "interestsTitle": "Também gosto de",
     "interests": {

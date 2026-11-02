@@ -147,6 +147,12 @@
       "topTrack": "All-time top track",
       "topArtists": "Top artists"
     },
+    "games": {
+      "title": "Games",
+      "playingNow": "Playing now",
+      "mostPlayed": "Most played",
+      "lastPlayed": "Last played"
+    },
     "intro": "I'm a Junior Software Engineer with a passion for exploring and learning about various tech areas. Currently game development piques my interest. Always open to learn, collaborate and connect with others who share similar passions.",
     "interestsTitle": "Also into",
     "interests": {

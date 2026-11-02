@@ -2,8 +2,11 @@ import { Suspense } from "react"
 import { getDictionary } from "@/content/lang"
 import { interests, reading, riff } from "@/content/personal"
 import { getTopArtists, getTopTrack, getMonthlyTrack } from "@/lib/spotify"
+import { getMostPlayedGame, getLastPlayedGame } from "@/lib/steam"
 import NowPlaying from "@/components/NowPlaying"
+import PlayingNow from "@/components/PlayingNow"
 import Track from "@/components/Track"
+import Game from "@/components/Game"
 
 export default async function About({ params }) {
   const { lang } = await params
@@ -13,6 +16,8 @@ export default async function About({ params }) {
   const topArtists = await getTopArtists()
   const topTrack = await getTopTrack()
   const onRepeat = await getMonthlyTrack()
+  const mostPlayed = await getMostPlayedGame()
+  const lastPlayed = await getLastPlayedGame()
 
   return (
     <main>
@@ -40,6 +45,15 @@ export default async function About({ params }) {
             </ul>
           </>
         )}
+      </section>
+
+      <section>
+        <h2>{about.games.title}</h2>
+        <Suspense fallback={null}>
+          <PlayingNow label={about.games.playingNow} />
+        </Suspense>
+        <Game label={about.games.mostPlayed} game={mostPlayed} />
+        <Game label={about.games.lastPlayed} game={lastPlayed} />
       </section>
 
       <section>
