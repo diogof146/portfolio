@@ -10,7 +10,66 @@
     "language": "Language"
   },
   "home": {
-    "title": "Diogo Ferreira"
+    "role": "Software engineer in the making",
+    "lead": "I build across the stack: web platforms, games, backend systems and my own tools.",
+    "status": "Open to internships, junior roles & freelance",
+    "statement": "Third year of Computer Engineering in Porto, an academic merit scholarship and an Erasmus project at Fontys. So far: games, web platforms, a site for a real client, and the Neovim config that started it all.",
+    "sections": {
+      "work": "Selected work",
+      "experience": "Experience",
+      "toolbox": "Toolbox",
+      "now": "Now"
+    },
+    "usedIn": "Used in",
+    "notes": [
+      "Exploring security, data and devops: small experiments before picking a lane.",
+      "Building a software-quality project for uni (early days).",
+      "Next on this site: case studies for Forsaken Elegy and Wano."
+    ]
+  },
+  "experience": {
+    "kinds": {
+      "education": "Education",
+      "erasmus": "Erasmus",
+      "award": "Award",
+      "freelance": "Freelance",
+      "summerSchool": "Summer school"
+    },
+    "items": {
+      "degree": {
+        "short": "Computer Engineering, UPT",
+        "text": "Computer Engineering at Universidade Portucalense, Porto. 3rd year, 18/20 average."
+      },
+      "erasmus": {
+        "short": "Erasmus BIP, Fontys (NL)",
+        "text": "Erasmus BIP Data and AI at Fontys University of Applied Sciences (NL): an international team project on European data spaces for smart, sustainable cities. Certificate."
+      },
+      "scholarship": {
+        "short": "Academic merit scholarship",
+        "text": "Academic merit scholarship, +Sucesso@UPortucalense."
+      },
+      "pepe": {
+        "short": "PePe Tours & Travels website",
+        "text": "Website for PePe Tours & Travels, a local tourism company."
+      },
+      "summer-school": {
+        "short": "Summer School +Sucesso",
+        "text": "Summer School +Sucesso: a three-day excellence programme at Universidade Portucalense."
+      }
+    },
+    "photo": {
+      "title": "Academic merit scholarship 2024/25",
+      "people": "With Rector Fernando Ramos and Vice-Rector Elizabeth Real"
+    }
+  },
+  "toolbox": {
+    "groups": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "games": "Games",
+      "apps": "Apps",
+      "tools": "Tools"
+    }
   },
   "projects": {
     "title": "Projects",
@@ -80,6 +139,18 @@
     }
   },
   "about": {
-    "title": "Off the clock"
+    "title": "Off the clock",
+    "intro": "I'm a Junior Software Engineer with a passion for exploring and learning about various tech areas. Currently game development piques my interest. Always open to learn, collaborate and connect with others who share similar passions.",
+    "interestsTitle": "Also into",
+    "interests": {
+      "guitar": { "title": "Guitar", "text": "Back to playing after a long break." },
+      "chess": { "title": "Chess", "text": "Mostly online games and puzzles." },
+      "games": { "title": "Games", "text": "Raids, RPGs, and making my own." },
+      "manga": { "title": "Manga", "text": "One Piece, and whatever's next on the list." },
+      "gym": { "title": "Gym", "text": "Placeholder line." },
+      "setup": { "title": "Setup", "text": "Neovim, dotfiles, a terminal I keep rebuilding." }
+    },
+    "reading": "Reading",
+    "learning": "Learning on guitar"
   }
 }
