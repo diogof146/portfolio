@@ -140,6 +140,13 @@
   },
   "about": {
     "title": "Off the clock",
+    "music": {
+      "title": "Música",
+      "nowPlaying": "A tocar agora",
+      "onRepeat": "Em repeat",
+      "topTrack": "Música mais ouvida de sempre",
+      "topArtists": "Artistas mais ouvidos"
+    },
     "intro": "I'm a Junior Software Engineer with a passion for exploring and learning about various tech areas. Currently game development piques my interest. Always open to learn, collaborate and connect with others who share similar passions.",
     "interestsTitle": "Também gosto de",
     "interests": {
