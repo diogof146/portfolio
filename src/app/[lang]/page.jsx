@@ -5,12 +5,15 @@ import { person, links } from "@/content/site"
 import { featured, findProject } from "@/content/projects"
 import { experience, yearsOf } from "@/content/experience"
 import { toolbox } from "@/content/toolbox"
+import { getLatestPush } from "@/lib/github"
 import ProjectSummary from "@/components/ProjectSummary"
+import LatestPush from "@/components/LatestPush"
 
 export default async function Home({ params }) {
   const { lang } = await params
   const dict = await getDictionary(lang)
   const home = dict.home
+  const latestPush = await getLatestPush()
 
   const featuredProjects = []
   for (const slug of featured) {
@@ -77,6 +80,7 @@ export default async function Home({ params }) {
 
       <section>
         <h2>{home.sections.now}</h2>
+        <LatestPush label={home.latestPush} push={latestPush} lang={lang} />
         <ul>
           {home.notes.map((note) => (
             <li key={note}>{note}</li>

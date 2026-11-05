@@ -21,6 +21,7 @@
       "now": "Now"
     },
     "usedIn": "Used in",
+    "latestPush": "Latest push",
     "notes": [
       "Exploring security, data and devops: small experiments before picking a lane.",
       "Building a software-quality project for uni (early days).",
@@ -140,6 +141,19 @@
   },
   "about": {
     "title": "Off the clock",
+    "weather": {
+      "title": "Porto",
+      "kinds": {
+        "clear": "Clear sky",
+        "partlyCloudy": "Partly cloudy",
+        "overcast": "Overcast",
+        "fog": "Fog",
+        "drizzle": "Drizzle",
+        "rain": "Rain",
+        "snow": "Snow",
+        "thunder": "Thunderstorm"
+      }
+    },
     "music": {
       "title": "Music",
       "nowPlaying": "Playing now",
