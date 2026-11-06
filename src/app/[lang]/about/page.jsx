@@ -49,6 +49,7 @@ export default async function About({ params }) {
               {topArtists.map((artist) => (
                 <li key={artist.url}>
                   <a href={artist.url} target="_blank" rel="noreferrer">
+                    {artist.image && <Image src={artist.image} alt="" width={64} height={64} />}
                     {artist.name}
                   </a>
                 </li>

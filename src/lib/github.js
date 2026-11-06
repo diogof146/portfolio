@@ -2,7 +2,7 @@ import { cacheLife } from "next/cache";
 
 const token = process.env.GITHUB_TOKEN;
 
-async function github(path) {
+export async function github(path) {
   const res = await fetch(`https://api.github.com${path}`, {
     headers: {
       Accept: "application/vnd.github+json",

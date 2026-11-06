@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getDictionary } from "@/content/lang"
 import { projects, findProject } from "@/content/projects"
@@ -21,6 +22,7 @@ export default async function Project({ params }) {
   return (
     <main>
       <h1>{project.title}</h1>
+      <Image src={project.image} alt="" width={1200} placeholder="blur" preload />
       <p>
         {text.kinds[project.kind]} · {project.year}
       </p>

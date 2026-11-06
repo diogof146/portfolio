@@ -1,3 +1,16 @@
+import forsakenelegy2Image from "./images/forsakenelegy2.webp"
+import wanouniImage from "./images/wanouni.webp"
+import neovimImage from "./images/neovim.webp"
+import accImage from "./images/acc.webp"
+import pttImage from "./images/ptt.webp"
+import dotfilesImage from "./images/dotfiles.webp"
+import vivreImage from "./images/vivre.webp"
+import portfolioImage from "./images/portfolio.webp"
+import riffheroImage from "./images/riffhero.webp"
+import farmersmarketImage from "./images/farmersmarket.webp"
+import fbsimImage from "./images/fbsim.webp"
+import pmsImage from "./images/pms.webp"
+
 export const projects = [
   {
     slug: "forsaken-elegy",
@@ -5,7 +18,7 @@ export const projects = [
     kind: "game",
     year: 2026,
     stack: ["Unity", "C#"],
-    image: "/images/forsakenelegy2.png",
+    image: forsakenelegy2Image,
     github: "https://github.com/diogof146/forsaken-elegy",
     live: "https://diogof146.itch.io/forsaken-elegy",
     itchId: 4684152,
@@ -17,7 +30,7 @@ export const projects = [
     kind: "web",
     year: 2026,
     stack: ["React", "Express.js", "Prisma", "PostgreSQL", "PLY"],
-    image: "/images/wanouni.png",
+    image: wanouniImage,
     github: "https://github.com/Wano-University/wano-university",
     live: "https://wano-university.vercel.app",
     command: "wano",
@@ -28,7 +41,7 @@ export const projects = [
     kind: "tools",
     year: 2025,
     stack: ["Lua", "Neovim", "Unix"],
-    image: "/images/neovim.png",
+    image: neovimImage,
     github: "https://github.com/diogof146/nvim-config",
     command: "nvim",
   },
@@ -38,7 +51,7 @@ export const projects = [
     kind: "backend",
     year: 2025,
     stack: ["Java", "Spring Boot", "MySQL", "Spring Security", "JavaFX"],
-    image: "/images/acc.png",
+    image: accImage,
     github: "https://github.com/Animal-Care-UPT/Equipa3_comp3",
     command: "acc",
   },
@@ -49,7 +62,7 @@ export const projects = [
     year: 2025,
     freelance: true,
     stack: ["HTML/CSS", "Bootstrap", "JavaScript"],
-    image: "/images/ptt.png",
+    image: pttImage,
     github: "https://github.com/diogof146/pepe-tours-travels",
     live: "https://pepetourstravels.com",
     command: "pepe",
@@ -60,7 +73,7 @@ export const projects = [
     kind: "tools",
     year: 2025,
     stack: ["Bash", "Unix"],
-    image: "/images/dotfiles.png",
+    image: dotfilesImage,
     github: "https://github.com/diogof146/dotfiles",
     command: "dotfiles",
   },
@@ -70,7 +83,7 @@ export const projects = [
     kind: "app",
     year: 2025,
     stack: ["Swift", "AppKit", "macOS"],
-    image: "/images/vivre.png",
+    image: vivreImage,
     github: "https://github.com/diogof146/vivre-bar",
     command: "vivre",
   },
@@ -80,7 +93,7 @@ export const projects = [
     kind: "web",
     year: 2026,
     stack: ["Next.js", "React", "Tailwind"],
-    image: "/images/portfolio.png",
+    image: portfolioImage,
     github: "https://github.com/diogof146/portfolio",
     command: "portfolio",
   },
@@ -90,7 +103,7 @@ export const projects = [
     kind: "game",
     year: 2025,
     stack: ["Java", "FXGL", "Mido"],
-    image: "/images/riffhero.png",
+    image: riffheroImage,
     github: "https://github.com/diogof146/riff-hero",
     command: "riff",
   },
@@ -100,7 +113,7 @@ export const projects = [
     kind: "backend",
     year: 2025,
     stack: ["Java", "JavaFX", "SCRUM"],
-    image: "/images/farmersmarket.png",
+    image: farmersmarketImage,
     github: "https://github.com/Farmers-Market-UPT/farmers-market",
     command: "farmers",
   },
@@ -111,7 +124,7 @@ export const projects = [
     year: 2025,
     early: true,
     stack: ["Python", "Pygame"],
-    image: "/images/fbsim.png",
+    image: fbsimImage,
     github: "https://github.com/diogof146/fbsim",
     command: "fbsim",
   },
@@ -122,7 +135,7 @@ export const projects = [
     year: 2025,
     early: true,
     stack: ["Python", "CLI"],
-    image: "/images/pms.png",
+    image: pmsImage,
     github: "https://github.com/diogof146/pollution-management-system",
     command: "pms",
   },

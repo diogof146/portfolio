@@ -2,7 +2,11 @@
 const nextConfig = {
   cacheComponents: true,
   images: {
-    remotePatterns: [new URL("https://s4.anilist.co/**")],
+    remotePatterns: [
+      new URL("https://s4.anilist.co/**"),
+      new URL("https://i.scdn.co/**"),
+      new URL("https://shared.akamai.steamstatic.com/**"),
+    ],
   },
 };
 

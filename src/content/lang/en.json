@@ -9,6 +9,9 @@
     "about": "Off the clock",
     "language": "Language"
   },
+  "footer": {
+    "like": "Click if you like it"
+  },
   "home": {
     "role": "Software engineer in the making",
     "lead": "I build across the stack: web platforms, games, backend systems and my own tools.",
@@ -18,15 +21,32 @@
       "work": "Selected work",
       "experience": "Experience",
       "toolbox": "Toolbox",
-      "now": "Now"
+      "now": "Now",
+      "contact": "Contact"
+    },
+    "contact": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending…",
+      "sent": "Message sent. I'll get back to you soon.",
+      "errors": {
+        "missing": "Please fill in every field.",
+        "email": "That email doesn't look right.",
+        "long": "One of the fields is too long.",
+        "failed": "Something went wrong sending it. Please try again."
+      }
     },
     "usedIn": "Used in",
     "latestPush": "Latest push",
-    "notes": [
-      "Exploring security, data and devops: small experiments before picking a lane.",
-      "Building a software-quality project for uni (early days).",
-      "Next on this site: case studies for Forsaken Elegy and Wano."
-    ]
+    "nextExam": {
+      "label": "Next exam",
+      "today": "today",
+      "tomorrow": "tomorrow",
+      "inDays": "in # days"
+    }
   },
   "experience": {
     "kinds": {
@@ -47,7 +67,11 @@
       },
       "scholarship": {
         "short": "Academic merit scholarship",
-        "text": "Academic merit scholarship, +Sucesso@UPortucalense."
+        "text": "Academic merit scholarship, +Sucesso@UPortucalense.",
+        "photo": {
+          "title": "Academic merit scholarship 2024/25",
+          "people": "With Rector Fernando Ramos and Vice-Rector Elizabeth Real"
+        }
       },
       "pepe": {
         "short": "PePe Tours & Travels website",
@@ -57,10 +81,6 @@
         "short": "Summer School +Sucesso",
         "text": "Summer School +Sucesso: a three-day excellence programme at Universidade Portucalense."
       }
-    },
-    "photo": {
-      "title": "Academic merit scholarship 2024/25",
-      "people": "With Rector Fernando Ramos and Vice-Rector Elizabeth Real"
     }
   },
   "toolbox": {
