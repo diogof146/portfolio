@@ -1,0 +1,115 @@
+.work {
+  position: relative;
+  padding: clamp(96px, 12vw, 140px) 0 clamp(64px, 8vw, 96px);
+}
+
+.head {
+  padding: 0 var(--pad);
+}
+
+.view {
+  position: relative;
+}
+
+.track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  padding: 0 var(--pad);
+}
+
+.card {
+  flex: none;
+  width: clamp(280px, 32vw, 460px);
+  text-decoration: none;
+  scroll-snap-align: start;
+}
+
+.picture {
+  aspect-ratio: 4 / 3;
+}
+
+.picture > * {
+  height: 100%;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.title svg {
+  flex: none;
+  transition: transform 0.4s var(--ease);
+}
+
+.card:hover .title svg {
+  transform: translate(4px, -4px);
+}
+
+.stack {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.allCard {
+  flex: none;
+  align-self: start;
+  display: grid;
+  align-content: space-between;
+  width: clamp(240px, 24vw, 340px);
+  aspect-ratio: 3 / 4;
+  margin-top: 26px;
+  padding: 26px;
+  border: 1.5px solid var(--fg);
+  text-decoration: none;
+  scroll-snap-align: end;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+.allCard:hover {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--ink);
+}
+
+.allCard b {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+@media (min-width: 1100px) {
+  .work {
+    margin-right: calc(-1 * (var(--panel-width) + var(--gutter) * 2));
+  }
+
+  .track {
+    padding-right: calc(var(--panel-width) + var(--gutter) * 2 + var(--pad));
+  }
+}
+
+@media (max-width: 1099px), (prefers-reduced-motion: reduce) {
+  .view {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--pad);
+    scrollbar-width: none;
+  }
+
+  .view::-webkit-scrollbar {
+    display: none;
+  }
+}

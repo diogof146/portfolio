@@ -1,4 +1,6 @@
 import { getDictionary } from "@/content/lang"
+import SiteNav from "@/components/SiteNav"
+import SiteFooter from "@/components/SiteFooter"
 import { projects } from "@/content/projects"
 import ProjectSummary from "@/components/ProjectSummary"
 
@@ -17,16 +19,20 @@ export default async function Projects({ params }) {
   }
 
   return (
-    <main>
-      <h1>{dict.projects.title}</h1>
-      {main.map((project) => (
-        <ProjectSummary key={project.slug} project={project} lang={lang} text={dict.projects} />
-      ))}
+    <>
+      <SiteNav lang={lang} dict={dict.nav} />
+      <main>
+        <h1>{dict.projects.title}</h1>
+        {main.map((project) => (
+          <ProjectSummary key={project.slug} project={project} lang={lang} text={dict.projects} />
+        ))}
 
-      <h2>{dict.projects.early}</h2>
-      {early.map((project) => (
-        <ProjectSummary key={project.slug} project={project} lang={lang} text={dict.projects} />
-      ))}
-    </main>
+        <h2>{dict.projects.early}</h2>
+        {early.map((project) => (
+          <ProjectSummary key={project.slug} project={project} lang={lang} text={dict.projects} />
+        ))}
+      </main>
+      <SiteFooter lang={lang} text={dict.footer} nav={dict.nav} />
+    </>
   )
 }

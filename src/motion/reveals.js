@@ -72,6 +72,7 @@ function revealChars(el) {
 function revealFade(el) {
   SplitText.create(el, {
     type: "lines",
+    aria: "none",
     autoSplit: true,
     onSplit(self) {
       return gsap.from(self.lines, {
@@ -90,6 +91,7 @@ function revealFade(el) {
 function revealFill(el) {
   SplitText.create(el, {
     type: "words",
+    aria: "none",
     autoSplit: true,
     onSplit(self) {
       return gsap.fromTo(

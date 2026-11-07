@@ -1,6 +1,8 @@
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getDictionary } from "@/content/lang"
+import SiteNav from "@/components/SiteNav"
+import SiteFooter from "@/components/SiteFooter"
 import { projects, findProject } from "@/content/projects"
 
 export function generateStaticParams() {
@@ -20,27 +22,31 @@ export default async function Project({ params }) {
   const text = dict.projects
 
   return (
-    <main>
-      <h1>{project.title}</h1>
-      <Image src={project.image} alt="" width={1200} placeholder="blur" preload />
-      <p>
-        {text.kinds[project.kind]} · {project.year}
-      </p>
-      <p>{text.items[slug].description}</p>
-      <p>{project.stack.join(", ")}</p>
-      <p>
-        <a href={project.github} target="_blank" rel="noreferrer">
-          {text.links.code}
-        </a>
-        {project.live && (
-          <>
-            {" · "}
-            <a href={project.live} target="_blank" rel="noreferrer">
-              {text.links.live}
-            </a>
-          </>
-        )}
-      </p>
-    </main>
+    <>
+      <SiteNav lang={lang} dict={dict.nav} />
+      <main>
+        <h1>{project.title}</h1>
+        <Image src={project.image} alt="" width={1200} placeholder="blur" preload />
+        <p>
+          {text.kinds[project.kind]} · {project.year}
+        </p>
+        <p>{text.items[slug].description}</p>
+        <p>{project.stack.join(", ")}</p>
+        <p>
+          <a href={project.github} target="_blank" rel="noreferrer">
+            {text.links.code}
+          </a>
+          {project.live && (
+            <>
+              {" · "}
+              <a href={project.live} target="_blank" rel="noreferrer">
+                {text.links.live}
+              </a>
+            </>
+          )}
+        </p>
+      </main>
+      <SiteFooter lang={lang} text={dict.footer} nav={dict.nav} />
+    </>
   )
 }

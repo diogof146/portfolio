@@ -1,18 +1,27 @@
 import { Suspense } from "react"
-import Link from "next/link"
-import Image from "next/image"
 import { getDictionary } from "@/content/lang"
 import { pathFor } from "@/content/lang/languages"
-import { person, links } from "@/content/site"
+import { person } from "@/content/site"
 import { featured, findProject } from "@/content/projects"
-import { experience, yearsOf } from "@/content/experience"
 import { toolbox } from "@/content/toolbox"
 import { getLatestPush } from "@/lib/github"
 import { getNow } from "@/lib/gist"
-import ProjectSummary from "@/components/ProjectSummary"
-import LatestPush from "@/components/LatestPush"
-import NextExam from "@/components/NextExam"
-import ContactForm from "@/components/ContactForm"
+import Contact from "@/components/Contact"
+import ContourLines from "@/components/ContourLines"
+import Hero from "@/components/Hero"
+import LabelBox from "@/components/LabelBox"
+import Panel from "@/components/Panel"
+import NowCard from "@/components/NowCard"
+import Statement from "@/components/Statement"
+import Work from "@/components/Work"
+import Experience from "@/components/Experience"
+import Toolbox from "@/components/Toolbox"
+import Now from "@/components/Now"
+import DuotoneFilter from "@/components/DuotoneFilter"
+import Reveals from "@/components/Reveals"
+import s from "./home.module.css"
+
+const SECTION_IDS = ["work", "experience", "toolbox", "now", "contact"]
 
 export default async function Home({ params }) {
   const { lang } = await params
@@ -21,101 +30,78 @@ export default async function Home({ params }) {
   const latestPush = await getLatestPush()
   const notes = await getNow(lang)
 
+  const sections = []
+  for (const id of SECTION_IDS) {
+    sections.push({ id: id, title: home.sections[id] })
+  }
+
+  const toolGroups = []
+  for (const group of toolbox) {
+    const projects = []
+    for (const slug of group.projects) {
+      projects.push({ title: findProject(slug).title, href: pathFor(lang, "/projects/" + slug) })
+    }
+    toolGroups.push({ id: group.id, name: dict.toolbox.groups[group.id], tools: group.tools, projects: projects })
+  }
+
   const featuredProjects = []
   for (const slug of featured) {
     featuredProjects.push(findProject(slug))
   }
 
   return (
-    <main>
-      <section>
-        <h1 data-reveal="chars">{person.name}</h1>
-        <p>{home.role}</p>
-        <p>{home.lead}</p>
-        <p>{home.status}</p>
-        <ul>
-          {links.map((link) => (
-            <li key={link.name}>
-              <a href={link.url} target="_blank" rel="noreferrer">
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
+    <>
+      <DuotoneFilter />
+      <ContourLines />
+      <Hero text={home}>
+        <LabelBox text={home.hero.box} />
+      </Hero>
+      <Panel
+        lang={lang}
+        text={home.panel}
+        name={person.name}
+        role={home.role}
+        status={home.hero.box.open}
+        place={home.hero.box.place}
+        languageLabel={dict.nav.language}
+        sections={sections}
+        allProjectsHref={pathFor(lang, "/projects")}
+        face={<LabelBox text={home.hero.box} />}
+        nowCard={
+          <Suspense fallback={null}>
+            <NowCard text={home.hero.box} />
+          </Suspense>
+        }
+      />
+      <main className={s.withPanel}>
+        <Statement text={home.statement} label={home.statementLabel} />
 
-      <p>{home.statement}</p>
+        <Work
+          lang={lang}
+          title={home.sections.work}
+          text={home.work}
+          allProjects={home.panel.allProjects}
+          projects={featuredProjects}
+          projectText={dict.projects}
+        />
 
-      <section>
-        <h2 data-reveal="title">{home.sections.work}</h2>
-        {featuredProjects.map((project) => (
-          <ProjectSummary key={project.slug} project={project} lang={lang} text={dict.projects} />
-        ))}
-      </section>
+        <Experience title={home.sections.experience} text={dict.experience} />
 
-      <section>
-        <h2 data-reveal="title">{home.sections.experience}</h2>
-        {experience.map((item) => (
-          <article key={item.id}>
-            <h3>{dict.experience.items[item.id].short}</h3>
-            <p>
-              {yearsOf(item)} · {dict.experience.kinds[item.kind]}
-            </p>
-            <p>{dict.experience.items[item.id].text}</p>
-            {item.photo && (
-              <figure>
-                <Image
-                  src={item.photo}
-                  alt={dict.experience.items[item.id].photo.title}
-                  width={800}
-                  placeholder="blur"
-                />
-                <figcaption>
-                  {dict.experience.items[item.id].photo.title} · {dict.experience.items[item.id].photo.people}
-                </figcaption>
-              </figure>
-            )}
-          </article>
-        ))}
-      </section>
+        <Toolbox title={home.sections.toolbox} text={dict.toolbox} groups={toolGroups} />
 
-      <section>
-        <h2 data-reveal="title">{home.sections.toolbox}</h2>
-        {toolbox.map((group) => (
-          <article key={group.id}>
-            <h3>{dict.toolbox.groups[group.id]}</h3>
-            <p>{group.tools.join(", ")}</p>
-            <p>{home.usedIn}:</p>
-            <ul>
-              {group.projects.map((slug) => (
-                <li key={slug}>
-                  <Link href={pathFor(lang, "/projects/" + slug)}>{findProject(slug).title}</Link>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </section>
+        <Now
+          lang={lang}
+          title={home.sections.now}
+          text={home}
+          push={latestPush}
+          notes={notes}
+          aboutHref={pathFor(lang, "/about")}
+          aboutTitle={dict.nav.about}
+        />
 
-      <section>
-        <h2 data-reveal="title">{home.sections.now}</h2>
-        <LatestPush label={home.latestPush} push={latestPush} lang={lang} />
-        <Suspense fallback={null}>
-          <NextExam text={home.nextExam} lang={lang} />
-        </Suspense>
-        {notes && (
-          <ul>
-            {notes.map((note) => (
-              <li key={note}>{note}</li>
-            ))}
-          </ul>
-        )}
-      </section>
-
-      <section>
-        <h2 data-reveal="title">{home.sections.contact}</h2>
-        <ContactForm text={home.contact} />
-      </section>
-    </main>
+        <Contact lang={lang} text={home.contact} footerText={dict.footer} nav={dict.nav} />
+      </main>
+      <Reveals />
+    </>
   )
 }

@@ -1,0 +1,77 @@
+.print {
+  position: relative;
+  overflow: hidden;
+  background: var(--blue);
+}
+
+.base {
+  object-fit: cover;
+  filter: url(#duotone);
+}
+
+.colour {
+  object-fit: cover;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.95s var(--ease);
+}
+
+.sweep {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sweep::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: #fff;
+  box-shadow: 0 0 22px 7px rgba(0, 174, 239, 0.75);
+}
+
+.print:hover .colour,
+:global([data-developed="true"]) .colour {
+  clip-path: inset(0 0 0 0);
+}
+
+.print:hover .sweep,
+:global([data-developed="true"]) .sweep {
+  animation: sweep 0.95s var(--ease) both;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .colour {
+    transition: none;
+  }
+
+  .print:hover .sweep,
+  :global([data-developed="true"]) .sweep {
+    animation: none;
+  }
+}
+
+.print[data-inked="true"] .colour,
+.print[data-inked="true"] .sweep {
+  display: none;
+}

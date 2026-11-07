@@ -1,6 +1,7 @@
 import { getNextExam } from "@/lib/calendar"
+import s from "./Now.module.css"
 
-const dateOptions = { day: "numeric", month: "short", timeZone: "UTC" }
+const dateOptions = { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" }
 
 function whenText(daysLeft, text) {
   if (daysLeft === 0) return text.today
@@ -15,8 +16,10 @@ export default async function NextExam({ text, lang }) {
   const date = new Intl.DateTimeFormat(lang, dateOptions).format(new Date(exam.day))
 
   return (
-    <p>
-      {text.label}: {exam.title} · {date} · {whenText(exam.daysLeft, text)}
-    </p>
+    <div className={s.item}>
+      <span className="mono muted">{text.label}</span>
+      <b className={s.days}>{whenText(exam.daysLeft, text)}</b>
+      <span className={s.note}>{exam.title + " · " + date}</span>
+    </div>
   )
 }

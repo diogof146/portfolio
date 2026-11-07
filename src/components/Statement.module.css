@@ -1,0 +1,24 @@
+.manifesto {
+  position: relative;
+  padding: clamp(88px, 11vw, 160px) var(--pad) clamp(24px, 4vw, 64px);
+}
+
+.statement {
+  max-width: 22ch;
+  font-size: clamp(2rem, 4.6vw, 4.4rem);
+  font-weight: 700;
+  font-variation-settings: "wdth" 92;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.statement em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+@media (max-width: 1099px) {
+  .statement {
+    max-width: none;
+  }
+}

@@ -1,0 +1,160 @@
+.hero {
+  position: relative;
+  min-height: calc(100svh - 56px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 28px var(--pad) 32px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+  padding: 40px 0;
+}
+
+.text {
+  min-width: 0;
+  container-type: inline-size;
+}
+
+.name {
+  font-size: clamp(2.4rem, 15cqi, 6rem);
+}
+
+.lead {
+  margin-top: 28px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0 30px;
+  color: var(--accent);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.media {
+  justify-self: end;
+  width: min(100%, 470px);
+}
+
+.cutout {
+  position: relative;
+  aspect-ratio: 1083 / 1452;
+  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent);
+  mask-image: linear-gradient(to bottom, #000 80%, transparent);
+}
+
+.cutoutImage {
+  object-fit: contain;
+  object-position: 50% 100%;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.scrollCue {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.scrollLine {
+  position: relative;
+  width: 1.5px;
+  height: 44px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.scrollLine::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -40%;
+  width: 100%;
+  height: 40%;
+  background: var(--fg);
+  animation: drip 1.8s var(--ease) infinite;
+}
+
+@keyframes drip {
+  to {
+    top: 100%;
+  }
+}
+
+.slot {
+  position: relative;
+  flex: none;
+  width: 520px;
+  height: 132px;
+}
+
+@media (max-width: 1099px) {
+  .desktopOnly {
+    display: none;
+  }
+
+  .bottom {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .slot {
+    width: 100%;
+    height: auto;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  }
+
+  .buttons > * {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .media {
+    justify-self: start;
+    width: 100%;
+  }
+
+  .cutout {
+    max-height: 70svh;
+    margin-inline: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollLine::after {
+    animation: none;
+  }
+}

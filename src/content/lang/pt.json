@@ -10,13 +10,31 @@
     "language": "Idioma"
   },
   "footer": {
-    "like": "Clica se gostares"
+    "like": "Clica se gostares",
+    "top": "Voltar ao topo",
+    "pages": "Páginas"
   },
   "home": {
     "role": "Software engineer in the making",
     "lead": "I build across the stack: web platforms, games, backend systems and my own tools.",
     "status": "Open to internships, junior roles & freelance",
-    "statement": "Third year of Computer Engineering in Porto, an academic merit scholarship and an Erasmus project at Fontys. So far: games, web platforms, a site for a real client, and the Neovim config that started it all.",
+    "hero": {
+      "edition": "Portfólio 2026",
+      "seeWork": "Ver o trabalho",
+      "getInTouch": "Falar comigo",
+      "scroll": "Scroll",
+      "box": {
+        "status": "Estado",
+        "open": "Disponível",
+        "place": "Porto, PT",
+        "listening": "A ouvir agora",
+        "onRepeat": "Em repeat",
+        "findMe": "Onde estou"
+      },
+      "light": "Luz"
+    },
+    "statementLabel": "Em resumo",
+    "statement": "Third year of *Computer Engineering* in Porto, an *academic merit* scholarship and an Erasmus project at *Fontys*. So far: *games*, *web platforms*, a site for a *real client*, and the *Neovim config* that started it all.",
     "sections": {
       "work": "Trabalho",
       "experience": "Experiência",
@@ -25,6 +43,17 @@
       "contact": "Contacto"
     },
     "contact": {
+      "heading": [
+        "Vamos construir",
+        "algo"
+      ],
+      "intro": "Internships, junior roles, freelance work or just a good idea: tell me about it.",
+      "placeholders": {
+        "name": "O teu nome",
+        "email": "tu@exemplo.com",
+        "subject": "Sobre o quê?",
+        "message": "O que vamos construir?"
+      },
       "name": "Nome",
       "email": "Email",
       "subject": "Assunto",
@@ -39,16 +68,30 @@
         "failed": "Algo correu mal no envio. Tenta outra vez."
       }
     },
-    "usedIn": "Usado em",
     "latestPush": "Último push",
     "nextExam": {
       "label": "Próximo exame",
-      "today": "hoje",
-      "tomorrow": "amanhã",
-      "inDays": "daqui a # dias"
-    }
+      "today": "Hoje. Deseja-me sorte.",
+      "tomorrow": "Amanhã",
+      "inDays": "Daqui a # dias"
+    },
+    "panel": {
+      "label": "Informação e navegação",
+      "sections": "Secções",
+      "allProjects": "Todos os projetos",
+      "openMenu": "Abrir menu",
+      "closeMenu": "Fechar menu",
+      "stir": "Mexer"
+    },
+    "work": {
+      "intro": "A few favourites, from games to backend. Everything else lives in the archive.",
+      "archive": "O arquivo",
+      "view": "Ver"
+    },
+    "offTheClock": "Music, games and guitar have their own page."
   },
   "experience": {
+    "intro": "Studies, recognition and real work.",
     "kinds": {
       "education": "Educação",
       "erasmus": "Erasmus",
@@ -84,6 +127,10 @@
     }
   },
   "toolbox": {
+    "intro": "Pick an area to see the tools, and the projects where I actually used them.",
+    "tools": "ferramentas",
+    "usedIn": "Usado em",
+    "open": "Abrir",
     "groups": {
       "backend": "Backend",
       "frontend": "Frontend",

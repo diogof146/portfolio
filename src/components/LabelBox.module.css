@@ -1,0 +1,58 @@
+.box {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+  min-width: 0;
+  padding: 10px 14px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.cell:nth-child(2n) {
+  border-right: 0;
+}
+
+.cell:nth-child(n + 3) {
+  border-bottom: 0;
+}
+
+.cell b {
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statusValue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.link {
+  text-decoration: none;
+  transition: background 0.25s;
+}
+
+.link:hover {
+  background: rgba(0, 174, 239, 0.12);
+}
+
+@media (max-width: 1099px) {
+  .box {
+    position: relative;
+  }
+}

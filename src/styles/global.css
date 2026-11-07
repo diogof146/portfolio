@@ -10,6 +10,7 @@
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --pad: clamp(20px, 5vw, 72px);
   --gutter: 24px;
+  --panel-width: 300px;
 
   --bg: var(--paper);
   --fg: var(--ink);
@@ -17,15 +18,6 @@
   --line: rgba(8, 36, 60, 0.18);
   --accent: var(--cyan-ink);
   --sel: var(--cyan);
-}
-
-[data-theme="blue"] {
-  --bg: var(--blue);
-  --fg: #e9f7fc;
-  --muted: #a9cfe0;
-  --line: rgba(233, 247, 252, 0.18);
-  --accent: #7fdcff;
-  --sel: var(--light);
 }
 
 :where(*, *::before, *::after) {
@@ -69,6 +61,11 @@ body {
   font-variation-settings: "wdth" 100;
   caret-color: var(--cyan);
   -webkit-font-smoothing: antialiased;
+}
+
+:where(body > nav, body > header, body > main, body > footer) {
+  position: relative;
+  z-index: 1;
 }
 
 ::selection {
@@ -115,6 +112,92 @@ body {
 
 .muted {
   color: var(--muted);
+}
+
+.section-head {
+  display: grid;
+  gap: 22px;
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+.section-title {
+  font-size: clamp(2.4rem, 5.6vw, 5.5rem);
+}
+
+.body-text {
+  max-width: 62ch;
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  color: var(--muted);
+}
+
+.btn,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  border: 1.5px solid var(--fg);
+  font-family: var(--font-data), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s;
+}
+
+.btn {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--fg);
+}
+
+.btn:hover,
+.btn-ghost:hover {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--ink);
+}
+
+.btn svg,
+.btn-ghost svg {
+  transition: transform 0.35s var(--ease);
+}
+
+.btn:hover svg,
+.btn-ghost:hover svg {
+  transform: translate(3px, -1px);
+}
+
+.status-dot {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--cyan);
+  animation: pulse 2.4s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 174, 239, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 174, 239, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 174, 239, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot {
+    animation: none;
+  }
 }
 
 .sr-only {

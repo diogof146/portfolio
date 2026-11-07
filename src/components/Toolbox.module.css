@@ -1,0 +1,164 @@
+.toolbox {
+  position: relative;
+  padding: clamp(96px, 12vw, 160px) var(--pad);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "head stage"
+    "list stage";
+  column-gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+
+.head {
+  grid-area: head;
+}
+
+.stage {
+  grid-area: stage;
+  position: sticky;
+  top: max(24px, calc(50vh - 250px));
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.object {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1;
+}
+
+.morph {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.shadow {
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 9%;
+  height: 8%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(6, 34, 56, 0.38), transparent);
+}
+
+.now {
+  display: flex;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.now b {
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.list {
+  grid-area: list;
+  border-top: 1.5px solid var(--fg);
+}
+
+.row {
+  border-bottom: 1px solid var(--line);
+}
+
+.rowHead {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 0;
+  border: 0;
+  background: none;
+  text-align: left;
+}
+
+.number {
+  color: var(--muted);
+}
+
+.name {
+  font-size: clamp(1.7rem, 3.3vw, 3rem);
+  transition: transform 0.5s var(--ease);
+}
+
+.rowHead:hover .name,
+.row[data-open="true"] .name {
+  transform: translateX(10px);
+}
+
+.body {
+  height: 0;
+  overflow: hidden;
+}
+
+.inner {
+  display: grid;
+  gap: 14px;
+  padding: 2px 0 26px 58px;
+}
+
+.tools {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.used {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+
+.used a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.25s;
+}
+
+.used a:hover {
+  color: var(--sel);
+}
+
+@media (max-width: 899px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "head"
+      "stage"
+      "list";
+  }
+
+  .stage {
+    position: relative;
+    top: auto;
+    margin-bottom: 24px;
+  }
+
+  .object {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 767px) {
+  .inner {
+    padding-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name {
+    transition: none;
+  }
+}

@@ -1,0 +1,43 @@
+.marquee {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.track {
+  display: inline-flex;
+}
+
+.text {
+  display: inline-block;
+}
+
+.sliding {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8px, #000 calc(100% - 20px), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8px, #000 calc(100% - 20px), transparent);
+}
+
+.sliding .track {
+  animation: slide var(--duration, 10s) linear 1.2s infinite;
+}
+
+.sliding .copy {
+  padding-right: 2.5em;
+}
+
+:global(a:hover) .track {
+  animation-play-state: paused;
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sliding .track {
+    animation: none;
+  }
+}

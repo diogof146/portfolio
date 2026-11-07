@@ -55,7 +55,7 @@ export default function SmoothScroll({ children }) {
   const reduce = usePrefersReducedMotion()
 
   return (
-    <ReactLenis root options={{ autoRaf: false, smoothWheel: !reduce }}>
+    <ReactLenis root options={{ autoRaf: false, smoothWheel: !reduce, anchors: true }}>
       <GsapSync />
       {children}
     </ReactLenis>
