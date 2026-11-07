@@ -1,38 +1,104 @@
 import { getDictionary } from "@/content/lang"
-import SiteNav from "@/components/SiteNav"
+import { pathFor } from "@/content/lang/languages"
+import { projectsInOrder } from "@/content/projects"
+import ContourLines from "@/components/ContourLines"
+import DuotoneFilter from "@/components/DuotoneFilter"
+import Archive from "@/components/Archive"
 import SiteFooter from "@/components/SiteFooter"
-import { projects } from "@/content/projects"
-import ProjectSummary from "@/components/ProjectSummary"
+import Reveals from "@/components/Reveals"
+
+function groupOf(project) {
+  if (project.early) return "early"
+  return String(project.year)
+}
+
+function buildRows(ordered, lang, text) {
+  const rows = []
+  let previousGroup = null
+  for (const project of ordered) {
+    const group = groupOf(project)
+    if (group !== previousGroup) {
+      let label = group
+      if (group === "early") label = text.archive.early
+      rows.push({ type: "group", key: "group-" + group, group: group, label: label })
+      previousGroup = group
+    }
+
+    let liveLabel = text.links.live
+    if (project.live && project.live.includes("itch.io")) liveLabel = text.page.play
+
+    rows.push({
+      type: "project",
+      key: project.slug,
+      group: group,
+      slug: project.slug,
+      kind: project.kind,
+      kindLabel: text.kinds[project.kind],
+      year: project.year,
+      title: project.title,
+      line: text.items[project.slug].line,
+      stack: project.stack,
+      image: project.image,
+      github: project.github || null,
+      live: project.live || null,
+      liveLabel: liveLabel,
+      href: pathFor(lang, "/projects/" + project.slug),
+    })
+  }
+  return rows
+}
+
+function buildKinds(ordered, text) {
+  const kinds = [{ key: "all", label: text.archive.all, count: ordered.length }]
+  for (const project of ordered) {
+    let found = null
+    for (const kind of kinds) {
+      if (kind.key === project.kind) found = kind
+    }
+    if (found) {
+      found.count = found.count + 1
+    } else {
+      kinds.push({ key: project.kind, label: text.kinds[project.kind], count: 1 })
+    }
+  }
+  return kinds
+}
+
+function yearSpan(ordered) {
+  let first = null
+  let last = null
+  for (const project of ordered) {
+    if (project.early) continue
+    if (first === null || project.year < first) first = project.year
+    if (last === null || project.year > last) last = project.year
+  }
+  return first + "–" + last
+}
 
 export default async function Projects({ params }) {
   const { lang } = await params
   const dict = await getDictionary(lang)
-
-  const main = []
-  const early = []
-  for (const project of projects) {
-    if (project.early) {
-      early.push(project)
-    } else {
-      main.push(project)
-    }
-  }
+  const text = dict.projects
+  const ordered = projectsInOrder()
 
   return (
     <>
-      <SiteNav lang={lang} dict={dict.nav} />
+      <DuotoneFilter />
+      <ContourLines />
       <main>
-        <h1>{dict.projects.title}</h1>
-        {main.map((project) => (
-          <ProjectSummary key={project.slug} project={project} lang={lang} text={dict.projects} />
-        ))}
-
-        <h2>{dict.projects.early}</h2>
-        {early.map((project) => (
-          <ProjectSummary key={project.slug} project={project} lang={lang} text={dict.projects} />
-        ))}
+        <Archive
+          lang={lang}
+          text={text}
+          nav={dict.nav}
+          rows={buildRows(ordered, lang, text)}
+          kinds={buildKinds(ordered, text)}
+          count={ordered.length}
+          span={yearSpan(ordered)}
+          homeHref={pathFor(lang, "/")}
+        />
       </main>
       <SiteFooter lang={lang} text={dict.footer} nav={dict.nav} />
+      <Reveals />
     </>
   )
 }

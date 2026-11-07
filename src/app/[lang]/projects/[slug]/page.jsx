@@ -1,9 +1,11 @@
-import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getDictionary } from "@/content/lang"
-import SiteNav from "@/components/SiteNav"
+import { projects, findProject, projectsInOrder } from "@/content/projects"
+import ContourLines from "@/components/ContourLines"
+import DuotoneFilter from "@/components/DuotoneFilter"
+import ProjectPage from "@/components/ProjectPage"
 import SiteFooter from "@/components/SiteFooter"
-import { projects, findProject } from "@/content/projects"
+import Reveals from "@/components/Reveals"
 
 export function generateStaticParams() {
   const params = []
@@ -19,34 +21,30 @@ export default async function Project({ params }) {
   if (project === null) notFound()
 
   const dict = await getDictionary(lang)
-  const text = dict.projects
+  const ordered = projectsInOrder()
+  let index = 0
+  for (let i = 0; i < ordered.length; i++) {
+    if (ordered[i].slug === slug) index = i
+  }
+  const next = ordered[(index + 1) % ordered.length]
 
   return (
     <>
-      <SiteNav lang={lang} dict={dict.nav} />
+      <DuotoneFilter />
+      <ContourLines />
       <main>
-        <h1>{project.title}</h1>
-        <Image src={project.image} alt="" width={1200} placeholder="blur" preload />
-        <p>
-          {text.kinds[project.kind]} · {project.year}
-        </p>
-        <p>{text.items[slug].description}</p>
-        <p>{project.stack.join(", ")}</p>
-        <p>
-          <a href={project.github} target="_blank" rel="noreferrer">
-            {text.links.code}
-          </a>
-          {project.live && (
-            <>
-              {" · "}
-              <a href={project.live} target="_blank" rel="noreferrer">
-                {text.links.live}
-              </a>
-            </>
-          )}
-        </p>
+        <ProjectPage
+          lang={lang}
+          project={project}
+          text={dict.projects}
+          nav={dict.nav}
+          position={index + 1}
+          total={ordered.length}
+          next={next}
+        />
       </main>
       <SiteFooter lang={lang} text={dict.footer} nav={dict.nav} />
+      <Reveals />
     </>
   )
 }

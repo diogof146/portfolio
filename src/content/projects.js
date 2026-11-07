@@ -22,6 +22,7 @@ export const projects = [
     github: "https://github.com/diogof146/forsaken-elegy",
     live: "https://diogof146.itch.io/forsaken-elegy",
     itchId: 4684152,
+    platforms: ["windows", "mac", "linux"],
     command: "forsakenelegy",
   },
   {
@@ -155,4 +156,20 @@ export function findProject(slug) {
     if (project.slug === slug) return project
   }
   return null
+}
+
+export function projectsInOrder() {
+  const main = []
+  const early = []
+  for (const project of projects) {
+    if (project.early) {
+      early.push(project)
+    } else {
+      main.push(project)
+    }
+  }
+  main.sort(function (a, b) {
+    return b.year - a.year
+  })
+  return main.concat(early)
 }

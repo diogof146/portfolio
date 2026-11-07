@@ -158,11 +158,52 @@
     "items": {
       "forsaken-elegy": {
         "line": "3D action RPG with MMO-style raids",
-        "description": "Single Player 3D Action RPG with MMO-style raid mechanics and fast-paced action combat. Built with Unity and C#."
+        "description": "Single Player 3D Action RPG with MMO-style raid mechanics and fast-paced action combat. Built with Unity and C#.",
+        "case": {
+          "role": "[TBW: your role, e.g. solo developer: design, code, art?]",
+          "brief": [
+            "[TBW: what Forsaken Elegy is and why you made it; the MMO-raid idea in a single-player game.]"
+          ],
+          "built": [
+            "[TBW: how it's put together in Unity: the combat system, the bosses' raid mechanics, the tools you built.]"
+          ],
+          "hard": [
+            "[TBW: the hardest problems and how you solved them.]"
+          ],
+          "next": [
+            "[TBW: what's next for it.]"
+          ],
+          "layers": {
+            "Unity": "[TBW: what Unity does here.]",
+            "C#": "[TBW: what you wrote in C#.]"
+          }
+        }
       },
       "wano-university": {
         "line": "Campus platform with its own mini-language",
-        "description": "A campus management platform designed to monitor and optimize university resources in real time. Built with React, Express, PostgreSQL, Prisma, and a custom System Specific Language parsed via Python's PLY."
+        "description": "A campus management platform designed to monitor and optimize university resources in real time. Built with React, Express, PostgreSQL, Prisma, and a custom System Specific Language parsed via Python's PLY.",
+        "case": {
+          "role": "[TBW: your role in the team.]",
+          "brief": [
+            "[TBW: what Wano University is, who it's for, and the problem it solves. The project report can help here.]"
+          ],
+          "built": [
+            "[TBW: the architecture, and the platform's own mini-language parsed with PLY.]"
+          ],
+          "hard": [
+            "[TBW: the hardest problems and how the team solved them.]"
+          ],
+          "next": [
+            "[TBW: what's next, or what you'd do differently.]"
+          ],
+          "layers": {
+            "React": "The campus app people actually use, in the browser.",
+            "Express.js": "The server the app talks to.",
+            "Prisma": "Turns database rows into JavaScript objects (and back).",
+            "PostgreSQL": "Where everything is stored.",
+            "PLY": "Lexer and parser for the platform's own mini-language (Python)."
+          }
+        }
       },
       "nvim-config": {
         "line": "The editor that got me into all this",
@@ -203,6 +244,61 @@
       "pms": {
         "line": "My first program",
         "description": "A terminal-based Python application that helps manage and analyze pollution data. This was my first programming project."
+      }
+    },
+    "stackKinds": {
+      "engine": "Engine",
+      "language": "Language",
+      "client": "Client",
+      "api": "API",
+      "orm": "ORM",
+      "database": "Database",
+      "parser": "Parser",
+      "editor": "Editor",
+      "system": "System",
+      "framework": "Framework",
+      "security": "Security",
+      "ui": "UI",
+      "markup": "Markup",
+      "styling": "Styling",
+      "library": "Library",
+      "method": "Method",
+      "interface": "Interface"
+    },
+    "archive": {
+      "intro": "Everything I've built, from my first Python program to the games I make now.",
+      "all": "All",
+      "filter": "Filter by kind",
+      "projects": "projects",
+      "project": "project",
+      "early": "Early work",
+      "page": "Project page",
+      "open": "Open",
+      "close": "Close"
+    },
+    "page": {
+      "back": "All projects",
+      "of": "of",
+      "year": "Year",
+      "kind": "Kind",
+      "role": "Role",
+      "stack": "Stack",
+      "links": "Links",
+      "play": "Play it",
+      "download": "Download",
+      "platform": "Pick your platform",
+      "platforms": {
+        "windows": "Windows",
+        "mac": "macOS",
+        "linux": "Linux"
+      },
+      "next": "Next project",
+      "tbw": "To be written",
+      "sections": {
+        "brief": "Brief",
+        "built": "How it's built",
+        "hard": "Hard parts",
+        "next": "What's next"
       }
     }
   },

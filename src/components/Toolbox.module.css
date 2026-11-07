@@ -155,6 +155,10 @@
   .inner {
     padding-left: 0;
   }
+
+  .name {
+    font-size: clamp(1.4rem, 7vw, 3rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

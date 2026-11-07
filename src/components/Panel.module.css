@@ -153,6 +153,12 @@
   min-width: 0;
 }
 
+.barInfo span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .barInfo b {
   overflow: hidden;
   font-size: 15px;

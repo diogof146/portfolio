@@ -56,3 +56,9 @@
     justify-content: flex-start;
   }
 }
+
+@media (max-width: 399px) {
+  .sign {
+    white-space: normal;
+  }
+}
