@@ -222,7 +222,6 @@ export default function Panel({ lang, text, hold, name, role, status, place, lan
           <InkWell tone={INK_DROPS[sections[active].id]} label={text.stir} />
           <div className={s.foot}>
             {nowCard}
-            <HoldButton text={hold} />
             <div className={s.footRow}>
               <Socials />
               <span className={"mono " + s.languages}>
@@ -246,7 +245,7 @@ export default function Panel({ lang, text, hold, name, role, status, place, lan
         <button type="button" className={s.iconButton} aria-label={menuLabel} aria-expanded={menuOpen} onClick={toggleMenu}>
           {menuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
         </button>
-        <HoldButton text={hold} compact />
+        <HoldButton text={hold} fromHome compact />
       </div>
 
       <div className={sheetClass}>

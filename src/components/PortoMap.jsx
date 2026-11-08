@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { useLenis } from "lenis/react"
 import { NOISE, autoSize, covered, fullscreenShader } from "@/gl/gl"
-import { weatherIcon } from "@/components/weatherIcon"
+import WeatherIcon from "@/components/WeatherIcon"
 import s from "./PortoMap.module.css"
 
 const VIEW = { x: -0.3, y: 2.0, width: 14 }
@@ -494,11 +494,7 @@ export default function PortoMap({ weather, kind, places, label, className = "" 
   )
 
   let reading = "Porto"
-  let Icon = null
-  if (weather !== null) {
-    reading = weather.temperature + "° · " + kind
-    Icon = weatherIcon(weather.kind, weather.isDay)
-  }
+  if (weather !== null) reading = weather.temperature + "° · " + kind
 
   return (
     <div ref={wrap} className={s.map + " " + className} role="img" aria-label={label} data-cursor="Porto">
@@ -514,7 +510,7 @@ export default function PortoMap({ weather, kind, places, label, className = "" 
       <div className={s.info} aria-hidden="true">
         <span className={s.coords}>41.15° N · 8.61° W</span>
         <span className={s.reading}>
-          {Icon && <Icon size={12} strokeWidth={1.6} />}
+          {weather !== null && <WeatherIcon kind={weather.kind} isDay={weather.isDay} size={12} strokeWidth={1.6} />}
           {reading}
         </span>
         <span className={s.scale}>

@@ -12,12 +12,12 @@ function isHoldKey(event) {
   return event.key === " " || event.key === "Enter"
 }
 
-export default function HoldButton({ text, compact = false, className = "" }) {
+export default function HoldButton({ text, fromHome = false, compact = false, className = "" }) {
   const hold = useHold()
 
   let label = text.toHome
   let action = text.toHomeLabel
-  if (hold.home) {
+  if (fromHome) {
     label = text.toOther
     action = text.toOtherLabel
   }

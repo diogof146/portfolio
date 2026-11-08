@@ -16,8 +16,11 @@ const NIGHT = {
   partlyCloudy: CloudMoon,
 }
 
-export function weatherIcon(kind, isDay) {
-  if (!isDay && NIGHT[kind]) return NIGHT[kind]
-  if (DAY[kind]) return DAY[kind]
-  return Cloud
+export default function WeatherIcon({ kind, isDay, ...props }) {
+  if (!isDay && NIGHT[kind]) {
+    const Night = NIGHT[kind]
+    return <Night {...props} />
+  }
+  const Day = DAY[kind] || Cloud
+  return <Day {...props} />
 }

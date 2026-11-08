@@ -29,6 +29,10 @@ function openTab(url) {
   window.open(url, "_blank", "noopener")
 }
 
+function pick(list) {
+  return list[Math.floor(Math.random() * list.length)]
+}
+
 function Prompt() {
   return (
     <>
@@ -220,7 +224,7 @@ export default function Shell({ active, wm }) {
       case "anthem":
         return print(ANTHEM)
       case "quote":
-        return print([QUOTES[Math.floor(Math.random() * QUOTES.length)]])
+        return print([pick(QUOTES)])
       case "inshallah":
         return print(["hehehe siuuuuuuuuu"])
       case "nvim":

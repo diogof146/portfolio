@@ -39,6 +39,7 @@
 
 .head {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
   padding: 88px 0 48px;
 }

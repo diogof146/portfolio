@@ -2,13 +2,12 @@
 
 import { useEffect, useRef } from "react"
 import { usePathname } from "next/navigation"
-import { useHold } from "@/components/Exposure"
+import { isHome } from "@/components/Exposure"
 import HoldButton from "@/components/HoldButton"
 import s from "./FloatingHold.module.css"
 
 export default function FloatingHold({ text }) {
   const root = useRef(null)
-  const hold = useHold()
   const pathname = usePathname()
 
   useEffect(
@@ -37,7 +36,7 @@ export default function FloatingHold({ text }) {
     [pathname],
   )
 
-  if (hold.home) return null
+  if (isHome(pathname)) return null
 
   return (
     <div ref={root} className={s.floating}>

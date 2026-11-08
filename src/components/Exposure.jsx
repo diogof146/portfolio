@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useEffect, useRef } from "react"
+import { createContext, Suspense, useContext, useEffect, useRef } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import gsap from "gsap"
 import { pathFor, stripLanguage } from "@/content/lang/languages"
@@ -16,7 +16,7 @@ export function useHold() {
   return useContext(HoldContext)
 }
 
-function isHome(pathname) {
+export function isHome(pathname) {
   return stripLanguage(pathname) === "/"
 }
 
@@ -29,12 +29,24 @@ function setHoldVariable(progress) {
   document.documentElement.style.setProperty("--hold", String(progress))
 }
 
+function Route({ onChange }) {
+  const pathname = usePathname()
+
+  useEffect(
+    function () {
+      onChange(pathname)
+    },
+    [pathname, onChange],
+  )
+
+  return null
+}
+
 export default function Exposure({ lang, children }) {
   const canvas = useRef(null)
   const state = useRef({ progress: 0, x: 0, y: 0, ratio: 1, tween: null, active: false, done: false, href: "", color: "", fill: "" })
   const controls = useRef(null)
   const router = useRouter()
-  const pathname = usePathname()
 
   useEffect(
     function () {
@@ -130,7 +142,6 @@ export default function Exposure({ lang, children }) {
       }
 
       function arrive() {
-        if (!hold.done) return
         hold.done = false
         hold.active = false
         if (hold.tween) hold.tween.kill()
@@ -194,21 +205,21 @@ export default function Exposure({ lang, children }) {
     [router],
   )
 
-  useEffect(
-    function () {
-      const destination = destinationOf(lang, pathname)
-      state.current.href = destination.href
-      state.current.color = destination.color
-      router.prefetch(destination.href)
-      controls.current.arrive()
-    },
-    [lang, pathname, router],
-  )
+  function aim(pathname) {
+    const destination = destinationOf(lang, pathname)
+    state.current.href = destination.href
+    state.current.color = destination.color
+    router.prefetch(destination.href)
+    if (state.current.done) controls.current.arrive()
+  }
 
   return (
-    <HoldContext.Provider value={{ controls: controls, home: isHome(pathname) }}>
+    <HoldContext.Provider value={{ controls: controls }}>
       {children}
       <canvas ref={canvas} className={s.flood} aria-hidden="true" />
+      <Suspense>
+        <Route onChange={aim} />
+      </Suspense>
     </HoldContext.Provider>
   )
 }

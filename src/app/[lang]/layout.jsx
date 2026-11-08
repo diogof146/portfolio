@@ -1,6 +1,7 @@
 import "lenis/dist/lenis.css"
 import "@/styles/global.css"
 import { Archivo, Martian_Mono } from "next/font/google"
+import { Suspense } from "react"
 import { notFound } from "next/navigation"
 import { languages, hasLanguage } from "@/content/lang/languages"
 import { getDictionary } from "@/content/lang"
@@ -40,9 +41,13 @@ export default async function RootLayout({ children, params }) {
         <SmoothScroll>
           <Exposure lang={lang}>
             {children}
-            <FloatingHold text={dict.hold} />
+            <Suspense>
+              <FloatingHold text={dict.hold} />
+            </Suspense>
           </Exposure>
-          <ThemeWatcher />
+          <Suspense>
+            <ThemeWatcher />
+          </Suspense>
           <Cursor />
           <TerminalLauncher />
         </SmoothScroll>

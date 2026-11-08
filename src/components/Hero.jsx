@@ -25,7 +25,7 @@ export default function Hero({ text, hold, children }) {
           </svg>
           {hold.hint}
         </span>
-        <HoldButton text={hold} className={s.touchOnly} />
+        <HoldButton text={hold} fromHome className={s.holdButton} />
       </div>
 
       <div className={s.grid}>

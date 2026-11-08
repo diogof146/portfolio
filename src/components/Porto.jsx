@@ -1,6 +1,6 @@
 import PortoClock from "@/components/PortoClock"
 import PortoMap from "@/components/PortoMap"
-import { weatherIcon } from "@/components/weatherIcon"
+import WeatherIcon from "@/components/WeatherIcon"
 import { places } from "@/content/personal"
 import { getWeather } from "@/lib/weather"
 import s from "./Porto.module.css"
@@ -13,10 +13,9 @@ function describe(text, weather, kind) {
 }
 
 function Reading({ weather, kind }) {
-  const Icon = weatherIcon(weather.kind, weather.isDay)
   return (
     <div className={s.weather}>
-      <Icon size={40} strokeWidth={1.4} aria-hidden="true" />
+      <WeatherIcon kind={weather.kind} isDay={weather.isDay} size={40} strokeWidth={1.4} aria-hidden="true" />
       <b>{weather.temperature + "°C"}</b>
       <span className="mono muted">{kind}</span>
     </div>
