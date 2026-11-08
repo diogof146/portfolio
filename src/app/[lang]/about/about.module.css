@@ -1,0 +1,50 @@
+.glows {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.glowA,
+.glowB {
+  position: absolute;
+  width: 70vmax;
+  height: 70vmax;
+  border-radius: 50%;
+  animation: drift 28s ease-in-out infinite alternate;
+}
+
+.glowA {
+  left: -25vmax;
+  top: -20vmax;
+  background: radial-gradient(circle, rgba(0, 174, 239, 0.14), transparent 62%);
+}
+
+.glowB {
+  right: -30vmax;
+  bottom: -30vmax;
+  background: radial-gradient(circle, rgba(15, 74, 112, 0.6), transparent 62%);
+  animation-duration: 36s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes drift {
+  to {
+    transform: translate(18vmax, 14vmax) scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glowA,
+  .glowB {
+    animation: none;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(64px, 10vw, 140px);
+  padding: 40px var(--pad) clamp(64px, 10vw, 120px);
+}

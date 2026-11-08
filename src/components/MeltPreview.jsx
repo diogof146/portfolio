@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
-import { NOISE, fullscreenShader, loadCover, makeTexture } from "@/gl/gl"
+import { NOISE, covered, fullscreenShader, loadCover, makeTexture } from "@/gl/gl"
 import s from "./MeltPreview.module.css"
 
 const FRAGMENT = `
@@ -108,6 +108,7 @@ export default function MeltPreview({ controlRef }) {
 
       let time = 0
       function render(now, deltaMs) {
+        if (covered()) return
         if (!state.visible && gsap.getProperty(box.current, "autoAlpha") === 0) return
         time = time + deltaMs / 1000
         speed.x = speed.x * 0.9

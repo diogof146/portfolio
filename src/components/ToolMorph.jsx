@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
-import { autoSize, fullscreenShader } from "@/gl/gl"
+import { autoSize, covered, fullscreenShader } from "@/gl/gl"
 import { TOOL_SHAPES } from "@/gl/shapes"
 import s from "./Toolbox.module.css"
 
@@ -157,7 +157,7 @@ export default function ToolMorph({ index }) {
 
     let time = 0
     function render(now, deltaMs) {
-      if (!visible) return
+      if (!visible || covered()) return
       if (!reduce) time = time + Math.min(deltaMs, 50) / 1000
       tilt.x = tilt.x + (tilt.targetX - tilt.x) * 0.06
       tilt.y = tilt.y + (tilt.targetY - tilt.y) * 0.06

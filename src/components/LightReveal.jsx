@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { DUOTONE, toneAt } from "@/gl/duotone"
+import { covered } from "@/gl/gl"
 import s from "./LightReveal.module.css"
 
 function random(low, high) {
@@ -32,9 +33,72 @@ function cyanotypePrint(image) {
   return canvas
 }
 
+function rgbOf(hex) {
+  return { r: parseInt(hex.slice(1, 3), 16), g: parseInt(hex.slice(3, 5), 16), b: parseInt(hex.slice(5, 7), 16) }
+}
+
+function smooth(t) {
+  return t * t * (3 - 2 * t)
+}
+
+function noiseLayer(cells) {
+  const grid = new Float32Array(cells * cells)
+  for (let i = 0; i < grid.length; i++) {
+    grid[i] = Math.random()
+  }
+  return { cells: cells, grid: grid }
+}
+
+function valueNoise(layer, x, y, size) {
+  const cells = layer.cells
+  const gridX = (x / size) * cells
+  const gridY = (y / size) * cells
+  const x0 = Math.floor(gridX)
+  const y0 = Math.floor(gridY)
+  const fadeX = smooth(gridX - x0)
+  const fadeY = smooth(gridY - y0)
+
+  function at(i, j) {
+    return layer.grid[((j + cells) % cells) * cells + ((i + cells) % cells)]
+  }
+
+  const top = at(x0, y0) + (at(x0 + 1, y0) - at(x0, y0)) * fadeX
+  const bottom = at(x0, y0 + 1) + (at(x0 + 1, y0 + 1) - at(x0, y0 + 1)) * fadeX
+  return top + (bottom - top) * fadeY
+}
+
+function cloudTile(hex) {
+  const size = 256
+  const tile = document.createElement("canvas")
+  tile.width = size
+  tile.height = size
+  const context = tile.getContext("2d")
+  const image = context.createImageData(size, size)
+  const layers = [noiseLayer(4), noiseLayer(8), noiseLayer(16), noiseLayer(32), noiseLayer(64)]
+  const colour = rgbOf(hex)
+
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      let value = 0
+      let amount = 0.5
+      for (const layer of layers) {
+        value = value + amount * valueNoise(layer, x, y, size)
+        amount = amount * 0.5
+      }
+      const index = (y * size + x) * 4
+      image.data[index] = colour.r
+      image.data[index + 1] = colour.g
+      image.data[index + 2] = colour.b
+      image.data[index + 3] = Math.max(0, Math.min(1, (value / 0.97 - 0.32) / 0.42)) * 255
+    }
+  }
+  context.putImageData(image, 0, 0)
+  return tile
+}
+
 const TRAIL_SCALE = 0.5
 
-export default function LightReveal({ src, focusX = 0.5, focusY = 1, intensity = 1, cursorLabel, children }) {
+export default function LightReveal({ src, fog = null, focusX = 0.5, focusY = 1, intensity = 1, cursorLabel, children }) {
   const wrap = useRef(null)
   const canvas = useRef(null)
 
@@ -47,21 +111,33 @@ export default function LightReveal({ src, focusX = 0.5, focusY = 1, intensity =
       const trailContext = trail.getContext("2d")
 
       let print = null
-      const image = new Image()
-      image.decoding = "async"
-      image.onload = function () {
-        print = cyanotypePrint(image)
+      if (src) {
+        const image = new Image()
+        image.decoding = "async"
+        image.onload = function () {
+          print = cyanotypePrint(image)
+        }
+        image.src = optimizedUrl(src)
       }
-      image.src = optimizedUrl(src)
+
+      let clouds = []
+      if (fog) {
+        clouds = [
+          { tile: cloudTile(fog.light), scale: 3.2, dx: 14, dy: 5, alpha: 0.55 },
+          { tile: cloudTile(fog.dark), scale: 5, dx: -9, dy: 8, alpha: 0.5 },
+        ]
+      }
 
       const coarse = window.matchMedia("(hover: none), (pointer: coarse)").matches
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      const drifts = fog !== null && !reduce
       let width = 0
       let height = 0
+      let density = 1
       function resize() {
         const rect = box.getBoundingClientRect()
-        let density = Math.min(window.devicePixelRatio || 1, 1.5)
-        if (coarse) density = 1
+        density = Math.min(window.devicePixelRatio || 1, 1.5)
+        if (coarse || fog) density = 1
         width = rect.width
         height = rect.height
         element.width = Math.max(1, Math.round(width * density))
@@ -175,16 +251,75 @@ export default function LightReveal({ src, focusX = 0.5, focusY = 1, intensity =
         context.globalCompositeOperation = "source-over"
       }
 
+      let fogTime = random(0, 100)
+      function drawFog() {
+        context.clearRect(0, 0, element.width, element.height)
+        context.globalAlpha = fog.density
+        context.fillStyle = fog.color
+        context.fillRect(0, 0, element.width, element.height)
+        context.globalAlpha = 1
+
+        if (fog.top) {
+          const colour = rgbOf(fog.color)
+          const rgb = colour.r + ", " + colour.g + ", " + colour.b
+          const end = element.height * fog.topEnd
+          const gradient = context.createLinearGradient(0, 0, 0, end)
+          gradient.addColorStop(0, "rgba(" + rgb + ", " + fog.top + ")")
+          gradient.addColorStop(0.55, "rgba(" + rgb + ", " + fog.top * 0.7 + ")")
+          gradient.addColorStop(1, "rgba(" + rgb + ", 0)")
+          context.fillStyle = gradient
+          context.fillRect(0, 0, element.width, end)
+        }
+
+        for (const cloud of clouds) {
+          const pattern = context.createPattern(cloud.tile, "repeat")
+          pattern.setTransform(new DOMMatrix().translate(fogTime * cloud.dx, fogTime * cloud.dy).scale(cloud.scale * density))
+          context.globalAlpha = cloud.alpha
+          context.fillStyle = pattern
+          context.fillRect(0, 0, element.width, element.height)
+        }
+        context.globalAlpha = 1
+
+        if (puffs.length > 0) {
+          context.globalCompositeOperation = "destination-out"
+          context.globalAlpha = fog.clear
+          context.drawImage(trail, 0, 0, element.width, element.height)
+          context.globalAlpha = 1
+          context.globalCompositeOperation = "source-over"
+        }
+      }
+
+      let drawn = false
+      function appear() {
+        let fade = 0.7
+        let reveal = 1.8
+        let delay = 0.3
+        if (reduce) {
+          fade = 0
+          reveal = 0
+          delay = 0
+        }
+        gsap.to(element, { opacity: 1, duration: fade, ease: "power2.out" })
+        gsap.to(box.querySelectorAll("[data-under-fog]"), { opacity: 1, duration: reveal, delay: delay, ease: "power2.out" })
+      }
+
       function tick(time, deltaMs) {
+        if (covered()) return
         if (wanders()) {
           wanderTime = wanderTime + deltaMs / 1000
           const x = width * (0.5 + 0.4 * Math.sin(wanderTime * 0.85) + 0.08 * Math.sin(wanderTime * 2.4))
           const y = height * (0.48 + 0.36 * Math.sin(wanderTime * 0.63 + 1.3) + 0.07 * Math.cos(wanderTime * 1.9))
           spawn(x, y, 3, 1)
         }
+        if (drifts) fogTime = fogTime + deltaMs / 1000
         drawSmoke(time)
-        drawPrint()
-        if (puffs.length === 0 && !wanders()) {
+        if (fog) drawFog()
+        else drawPrint()
+        if (!drawn) {
+          drawn = true
+          if (fog) appear()
+        }
+        if (puffs.length === 0 && !wanders() && !drifts) {
           sleep()
         }
       }
@@ -224,13 +359,13 @@ export default function LightReveal({ src, focusX = 0.5, focusY = 1, intensity =
         box.removeEventListener("pointerdown", onTap)
       }
     },
-    [src, focusX, focusY, intensity],
+    [src, fog, focusX, focusY, intensity],
   )
 
   return (
     <div ref={wrap} className={s.reveal} data-cursor={cursorLabel}>
       {children}
-      <canvas ref={canvas} className={s.canvas} aria-hidden="true" />
+      <canvas ref={canvas} className={s.canvas} data-fog={fog !== null} aria-hidden="true" />
     </div>
   )
 }

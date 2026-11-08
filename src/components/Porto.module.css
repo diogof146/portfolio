@@ -1,0 +1,43 @@
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  padding-top: 28px;
+  border-top: 1.5px solid var(--fg);
+}
+
+.time {
+  font-size: clamp(3.6rem, 13vw, 9rem);
+  font-weight: 800;
+  font-variation-settings: "wdth" 125;
+  font-variant-numeric: tabular-nums;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+}
+
+.weather {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  text-align: right;
+}
+
+.weather b {
+  font-size: 2rem;
+}
+
+.map {
+  margin-top: 32px;
+}
+
+@media (max-width: 767px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .weather {
+    justify-items: start;
+    text-align: left;
+  }
+}

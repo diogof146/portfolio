@@ -47,8 +47,18 @@
   letter-spacing: inherit;
 }
 
+.end button svg {
+  flex: none;
+}
+
 .end button:hover {
   color: var(--accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .end .touchOnly {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {

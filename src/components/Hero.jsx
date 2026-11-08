@@ -2,10 +2,11 @@ import Image from "next/image"
 import { ArrowDown, ArrowRight } from "lucide-react"
 import { person } from "@/content/site"
 import LightReveal from "@/components/LightReveal"
+import HoldButton from "@/components/HoldButton"
 import portrait from "@/content/images/portrait.webp"
 import s from "./Hero.module.css"
 
-export default function Hero({ text, children }) {
+export default function Hero({ text, hold, children }) {
   const space = person.name.indexOf(" ")
   const firstName = person.name.slice(0, space)
   const lastName = person.name.slice(space + 1)
@@ -17,6 +18,14 @@ export default function Hero({ text, children }) {
           <span className={s.desktopOnly}>{person.name} · </span>
           {text.hero.edition}
         </span>
+        <span className={"mono " + s.hint}>
+          <svg viewBox="0 0 30 30" aria-hidden="true">
+            <circle className={s.hintTrack} cx="15" cy="15" r="13" />
+            <circle className={s.hintFill} cx="15" cy="15" r="13" />
+          </svg>
+          {hold.hint}
+        </span>
+        <HoldButton text={hold} className={s.touchOnly} />
       </div>
 
       <div className={s.grid}>

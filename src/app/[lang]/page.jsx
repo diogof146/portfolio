@@ -53,12 +53,13 @@ export default async function Home({ params }) {
     <>
       <DuotoneFilter />
       <ContourLines />
-      <Hero text={home}>
+      <Hero text={home} hold={dict.hold}>
         <LabelBox text={home.hero.box} />
       </Hero>
       <Panel
         lang={lang}
         text={home.panel}
+        hold={dict.hold}
         name={person.name}
         role={home.role}
         status={home.hero.box.open}

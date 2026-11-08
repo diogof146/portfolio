@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react"
 import { ArrowUpRight, Menu, X } from "lucide-react"
 import PortoClock from "@/components/PortoClock"
 import Socials from "@/components/Socials"
+import HoldButton from "@/components/HoldButton"
 import LanguageSwitch from "@/components/LanguageSwitch"
 import InkWell from "@/components/InkWell"
 import { INK_DROPS } from "@/motion/themes"
@@ -15,7 +16,7 @@ import s from "./Panel.module.css"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-export default function Panel({ lang, text, name, role, status, place, languageLabel, sections, allProjectsHref, face, nowCard }) {
+export default function Panel({ lang, text, hold, name, role, status, place, languageLabel, sections, allProjectsHref, face, nowCard }) {
   const dock = useRef(null)
   const panel = useRef(null)
   const faceLayer = useRef(null)
@@ -221,6 +222,7 @@ export default function Panel({ lang, text, name, role, status, place, languageL
           <InkWell tone={INK_DROPS[sections[active].id]} label={text.stir} />
           <div className={s.foot}>
             {nowCard}
+            <HoldButton text={hold} />
             <div className={s.footRow}>
               <Socials />
               <span className={"mono " + s.languages}>
@@ -244,6 +246,7 @@ export default function Panel({ lang, text, name, role, status, place, languageL
         <button type="button" className={s.iconButton} aria-label={menuLabel} aria-expanded={menuOpen} onClick={toggleMenu}>
           {menuOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
         </button>
+        <HoldButton text={hold} compact />
       </div>
 
       <div className={sheetClass}>

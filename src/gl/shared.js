@@ -1,5 +1,5 @@
 import gsap from "gsap"
-import { fullscreenShader, loadCover, makeTexture } from "@/gl/gl"
+import { covered, fullscreenShader, loadCover, makeTexture } from "@/gl/gl"
 
 const DURATION_IN = 1.5
 const DURATION_OUT = 0.9
@@ -43,6 +43,7 @@ export function sharedRenderer(fragment) {
   }
 
   function tick(now, deltaMs) {
+    if (covered()) return
     time = time + Math.min(deltaMs, 50) / 1000
     for (const item of items) {
       if (!item.texture || !item.inView) continue

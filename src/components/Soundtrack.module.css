@@ -1,0 +1,169 @@
+.sound {
+  --card: clamp(240px, min(38vw, 60svh), 560px);
+  --rec: clamp(240px, min(32vw, 54svh), 480px);
+  position: relative;
+  height: 760vh;
+  margin-inline: calc(var(--pad) * -1);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  display: grid;
+  place-items: center;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.note {
+  position: absolute;
+  z-index: 4;
+  top: 32px;
+  left: var(--pad);
+  color: var(--accent);
+}
+
+.word {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(4rem, 16vw, 16rem);
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--fg) 55%, transparent);
+}
+
+.item,
+.record {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  text-decoration: none;
+  will-change: transform;
+}
+
+.item {
+  z-index: 2;
+  width: var(--card);
+  margin: calc(var(--card) * -0.62) 0 0 calc(var(--card) * -0.5);
+}
+
+.cover,
+.sleeve {
+  position: relative;
+  aspect-ratio: 1;
+  background: var(--blue);
+  box-shadow: 0 34px 70px -28px rgba(0, 0, 0, 0.65);
+}
+
+.cover > div,
+.sleeve > div {
+  height: 100%;
+}
+
+.caption,
+.recordCaption {
+  display: grid;
+  gap: 6px;
+}
+
+.caption {
+  margin-top: 14px;
+}
+
+.caption span,
+.recordCaption span:first-child {
+  color: var(--accent);
+}
+
+.caption b {
+  font-size: clamp(1.4rem, 2.6vw, 2.4rem);
+  line-height: 0.95;
+}
+
+.record {
+  z-index: 3;
+  width: var(--rec);
+  margin: calc(var(--rec) * -0.6) 0 0 calc(var(--rec) * -0.5);
+  isolation: isolate;
+}
+
+.sleeve {
+  z-index: 1;
+}
+
+.disc {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.recordCaption {
+  width: max-content;
+  max-width: 80vw;
+  margin-top: 22px;
+}
+
+.recordCaption b {
+  font-size: clamp(1.6rem, 3.2vw, 3rem);
+  line-height: 0.95;
+}
+
+@media (max-width: 767px) {
+  .sound {
+    --card: 54vw;
+    --rec: 50vw;
+    height: 620vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sound {
+    height: auto;
+    padding: 0 var(--pad);
+  }
+
+  .sticky {
+    position: static;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 28px;
+    place-items: start;
+    height: auto;
+    overflow: visible;
+  }
+
+  .note,
+  .word {
+    position: static;
+    grid-column: 1 / -1;
+  }
+
+  .word {
+    font-size: clamp(1.75rem, 9vw, 6rem);
+  }
+
+  .caption b {
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    overflow-wrap: anywhere;
+  }
+
+  .item,
+  .record {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    margin: 0;
+  }
+
+  .record {
+    width: 75%;
+  }
+
+  .disc {
+    transform: translateX(30%);
+  }
+}

@@ -9,9 +9,18 @@
     "about": "Off the clock",
     "language": "Idioma"
   },
+  "hold": {
+    "toOther": "O outro lado",
+    "toHome": "Início",
+    "short": "Segura",
+    "toOtherLabel": "Carrega sem soltar para ir para Off the clock",
+    "toHomeLabel": "Carrega sem soltar para voltar ao início",
+    "hint": "Segura em qualquer lado: o outro lado"
+  },
   "footer": {
     "like": "Clica se gostares",
     "top": "Voltar ao topo",
+    "terminal": "Terminal",
     "pages": "Páginas"
   },
   "home": {
@@ -304,8 +313,10 @@
   },
   "about": {
     "title": "Off the clock",
-    "weather": {
-      "title": "Porto",
+    "porto": {
+      "title": "Porto, PT · agora",
+      "map": "Mapa do Porto, onde vivo",
+      "now": "Agora",
       "kinds": {
         "clear": "Céu limpo",
         "partlyCloudy": "Parcialmente nublado",
@@ -317,20 +328,25 @@
         "thunder": "Trovoada"
       }
     },
-    "music": {
-      "title": "Música",
-      "nowPlaying": "A tocar agora",
-      "onRepeat": "Em repeat",
-      "topTrack": "Música mais ouvida de sempre",
-      "topArtists": "Artistas mais ouvidos"
+    "soundtrack": {
+      "title": "Banda sonora",
+      "note": "De sempre, segundo o Spotify",
+      "artist": "Artista n.º ",
+      "song": "A música mais ouvida de sempre",
+      "play": "Ouvir"
     },
     "games": {
       "title": "Jogos",
-      "playingNow": "A jogar agora",
+      "intro": "Diretamente da minha biblioteca do Steam.",
       "mostPlayed": "Mais jogado",
-      "lastPlayed": "Jogado recentemente"
+      "lastPlayed": "Jogado recentemente",
+      "unavailable": "Os dados do Steam não estão disponíveis agora."
     },
-    "intro": "I'm a Junior Software Engineer with a passion for exploring and learning about various tech areas. Currently game development piques my interest. Always open to learn, collaborate and connect with others who share similar passions.",
+    "heading": ["Off the", "clock"],
+    "lede": "Música, jogos, guitarra, xadrez e demasiadas noites no Neovim.",
+    "back": "Voltar ao trabalho",
+    "side": "O outro lado",
+    "light": "Luz",
     "interestsTitle": "Também gosto de",
     "interests": {
       "guitar": { "title": "Guitarra", "text": "Back to playing after a long break." },
@@ -340,7 +356,25 @@
       "gym": { "title": "Ginásio", "text": "Placeholder line." },
       "setup": { "title": "Setup", "text": "Neovim, dotfiles, a terminal I keep rebuilding." }
     },
-    "reading": "A ler",
-    "learning": "A aprender na guitarra"
+    "now": {
+      "title": "Agora",
+      "listening": "A ouvir agora",
+      "onRepeat": "Em repeat este mês",
+      "playing": "A jogar agora",
+      "played": "Jogado recentemente",
+      "reading": "A ler",
+      "learning": "A aprender na guitarra",
+      "listen": "Ouvir"
+    },
+    "learning": {
+      "title": "A aprender",
+      "by": "de",
+      "play": "Tocar",
+      "stop": "Parar",
+      "hint": "Ou toca numa nota. Só há som quando clicas.",
+      "pluck": "Tocar",
+      "note": "Tocar a casa # na corda %",
+      "bent": ", com bend"
+    }
   }
 }

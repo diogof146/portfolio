@@ -1,5 +1,10 @@
 export const interests = ["guitar", "chess", "games", "manga", "gym", "setup"]
 
+export const places = [
+  { name: "Estádio do Dragão", lat: 41.1618, lon: -8.5837 },
+  { name: "Universidade Portucalense", lat: 41.18, lon: -8.6069 },
+]
+
 export const reading = {
   title: "One Piece",
   anilistId: 30013,

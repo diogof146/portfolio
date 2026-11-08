@@ -1,0 +1,21 @@
+.floating {
+  position: fixed;
+  z-index: 50;
+  right: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  background: var(--bg);
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), visibility 0.35s;
+}
+
+.floating[data-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+}
+
+@media (max-width: 767px) {
+  .floating {
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+}

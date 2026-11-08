@@ -1,0 +1,29 @@
+.games {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  display: grid;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.picture {
+  aspect-ratio: 460 / 215;
+}
+
+.picture > * {
+  height: 100%;
+}
+
+.card b {
+  font-size: 1.35rem;
+}
+
+@media (max-width: 767px) {
+  .games {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

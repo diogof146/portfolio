@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { useLenis } from "lenis/react"
 import { INKS, absorb, createFluid } from "@/gl/fluid"
+import { covered } from "@/gl/gl"
 import s from "./InkWell.module.css"
 
 const PAPER = [0.957, 0.973, 0.98]
@@ -125,7 +126,7 @@ export default function InkWell({ tone, label }) {
     let shown = false
     let idle = 0
     function tick(now, deltaMs) {
-      if (!onScreen || failed) return
+      if (!onScreen || failed || covered()) return
       if (frame % 15 === 0) {
         shown = true
         if (element.checkVisibility) {

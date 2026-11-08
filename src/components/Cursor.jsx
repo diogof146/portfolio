@@ -13,6 +13,7 @@ export default function Cursor() {
   const dot = useRef(null)
   const ring = useRef(null)
   const label = useRef(null)
+  const hold = useRef(null)
 
   useGSAP(function () {
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return
@@ -25,17 +26,22 @@ export default function Cursor() {
     const dotY = gsap.quickTo(dot.current, "y", { duration: 0.06, ease: "power3" })
     const ringX = gsap.quickTo(ring.current, "x", { duration: ringSpeed, ease: "power3" })
     const ringY = gsap.quickTo(ring.current, "y", { duration: ringSpeed, ease: "power3" })
+    const holdX = gsap.quickTo(hold.current, "x", { duration: ringSpeed, ease: "power3" })
+    const holdY = gsap.quickTo(hold.current, "y", { duration: ringSpeed, ease: "power3" })
+    const parts = [dot.current, ring.current, hold.current]
 
     let shown = false
     function move(event) {
       if (!shown) {
-        gsap.to([dot.current, ring.current], { autoAlpha: 1, duration: 0.25 })
+        gsap.to(parts, { autoAlpha: 1, duration: 0.25 })
         shown = true
       }
       dotX(event.clientX)
       dotY(event.clientY)
       ringX(event.clientX)
       ringY(event.clientY)
+      holdX(event.clientX)
+      holdY(event.clientY)
     }
 
     function over(event) {
@@ -65,7 +71,7 @@ export default function Cursor() {
     }
 
     function leave() {
-      gsap.to([dot.current, ring.current], { autoAlpha: 0, duration: 0.2 })
+      gsap.to(parts, { autoAlpha: 0, duration: 0.2 })
       shown = false
     }
 
@@ -91,6 +97,11 @@ export default function Cursor() {
           <circle className={s.track} cx="24" cy="24" r="22" />
         </svg>
         <span ref={label} className={s.label} />
+      </div>
+      <div ref={hold} className={s.hold} aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <circle className={s.holdFill} cx="24" cy="24" r="22" />
+        </svg>
       </div>
       <div ref={dot} className={s.dot} aria-hidden="true" />
     </>

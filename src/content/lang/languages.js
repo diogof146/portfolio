@@ -1,6 +1,12 @@
 export const languages = ["en", "pt"]
 export const defaultLanguage = "en"
 
+const locales = { en: "en", pt: "pt-PT" }
+
+export function localeOf(lang) {
+  return locales[lang]
+}
+
 export function hasLanguage(lang) {
   return languages.includes(lang)
 }

@@ -4,7 +4,8 @@
 }
 
 .dot,
-.ring {
+.ring,
+.hold {
   position: fixed;
   z-index: 100;
   left: 0;
@@ -12,15 +13,43 @@
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
+}
+
+.dot,
+.ring {
   mix-blend-mode: difference;
   color: #fff;
 }
 
 @media (hover: none), (pointer: coarse) {
   .dot,
-  .ring {
+  .ring,
+  .hold {
     display: none;
   }
+}
+
+.hold {
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0 -24px;
+}
+
+.hold svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.holdFill {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 138.23;
+  stroke-dashoffset: calc(138.23px * (1 - var(--hold, 0)));
+  transform: rotate(-90deg);
+  transform-origin: 24px 24px;
 }
 
 .dot {

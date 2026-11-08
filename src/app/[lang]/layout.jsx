@@ -7,6 +7,9 @@ import { getDictionary } from "@/content/lang"
 import SmoothScroll from "@/components/SmoothScroll"
 import Cursor from "@/components/Cursor"
 import ThemeWatcher from "@/components/ThemeWatcher"
+import Exposure from "@/components/Exposure"
+import FloatingHold from "@/components/FloatingHold"
+import TerminalLauncher from "@/components/TerminalLauncher"
 
 const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-display" })
 const martianMono = Martian_Mono({ subsets: ["latin"], axes: ["wdth"], variable: "--font-data" })
@@ -35,9 +38,13 @@ export default async function RootLayout({ children, params }) {
     <html lang={lang} className={archivo.variable + " " + martianMono.variable}>
       <body>
         <SmoothScroll>
-          {children}
+          <Exposure lang={lang}>
+            {children}
+            <FloatingHold text={dict.hold} />
+          </Exposure>
           <ThemeWatcher />
           <Cursor />
+          <TerminalLauncher />
         </SmoothScroll>
         <div className="grain" aria-hidden="true" />
       </body>

@@ -1,0 +1,68 @@
+.interests {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.interest {
+  display: grid;
+  justify-items: start;
+  align-content: start;
+  gap: 14px;
+}
+
+.float {
+  display: inline-block;
+}
+
+.icon {
+  width: 72px;
+  height: 72px;
+  stroke-width: 1.2;
+  color: var(--fg);
+}
+
+.interest b {
+  font-size: 1.1rem;
+}
+
+.interest p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.blink {
+  display: inline-block;
+  width: 9px;
+  height: 16px;
+  margin-left: 4px;
+  vertical-align: -2px;
+  background: var(--cyan);
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  .interests {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .interests {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink {
+    animation: none;
+  }
+}

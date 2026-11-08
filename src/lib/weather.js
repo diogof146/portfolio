@@ -1,6 +1,6 @@
 import { cacheLife } from "next/cache";
 
-const FORECAST = "https://api.open-meteo.com/v1/forecast?latitude=41.15&longitude=-8.61&current=temperature_2m,weather_code";
+const FORECAST = "https://api.open-meteo.com/v1/forecast?latitude=41.15&longitude=-8.61&current=temperature_2m,weather_code,is_day,wind_direction_10m";
 
 const KINDS = [
   { kind: "clear", codes: [0] },
@@ -33,6 +33,8 @@ async function fetchWeather() {
   return {
     temperature: Math.round(data.current.temperature_2m),
     kind: kindOf(data.current.weather_code),
+    isDay: data.current.is_day === 1,
+    windFrom: data.current.wind_direction_10m,
   };
 }
 

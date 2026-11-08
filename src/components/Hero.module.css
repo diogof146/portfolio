@@ -13,6 +13,50 @@
   gap: 16px;
 }
 
+.hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hint svg {
+  width: 30px;
+  height: 30px;
+}
+
+.hintTrack,
+.hintFill {
+  fill: none;
+  stroke-width: 2;
+}
+
+.hintTrack {
+  stroke: currentColor;
+  opacity: 0.3;
+}
+
+.hintFill {
+  stroke: var(--cyan);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 81.68;
+  stroke-dashoffset: calc(81.68px * (1 - var(--hold, 0)));
+  transform: rotate(-90deg);
+  transform-origin: 15px 15px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .touchOnly {
+    display: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .hint {
+    display: none;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);

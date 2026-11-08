@@ -9,9 +9,18 @@
     "about": "Off the clock",
     "language": "Language"
   },
+  "hold": {
+    "toOther": "Other side",
+    "toHome": "Home",
+    "short": "Hold",
+    "toOtherLabel": "Press and hold to go to Off the clock",
+    "toHomeLabel": "Press and hold to go home",
+    "hint": "Hold anywhere: the other side"
+  },
   "footer": {
     "like": "Click if you like it",
     "top": "Back to top",
+    "terminal": "Terminal",
     "pages": "Pages"
   },
   "home": {
@@ -304,8 +313,10 @@
   },
   "about": {
     "title": "Off the clock",
-    "weather": {
-      "title": "Porto",
+    "porto": {
+      "title": "Porto, PT · right now",
+      "map": "Map of Porto, where I'm based",
+      "now": "Right now",
       "kinds": {
         "clear": "Clear sky",
         "partlyCloudy": "Partly cloudy",
@@ -317,20 +328,25 @@
         "thunder": "Thunderstorm"
       }
     },
-    "music": {
-      "title": "Music",
-      "nowPlaying": "Playing now",
-      "onRepeat": "On repeat",
-      "topTrack": "All-time top track",
-      "topArtists": "Top artists"
+    "soundtrack": {
+      "title": "Soundtrack",
+      "note": "All-time, according to Spotify",
+      "artist": "Top artist #",
+      "song": "Most played song, all-time",
+      "play": "Play"
     },
     "games": {
       "title": "Games",
-      "playingNow": "Playing now",
+      "intro": "Live from my Steam library.",
       "mostPlayed": "Most played",
-      "lastPlayed": "Last played"
+      "lastPlayed": "Recently played",
+      "unavailable": "Steam data unavailable right now."
     },
-    "intro": "I'm a Junior Software Engineer with a passion for exploring and learning about various tech areas. Currently game development piques my interest. Always open to learn, collaborate and connect with others who share similar passions.",
+    "heading": ["Off the", "clock"],
+    "lede": "Music, games, guitar, chess, and too many evenings in Neovim.",
+    "back": "Back to work",
+    "side": "The other side",
+    "light": "Light",
     "interestsTitle": "Also into",
     "interests": {
       "guitar": { "title": "Guitar", "text": "Back to playing after a long break." },
@@ -340,7 +356,25 @@
       "gym": { "title": "Gym", "text": "Placeholder line." },
       "setup": { "title": "Setup", "text": "Neovim, dotfiles, a terminal I keep rebuilding." }
     },
-    "reading": "Reading",
-    "learning": "Learning on guitar"
+    "now": {
+      "title": "Right now",
+      "listening": "Listening now",
+      "onRepeat": "On repeat this month",
+      "playing": "Playing now",
+      "played": "Recently played",
+      "reading": "Reading",
+      "learning": "Learning on guitar",
+      "listen": "Listen"
+    },
+    "learning": {
+      "title": "Currently learning",
+      "by": "by",
+      "play": "Play it",
+      "stop": "Stop",
+      "hint": "Or tap any note. Sound only plays when you click.",
+      "pluck": "Pluck",
+      "note": "Play fret # on the % string",
+      "bent": ", bent"
+    }
   }
 }

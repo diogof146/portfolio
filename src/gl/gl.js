@@ -57,6 +57,10 @@ export function fullscreenShader(canvas, fragment, options) {
   }
 }
 
+export function covered() {
+  return document.documentElement.dataset.covered === "true"
+}
+
 export function autoSize(canvas, gl, scale) {
   function fit() {
     const density = Math.min(window.devicePixelRatio || 1, 1.5) * scale

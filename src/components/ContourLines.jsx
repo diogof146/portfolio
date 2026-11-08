@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
-import { NOISE, autoSize, fullscreenShader } from "@/gl/gl"
+import { NOISE, autoSize, covered, fullscreenShader } from "@/gl/gl"
 import { CONTOURS } from "@/motion/themes"
 import s from "./ContourLines.module.css"
 
@@ -68,6 +68,7 @@ export default function ContourLines() {
 
     let time = 12
     function render(now, deltaMs) {
+      if (covered()) return
       if (!reduce) time = time + Math.min(deltaMs, 50) / 1000
       mouse.strength = mouse.strength + (mouse.target - mouse.strength) * 0.05
       gl.uniform2f(shader.uniform("uRes"), element.width, element.height)
