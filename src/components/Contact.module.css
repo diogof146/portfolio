@@ -7,9 +7,9 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   place-items: center;
-  min-height: 100svh;
+  min-height: var(--screen);
   overflow: hidden;
-  padding: clamp(56px, 9vh, 110px) var(--pad) calc(clamp(56px, 9vh, 110px) + 44px);
+  padding: clamp(56px, calc(var(--screen) * 0.09), 110px) var(--pad) calc(clamp(56px, calc(var(--screen) * 0.09), 110px) + 44px);
 }
 
 .wallWrap {

@@ -96,7 +96,8 @@
     "work": {
       "intro": "Alguns favoritos, dos jogos ao backend. O resto está no arquivo.",
       "archive": "O arquivo",
-      "view": "Ver"
+      "view": "Ver",
+      "swipe": "Desliza para ver mais"
     },
     "offTheClock": "A música, os jogos e a guitarra têm uma página só deles."
   },
@@ -471,7 +472,7 @@
               "title": "Dez protótipos",
               "body": [
                 "Antes de escrever código a sério, fiz muita pesquisa. Vi vários sites de que gostava, tentei perceber o que funcionava neles e o que não funcionava, e aprendi as ferramentas de que ia precisar, como o GSAP e escrever os meus próprios shaders.",
-                "Depois escolhi uma direção e fiz dez protótipos rápidos dela. A direção é a cianotipia, o processo antigo das plantas em azul: azul escuro, branco de papel e ciano como a luz. As imagens dos projetos começam azuis e revelam-se a cores, a página muda de cor à medida que passas pelas secções, e carregar sem soltar em qualquer sítio inunda o ecrã de azul e leva-te ao lado pessoal, o Off the clock.",
+                "Depois escolhi uma direção e fiz dez protótipos rápidos dela. A direção escolhida foi a cianotipia, um antigo processo fotográfico que produz imagens em tons de azul. As imagens dos projetos começam azuis e revelam-se a cores, a página muda de cor à medida que passas pelas secções, e carregar sem soltar em qualquer sítio inunda o ecrã de azul e leva-te ao lado pessoal, o Off the clock.",
                 "O segundo protótipo tornou-se o site, e a maioria dos outros foram incorporados em partes: o stack explodido nestas páginas de projeto, a tinta na água do painel lateral, o ambiente de trabalho por trás do terminal."
               ]
             },

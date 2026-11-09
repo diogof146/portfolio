@@ -19,6 +19,7 @@ export default function Archive({ lang, text, nav, rows, kinds, count, span, hom
   const list = useRef(null)
   const flipState = useRef(null)
   const meltRef = useRef(null)
+  const expanded = useRef(null)
   const [open, setOpen] = useState(null)
   const [kind, setKind] = useState("all")
 
@@ -69,18 +70,20 @@ export default function Archive({ lang, text, nav, rows, kinds, count, span, hom
 
   useGSAP(
     function () {
-      const bodies = list.current.querySelectorAll("[data-drawer-body]")
-      for (const body of bodies) {
-        let height = 0
-        if (body.dataset.drawerBody === open) height = "auto"
-        gsap.to(body, {
-          height: height,
-          duration: 0.7,
-          ease: "expo.out",
-          overwrite: true,
-          onComplete: function () {
-            ScrollTrigger.refresh()
-          },
+      const previous = expanded.current
+      expanded.current = open
+
+      function slide(slug, height) {
+        const body = list.current.querySelector('[data-drawer-body="' + slug + '"]')
+        return gsap.to(body, { height: height, duration: 0.7, ease: "expo.out", overwrite: true })
+      }
+
+      let last = null
+      if (previous !== null && previous !== open) last = slide(previous, 0)
+      if (open !== null) last = slide(open, "auto")
+      if (last) {
+        last.eventCallback("onComplete", function () {
+          ScrollTrigger.refresh()
         })
       }
     },

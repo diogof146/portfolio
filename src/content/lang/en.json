@@ -96,7 +96,8 @@
     "work": {
       "intro": "A few favourites, from games to backend. Everything else lives in the archive.",
       "archive": "The archive",
-      "view": "View"
+      "view": "View",
+      "swipe": "Swipe for more"
     },
     "offTheClock": "Music, games and guitar have their own page."
   },

@@ -8,6 +8,7 @@ import { languages, hasLanguage } from "@/content/lang/languages"
 import { getDictionary } from "@/content/lang"
 import { siteUrl } from "@/content/site"
 import SmoothScroll from "@/components/SmoothScroll"
+import ScreenHeight from "@/components/ScreenHeight"
 import Cursor from "@/components/Cursor"
 import ThemeWatcher from "@/components/ThemeWatcher"
 import Exposure from "@/components/Exposure"
@@ -40,6 +41,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={lang} className={archivo.variable + " " + martianMono.variable}>
       <body>
+        <ScreenHeight />
         <SmoothScroll>
           <Exposure lang={lang}>
             {children}

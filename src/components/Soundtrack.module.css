@@ -1,8 +1,8 @@
 .sound {
-  --card: clamp(240px, min(38vw, 60svh), 560px);
-  --rec: clamp(240px, min(32vw, 54svh), 480px);
+  --card: clamp(240px, min(38vw, calc(var(--screen) * 0.6)), 560px);
+  --rec: clamp(240px, min(32vw, calc(var(--screen) * 0.54)), 480px);
   position: relative;
-  height: 760vh;
+  height: calc(var(--screen) * 7.6);
   margin-inline: calc(var(--pad) * -1);
 }
 
@@ -11,7 +11,7 @@
   top: 0;
   display: grid;
   place-items: center;
-  height: 100svh;
+  height: var(--screen);
   overflow: hidden;
 }
 
@@ -116,7 +116,7 @@
   .sound {
     --card: 54vw;
     --rec: 50vw;
-    height: 620vh;
+    height: calc(var(--screen) * 6.2);
   }
 }
 

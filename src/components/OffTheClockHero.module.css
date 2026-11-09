@@ -3,7 +3,7 @@
   --muted: #a9cfe0;
   --accent: #7fdcff;
   position: relative;
-  height: 100svh;
+  height: var(--screen);
   min-height: 560px;
   color: var(--fg);
 }

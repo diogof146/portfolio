@@ -1,7 +1,7 @@
 .map {
   --kx: 23.5;
   position: relative;
-  height: clamp(340px, 62vh, 660px);
+  height: clamp(340px, calc(var(--screen) * 0.62), 660px);
   overflow: hidden;
   border: 1px solid var(--ink);
   background: var(--blue);

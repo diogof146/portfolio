@@ -18,7 +18,7 @@ export default function Work({ lang, title, text, allProjects, projects, project
         </p>
       </div>
 
-      <WorkStrip>
+      <WorkStrip hint={text.swipe}>
         {projects.map((project) => (
           <Link
             key={project.slug}

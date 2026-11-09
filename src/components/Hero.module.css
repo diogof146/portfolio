@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: calc(100svh - 56px);
+  min-height: calc(var(--screen) - 56px);
   display: grid;
   grid-template-rows: auto 1fr auto;
   padding: 28px var(--pad) 32px;
@@ -203,7 +203,7 @@
   }
 
   .cutout {
-    max-height: 70svh;
+    max-height: calc(var(--screen) * 0.7);
     margin-inline: auto;
   }
 }

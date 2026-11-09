@@ -1,6 +1,7 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
+import { ArrowRight } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
@@ -9,10 +10,15 @@ import s from "./Work.module.css"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-export default function WorkStrip({ children }) {
+export default function WorkStrip({ hint, children }) {
   const view = useRef(null)
   const track = useRef(null)
   const lenis = useRef(null)
+  const [swiped, setSwiped] = useState(false)
+
+  function onScroll() {
+    if (!swiped && view.current.scrollLeft > 24) setSwiped(true)
+  }
   useLenis(function (instance) {
     lenis.current = instance
   })
@@ -114,10 +120,15 @@ export default function WorkStrip({ children }) {
   })
 
   return (
-    <div ref={view} className={s.view}>
-      <div ref={track} className={s.track}>
-        {children}
+    <>
+      <div ref={view} className={s.view} onScroll={onScroll}>
+        <div ref={track} className={s.track}>
+          {children}
+        </div>
       </div>
-    </div>
+      <p className={"mono " + s.hint} data-swiped={swiped} aria-hidden="true">
+        {hint} <ArrowRight size={14} className={s.hintArrow} />
+      </p>
+    </>
   )
 }

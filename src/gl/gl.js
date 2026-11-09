@@ -132,9 +132,17 @@ export function whenLoaded(image) {
 }
 
 export function coverFromImage(image, aspect, width) {
-  return whenLoaded(image).then(function () {
-    return cropToCanvas(image, aspect, width)
-  })
+  return whenLoaded(image)
+    .then(function () {
+      return image.decode().catch(function () {})
+    })
+    .then(function () {
+      const canvas = cropToCanvas(image, aspect, width)
+      const pixels = canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height)
+      canvas.width = 0
+      canvas.height = 0
+      return pixels
+    })
 }
 
 export function loadCover(src, aspect, width) {

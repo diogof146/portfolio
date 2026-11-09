@@ -11,6 +11,7 @@
   --pad: clamp(20px, 5vw, 72px);
   --gutter: 24px;
   --panel-width: 300px;
+  --screen: 100svh;
 
   --bg: var(--paper);
   --fg: var(--ink);
