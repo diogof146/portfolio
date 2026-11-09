@@ -20,10 +20,18 @@ function Artist({ artist, number, text }) {
 
 function Record({ song, text }) {
   return (
-    <a className={s.record} href={song.url} target="_blank" rel="noreferrer" data-record data-cursor={text.play}>
+    <a
+      className={s.record}
+      href={song.url}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={text.play + ": " + song.title + " · " + song.artist}
+      data-record
+      data-cursor={text.play}
+    >
       {song.image && (
         <span className={s.disc} data-disc aria-hidden="true">
-          <Vinyl label={song.image} />
+          <Vinyl />
         </span>
       )}
       <div className={s.sleeve} data-developed="true">

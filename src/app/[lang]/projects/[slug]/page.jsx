@@ -6,6 +6,16 @@ import DuotoneFilter from "@/components/DuotoneFilter"
 import ProjectPage from "@/components/ProjectPage"
 import SiteFooter from "@/components/SiteFooter"
 import Reveals from "@/components/Reveals"
+import { pageMetadata } from "../../seo"
+
+export async function generateMetadata({ params }) {
+  const { lang, slug } = await params
+  const project = findProject(slug)
+  if (project === null) notFound()
+  const dict = await getDictionary(lang)
+  const text = dict.projects.items[slug]
+  return pageMetadata(lang, "/projects/" + slug, project.title, text.description)
+}
 
 export function generateStaticParams() {
   const params = []

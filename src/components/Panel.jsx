@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -16,7 +16,7 @@ import s from "./Panel.module.css"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-export default function Panel({ lang, text, hold, name, role, status, place, languageLabel, sections, allProjectsHref, face, nowCard }) {
+export default function Panel({ lang, text, hold, name, role, status, place, languageLabel, terminalLabel, sections, allProjectsHref, face, nowCard }) {
   const dock = useRef(null)
   const panel = useRef(null)
   const faceLayer = useRef(null)
@@ -26,7 +26,39 @@ export default function Panel({ lang, text, hold, name, role, status, place, lan
 
   const [active, setActive] = useState(0)
   const [barShown, setBarShown] = useState(false)
+  const [footerShown, setFooterShown] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(function () {
+    const observer = new IntersectionObserver(function (entries) {
+      for (const entry of entries) {
+        setFooterShown(entry.isIntersecting)
+      }
+    })
+    for (const footer of document.querySelectorAll("footer")) {
+      observer.observe(footer)
+    }
+    return function () {
+      observer.disconnect()
+    }
+  }, [])
+
+  useEffect(
+    function () {
+      if (!menuOpen) return
+      const openedAt = window.scrollY
+
+      function closeOnMove() {
+        if (Math.abs(window.scrollY - openedAt) > 10) setMenuOpen(false)
+      }
+
+      window.addEventListener("scroll", closeOnMove, { passive: true })
+      return function () {
+        window.removeEventListener("scroll", closeOnMove)
+      }
+    },
+    [menuOpen],
+  )
 
   useGSAP(function () {
     const hero = document.querySelector("[data-panel-hero]")
@@ -161,16 +193,17 @@ export default function Panel({ lang, text, hold, name, role, status, place, lan
     }
   })
 
-  function closeMenu() {
-    setMenuOpen(false)
+  function closeOnLink(event) {
+    if (event.target.closest("a")) setMenuOpen(false)
   }
 
   function toggleMenu() {
     setMenuOpen(!menuOpen)
   }
 
+  const barVisible = barShown && !footerShown
   let barClass = s.bar
-  if (barShown) barClass = s.bar + " " + s.barShown
+  if (barVisible) barClass = s.bar + " " + s.barShown
   let sheetClass = s.sheet
   if (menuOpen) sheetClass = s.sheet + " " + s.sheetOpen
   let menuLabel = text.openMenu
@@ -223,7 +256,7 @@ export default function Panel({ lang, text, hold, name, role, status, place, lan
           <div className={s.foot}>
             {nowCard}
             <div className={s.footRow}>
-              <Socials />
+              <Socials terminal={terminalLabel} />
               <span className={"mono " + s.languages}>
                 <LanguageSwitch lang={lang} label={languageLabel} />
               </span>
@@ -232,7 +265,7 @@ export default function Panel({ lang, text, hold, name, role, status, place, lan
         </div>
       </aside>
 
-      <div className={barClass}>
+      <div className={barClass} inert={!barVisible}>
         <div className={s.barInfo}>
           <span className="mono">
             <PortoClock /> · {place}
@@ -248,9 +281,9 @@ export default function Panel({ lang, text, hold, name, role, status, place, lan
         <HoldButton text={hold} fromHome compact />
       </div>
 
-      <div className={sheetClass}>
+      <div className={sheetClass} onClick={closeOnLink}>
         {sections.map((section, index) => (
-          <a key={section.id} href={"#" + section.id} className={s.navLink} data-active={index === active} onClick={closeMenu}>
+          <a key={section.id} href={"#" + section.id} className={s.navLink} data-active={index === active}>
             {section.title}
           </a>
         ))}
@@ -258,7 +291,7 @@ export default function Panel({ lang, text, hold, name, role, status, place, lan
           {text.allProjects} <ArrowUpRight size={15} aria-hidden="true" />
         </Link>
         <div className={s.footRow}>
-          <Socials />
+          <Socials terminal={terminalLabel} />
           <span className={"mono " + s.languages}>
             <LanguageSwitch lang={lang} label={languageLabel} />
           </span>

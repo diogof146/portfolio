@@ -38,7 +38,8 @@
 .note {
   position: absolute;
   left: calc(var(--names) + (100% - var(--names)) * var(--x));
-  min-width: 22px;
+  min-width: 24px;
+  min-height: 24px;
   padding: 2px 3px;
   border: 0;
   background: var(--bg);

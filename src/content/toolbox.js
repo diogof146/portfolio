@@ -6,7 +6,7 @@ export const toolbox = [
   },
   {
     id: "frontend",
-    tools: ["React", "Next.js", "Tailwind CSS", "JavaScript", "HTML/CSS", "GSAP"],
+    tools: ["React", "Next.js", "Tailwind CSS", "JavaScript", "HTML/CSS", "GSAP", "WebGL"],
     projects: ["wano-university", "portfolio", "pepe-tours"],
   },
   {

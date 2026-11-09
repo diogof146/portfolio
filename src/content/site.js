@@ -1,3 +1,5 @@
+export const siteUrl = "https://diogof146.com"
+
 export const person = {
   name: "Diogo Ferreira",
   place: "Porto, PT",

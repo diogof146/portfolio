@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Heart } from "lucide-react"
 import { incrementLike } from "@/lib/likes"
 
 export default function LikeButton({ initialCount, label }) {
@@ -15,8 +16,8 @@ export default function LikeButton({ initialCount, label }) {
   }
 
   return (
-    <button type="button" onClick={like}>
-      {label} · {count}
+    <button type="button" onClick={like} aria-label={label + " · " + count} data-cursor={label}>
+      <Heart size={15} aria-hidden="true" /> {count}
     </button>
   )
 }

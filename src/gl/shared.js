@@ -1,5 +1,5 @@
 import gsap from "gsap"
-import { covered, fullscreenShader, loadCover, makeTexture } from "@/gl/gl"
+import { covered, fullscreenShader, coverFromImage, makeTexture } from "@/gl/gl"
 
 const DURATION_IN = 1.5
 const DURATION_OUT = 0.9
@@ -12,7 +12,7 @@ export function sharedRenderer(fragment) {
   function boot() {
     if (shared !== undefined) return shared
     const canvas = document.createElement("canvas")
-    const shader = fullscreenShader(canvas, fragment)
+    const shader = fullscreenShader(canvas, fragment, { offscreen: true })
     if (!shader) {
       shared = null
       return shared
@@ -59,7 +59,7 @@ export function sharedRenderer(fragment) {
     }
   }
 
-  return function register(canvas, src, watch, onReady) {
+  return function register(canvas, image, watch, onReady) {
     if (!boot()) return null
 
     const item = {
@@ -95,7 +95,7 @@ export function sharedRenderer(fragment) {
       if (loading) return
       loading = true
       const aspect = canvas.clientWidth / canvas.clientHeight || 4 / 3
-      loadCover(src, aspect, Math.min(1080, Math.max(320, canvas.width)))
+      coverFromImage(image, aspect, Math.min(1080, Math.max(320, canvas.width)))
         .then(function (picture) {
           if (!items.has(item)) return
           const gl = shared.gl

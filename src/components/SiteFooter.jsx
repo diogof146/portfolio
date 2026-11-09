@@ -6,7 +6,6 @@ import PortoClock from "@/components/PortoClock"
 import Socials from "@/components/Socials"
 import LikeButton from "@/components/LikeButton"
 import TopButton from "@/components/TopButton"
-import TerminalButton from "@/components/TerminalButton"
 import s from "./SiteFooter.module.css"
 
 export default async function SiteFooter({ lang, text, nav, className }) {
@@ -23,7 +22,9 @@ export default async function SiteFooter({ lang, text, nav, className }) {
           · Porto <PortoClock />
         </span>
       </span>
-      <Socials size={16} />
+      <div className={s.icons}>
+        <Socials size={16} terminal={text.terminal} />
+      </div>
       <nav className={s.pages} aria-label={text.pages}>
         <Link href={pathFor(lang, "/")}>{nav.home}</Link>
         <Link href={pathFor(lang, "/projects")}>{nav.projects}</Link>
@@ -31,7 +32,6 @@ export default async function SiteFooter({ lang, text, nav, className }) {
       </nav>
       <span className={s.end}>
         {likes !== null && <LikeButton initialCount={likes} label={text.like} />}
-        <TerminalButton label={text.terminal} className={s.touchOnly} />
         <TopButton label={text.top} />
       </span>
     </footer>

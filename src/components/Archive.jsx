@@ -225,11 +225,11 @@ export default function Archive({ lang, text, nav, rows, kinds, count, span, hom
               </button>
               <div id={"body-" + row.slug} className={s.body} data-drawer-body={row.slug}>
                 <div className={s.sheet}>
-                  <div className={s.picture}>
+                  <Link className={s.picture} href={row.href} tabIndex={-1} aria-hidden="true" data-cursor={text.archive.page}>
                     <Print src={row.image} sizes="(min-width: 768px) 540px, 90vw">
-                      <InkLayer src={row.image.src} />
+                      <InkLayer />
                     </Print>
-                  </div>
+                  </Link>
                   <div>
                     <p className={"lead " + s.line}>{row.line}</p>
                     <ul className={s.chips}>

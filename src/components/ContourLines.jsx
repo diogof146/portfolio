@@ -30,7 +30,8 @@ void main() {
   float line = 1.0 - smoothstep(0.0, w * 1.1, dist);
   float level = floor(v + 0.5);
   float index = mod(level, 5.0) < 0.5 ? 1.8 : 1.0;
-  gl_FragColor = vec4(uColor, clamp(line * uAlpha * index, 0.0, 1.0));
+  float alpha = clamp(line * uAlpha * index, 0.0, 1.0);
+  gl_FragColor = vec4(uColor * alpha, alpha);
 }
 `
 

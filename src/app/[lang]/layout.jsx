@@ -3,8 +3,10 @@ import "@/styles/global.css"
 import { Archivo, Martian_Mono } from "next/font/google"
 import { Suspense } from "react"
 import { notFound } from "next/navigation"
+import { Analytics } from "@vercel/analytics/next"
 import { languages, hasLanguage } from "@/content/lang/languages"
 import { getDictionary } from "@/content/lang"
+import { siteUrl } from "@/content/site"
 import SmoothScroll from "@/components/SmoothScroll"
 import Cursor from "@/components/Cursor"
 import ThemeWatcher from "@/components/ThemeWatcher"
@@ -27,7 +29,7 @@ export async function generateMetadata({ params }) {
   const { lang } = await params
   if (!hasLanguage(lang)) return {}
   const dict = await getDictionary(lang)
-  return { title: dict.meta.title, description: dict.meta.description }
+  return { metadataBase: new URL(siteUrl), title: dict.meta.title, description: dict.meta.description }
 }
 
 export default async function RootLayout({ children, params }) {
@@ -52,6 +54,7 @@ export default async function RootLayout({ children, params }) {
           <TerminalLauncher />
         </SmoothScroll>
         <div className="grain" aria-hidden="true" />
+        <Analytics />
       </body>
     </html>
   )

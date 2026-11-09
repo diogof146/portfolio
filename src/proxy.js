@@ -3,19 +3,10 @@ import { defaultLanguage, hasLanguage, languageOf, addLanguage, stripLanguage } 
 
 const ONE_YEAR = 60 * 60 * 24 * 365
 
-function browserLanguage(request) {
-  const header = request.headers.get("accept-language") || ""
-  for (const part of header.split(",")) {
-    const lang = part.trim().slice(0, 2).toLowerCase()
-    if (hasLanguage(lang)) return lang
-  }
-  return defaultLanguage
-}
-
 function chosenLanguage(request) {
   const saved = request.cookies.get("lang")
   if (saved && hasLanguage(saved.value)) return saved.value
-  return browserLanguage(request)
+  return defaultLanguage
 }
 
 function remember(response, lang) {

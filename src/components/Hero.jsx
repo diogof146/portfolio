@@ -54,7 +54,7 @@ export default function Hero({ text, hold, children }) {
 
         <div className={s.media}>
           <div className={s.cutout}>
-            <LightReveal src={portrait.src} focusX={0.5} focusY={1} intensity={1.7} cursorLabel={text.hero.light}>
+            <LightReveal print focusX={0.5} focusY={1} intensity={1.7} cursorLabel={text.hero.light}>
               <Image
                 src={portrait}
                 alt={person.name}

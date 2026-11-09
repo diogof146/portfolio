@@ -6,6 +6,13 @@ import DuotoneFilter from "@/components/DuotoneFilter"
 import Archive from "@/components/Archive"
 import SiteFooter from "@/components/SiteFooter"
 import Reveals from "@/components/Reveals"
+import { pageMetadata } from "../seo"
+
+export async function generateMetadata({ params }) {
+  const { lang } = await params
+  const dict = await getDictionary(lang)
+  return pageMetadata(lang, "/projects", dict.projects.title, dict.projects.archive.intro)
+}
 
 function groupOf(project) {
   if (project.early) return "early"

@@ -3,15 +3,11 @@
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { DUOTONE, toneAt } from "@/gl/duotone"
-import { covered } from "@/gl/gl"
+import { covered, whenLoaded } from "@/gl/gl"
 import s from "./LightReveal.module.css"
 
 function random(low, high) {
   return low + Math.random() * (high - low)
-}
-
-function optimizedUrl(src) {
-  return "/_next/image?url=" + encodeURIComponent(src) + "&w=1080&q=75"
 }
 
 function cyanotypePrint(image) {
@@ -98,7 +94,7 @@ function cloudTile(hex) {
 
 const TRAIL_SCALE = 0.5
 
-export default function LightReveal({ src, fog = null, focusX = 0.5, focusY = 1, intensity = 1, cursorLabel, children }) {
+export default function LightReveal({ print: printed = false, fog = null, focusX = 0.5, focusY = 1, intensity = 1, cursorLabel, children }) {
   const wrap = useRef(null)
   const canvas = useRef(null)
 
@@ -111,13 +107,12 @@ export default function LightReveal({ src, fog = null, focusX = 0.5, focusY = 1,
       const trailContext = trail.getContext("2d")
 
       let print = null
-      if (src) {
-        const image = new Image()
-        image.decoding = "async"
-        image.onload = function () {
-          print = cyanotypePrint(image)
-        }
-        image.src = optimizedUrl(src)
+      if (printed) {
+        whenLoaded(box.querySelector("img"))
+          .then(function (image) {
+            print = cyanotypePrint(image)
+          })
+          .catch(function () {})
       }
 
       let clouds = []
@@ -211,7 +206,7 @@ export default function LightReveal({ src, fog = null, focusX = 0.5, focusY = 1,
       let inView = true
       let wanderTime = random(0, 10)
       function wanders() {
-        return inView && !reduce && !hovering
+        return fog !== null && inView && !reduce && !hovering
       }
 
       function drawSmoke(time) {
@@ -359,7 +354,7 @@ export default function LightReveal({ src, fog = null, focusX = 0.5, focusY = 1,
         box.removeEventListener("pointerdown", onTap)
       }
     },
-    [src, fog, focusX, focusY, intensity],
+    [printed, fog, focusX, focusY, intensity],
   )
 
   return (

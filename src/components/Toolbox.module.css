@@ -110,9 +110,20 @@
 }
 
 .tools {
-  font-size: 1.2rem;
-  font-weight: 600;
-  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tools li {
+  padding: 4px 9px;
+  border: 1px solid var(--line);
+  font-family: var(--font-data), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
 }
 
 .used {
@@ -152,8 +163,21 @@
 }
 
 @media (max-width: 767px) {
+  .now {
+    display: none;
+  }
+
+  .object {
+    max-width: 220px;
+  }
+
+  .stage {
+    margin-bottom: 8px;
+  }
+
   .inner {
-    padding-left: 0;
+    gap: 16px;
+    padding-left: 58px;
   }
 
   .name {

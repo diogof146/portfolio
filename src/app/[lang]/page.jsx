@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import { getDictionary } from "@/content/lang"
 import { pathFor } from "@/content/lang/languages"
-import { person } from "@/content/site"
+import { person, links, siteUrl } from "@/content/site"
 import { featured, findProject } from "@/content/projects"
 import { toolbox } from "@/content/toolbox"
 import { getLatestPush } from "@/lib/github"
@@ -19,9 +19,33 @@ import Toolbox from "@/components/Toolbox"
 import Now from "@/components/Now"
 import DuotoneFilter from "@/components/DuotoneFilter"
 import Reveals from "@/components/Reveals"
+import { pageMetadata } from "./seo"
 import s from "./home.module.css"
 
 const SECTION_IDS = ["work", "experience", "toolbox", "now", "contact"]
+
+export async function generateMetadata({ params }) {
+  const { lang } = await params
+  const dict = await getDictionary(lang)
+  return pageMetadata(lang, "/", null, dict.meta.description)
+}
+
+function personData(lang, role) {
+  const profiles = []
+  for (const link of links) {
+    profiles.push(link.url)
+  }
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    url: siteUrl + pathFor(lang, "/"),
+    jobTitle: role,
+    address: { "@type": "PostalAddress", addressLocality: "Porto", addressCountry: "PT" },
+    sameAs: profiles,
+  }
+  return JSON.stringify(data).replace(/</g, "\\u003c")
+}
 
 export default async function Home({ params }) {
   const { lang } = await params
@@ -51,6 +75,7 @@ export default async function Home({ params }) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: personData(lang, home.role) }} />
       <DuotoneFilter />
       <ContourLines />
       <Hero text={home} hold={dict.hold}>
@@ -65,6 +90,7 @@ export default async function Home({ params }) {
         status={home.hero.box.open}
         place={home.hero.box.place}
         languageLabel={dict.nav.language}
+        terminalLabel={dict.footer.terminal}
         sections={sections}
         allProjectsHref={pathFor(lang, "/projects")}
         face={<LabelBox text={home.hero.box} />}

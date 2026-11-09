@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { allowed } from "@/lib/limit";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -53,6 +54,10 @@ export async function sendMessage(previous, formData) {
   const problem = problemWith(fields);
   if (problem !== null) {
     return { status: "error", reason: problem, values: fields };
+  }
+
+  if (!(await allowed("contact"))) {
+    return { status: "error", reason: "limited", values: fields };
   }
 
   const sender = fields.name.replaceAll("<", "").replaceAll(">", "").replaceAll('"', "");

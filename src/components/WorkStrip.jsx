@@ -39,7 +39,7 @@ export default function WorkStrip({ children }) {
       const previousOverscroll = html.style.overscrollBehaviorX
       html.style.overscrollBehaviorX = "none"
 
-      gsap.to(track.current, {
+      const tween = gsap.to(track.current, {
         x: function () {
           return -distance()
         },
@@ -58,7 +58,35 @@ export default function WorkStrip({ children }) {
         },
       })
 
+      const strip = track.current
+
+      function cardOf(element) {
+        let card = element
+        while (card.parentElement !== strip) {
+          card = card.parentElement
+        }
+        return card
+      }
+
+      function showFocused(event) {
+        const card = cardOf(event.target)
+        const wanted = card.offsetLeft - (view.current.clientWidth - card.offsetWidth) / 2
+        const shift = Math.min(distance(), Math.max(0, wanted))
+        let progress = 0
+        if (distance() > 0) progress = shift / distance()
+        const trigger = tween.scrollTrigger
+        const y = trigger.start + (trigger.end - trigger.start) * progress
+        if (lenis.current) {
+          lenis.current.scrollTo(y, { immediate: true })
+        } else {
+          window.scrollTo(0, y)
+        }
+      }
+
+      strip.addEventListener("focusin", showFocused)
+
       return function () {
+        strip.removeEventListener("focusin", showFocused)
         html.style.overscrollBehaviorX = previousOverscroll
       }
     })

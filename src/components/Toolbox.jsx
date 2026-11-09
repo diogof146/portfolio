@@ -88,7 +88,11 @@ export default function Toolbox({ title, text, groups }) {
                 </button>
                 <div className={s.body} data-tool-body style={{ height: startHeight }}>
                   <div className={s.inner}>
-                    <p className={s.tools}>{group.tools.join(" · ")}</p>
+                    <ul className={s.tools}>
+                      {group.tools.map((tool) => (
+                        <li key={tool}>{tool}</li>
+                      ))}
+                    </ul>
                     <p className={"mono " + s.used}>
                       <span className="muted">{text.usedIn}</span>
                       {group.projects.map((project) => (

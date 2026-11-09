@@ -1,12 +1,15 @@
 import meImage from "./images/me.webp"
+import fontysImage from "./images/fontys.webp"
 
 export const experience = [
   { id: "degree", kind: "education", start: "2024-09", end: "2027-07" },
-  { id: "erasmus", kind: "erasmus", start: "2026-03", end: "2026-04" },
+  { id: "erasmus", kind: "erasmus", start: "2026-03", end: "2026-04", photo: fontysImage },
   { id: "scholarship", kind: "award", start: "2024-09", end: "2025-07", photo: meImage },
   { id: "pepe", kind: "freelance", start: "2025-03", end: "2025-06" },
   { id: "summer-school", kind: "summerSchool", start: "2025-07" },
 ]
+
+export const highlights = ["scholarship", "erasmus"]
 
 export function yearsOf(item) {
   const startYear = item.start.slice(0, 4)

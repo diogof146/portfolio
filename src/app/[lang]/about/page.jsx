@@ -10,7 +10,14 @@ import Learning from "@/components/Learning"
 import Games from "@/components/Games"
 import Interests from "@/components/Interests"
 import Porto from "@/components/Porto"
+import { pageMetadata } from "../seo"
 import s from "./about.module.css"
+
+export async function generateMetadata({ params }) {
+  const { lang } = await params
+  const dict = await getDictionary(lang)
+  return pageMetadata(lang, "/about", dict.about.title, dict.about.lede)
+}
 
 export default async function About({ params }) {
   const { lang } = await params

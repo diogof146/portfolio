@@ -100,9 +100,21 @@ function takeover(p) {
     0.4,
   )
   timeline.fromTo(p.cardBack, { autoAlpha: 0, scale: 0.94 }, { autoAlpha: 1, scale: 1, ease: "power2.out", duration: 0.25 }, 0.66)
-  timeline.fromTo(p.body.children, { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, ease: "power2.out", duration: 0.25, stagger: 0.06 }, 0.72)
-  timeline.fromTo(p.foot, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.15 }, 0.92)
+  timeline.fromTo(p.body.children, { opacity: 0, y: 36 }, { opacity: 1, y: 0, ease: "power2.out", duration: 0.25, stagger: 0.06 }, 0.72)
+  timeline.fromTo(p.foot, { opacity: 0 }, { opacity: 1, duration: 0.15 }, 0.92)
   return timeline.scrollTrigger
+}
+
+function showOnFocus(p, pin) {
+  function show(event) {
+    const inside = p.body.contains(event.target) || p.foot.contains(event.target)
+    if (inside && window.scrollY < pin.end) window.scrollTo(0, pin.end)
+  }
+
+  p.section.addEventListener("focusin", show)
+  return function () {
+    p.section.removeEventListener("focusin", show)
+  }
 }
 
 function assemble(p) {
@@ -205,14 +217,16 @@ export default function ContactMotion() {
     gsap.set(p.wall, { rotationX: 16, rotation: -7, scale: 1.08 })
 
     const media = gsap.matchMedia()
-    media.add("(min-width: 1100px) and (prefers-reduced-motion: no-preference)", function () {
+    media.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", function () {
       pin.current = takeover(p)
+      const stopShowing = showOnFocus(p, pin.current)
       return function () {
+        stopShowing()
         pin.current = null
       }
     })
 
-    media.add("(max-width: 1099px) and (prefers-reduced-motion: no-preference)", function () {
+    media.add("(max-width: 767px) and (prefers-reduced-motion: no-preference)", function () {
       assemble(p)
     })
 

@@ -49,7 +49,7 @@ function scrubWithScroll(print, handle) {
   }
 }
 
-export default function InkLayer({ src, scrub = false }) {
+export default function InkLayer({ scrub = false }) {
   const canvas = useRef(null)
 
   useEffect(
@@ -58,7 +58,7 @@ export default function InkLayer({ src, scrub = false }) {
       let card = print.closest("[data-card]")
       if (!card) card = print
 
-      const handle = inkPrint(canvas.current, src, card, function () {
+      const handle = inkPrint(canvas.current, print.querySelector("img"), card, function () {
         print.dataset.inked = "true"
       })
       if (!handle) return
@@ -104,7 +104,7 @@ export default function InkLayer({ src, scrub = false }) {
         delete print.dataset.inked
       }
     },
-    [src, scrub],
+    [scrub],
   )
 
   return <canvas ref={canvas} className={s.canvas} aria-hidden="true" />

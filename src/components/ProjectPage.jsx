@@ -48,12 +48,29 @@ export default function ProjectPage({ lang, project, text, nav, position, total,
 
       <div className={s.hero}>
         <Print src={project.image} alt={project.title} sizes="(min-width: 1200px) 1140px, 100vw" preload>
-          <InkLayer src={project.image.src} scrub />
+          <InkLayer scrub />
         </Print>
       </div>
 
       <div className={s.overview}>
-        <p className={s.description}>{item.description}</p>
+        <div className={s.intro}>
+          <p className={s.description}>{item.description}</p>
+          <div className={s.links}>
+            {project.github && (
+              <a className="btn-ghost" href={project.github} target="_blank" rel="noreferrer">
+                {text.links.code} <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+            )}
+            {project.live && (
+              <a className="btn" href={project.live} target="_blank" rel="noreferrer">
+                {liveLabel} <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+            )}
+            {project.itchId && project.platforms && (
+              <Download itchId={project.itchId} platforms={project.platforms} text={page} />
+            )}
+          </div>
+        </div>
         <dl className={s.facts}>
           <div>
             <dt className="mono muted">{page.year}</dt>
@@ -64,7 +81,7 @@ export default function ProjectPage({ lang, project, text, nav, position, total,
             <dd>{text.kinds[project.kind]}</dd>
           </div>
           {role && (
-            <div>
+            <div className={s.wide}>
               <dt className="mono muted">{page.role}</dt>
               <dd>{role}</dd>
             </div>
@@ -81,34 +98,24 @@ export default function ProjectPage({ lang, project, text, nav, position, total,
               </ul>
             </dd>
           </div>
-          <div className={s.wide}>
-            <dt className="mono muted">{page.links}</dt>
-            <dd className={s.links}>
-              {project.github && (
-                <a className="btn-ghost" href={project.github} target="_blank" rel="noreferrer">
-                  {text.links.code} <ArrowUpRight size={15} aria-hidden="true" />
-                </a>
-              )}
-              {project.live && (
-                <a className="btn" href={project.live} target="_blank" rel="noreferrer">
-                  {liveLabel} <ArrowUpRight size={15} aria-hidden="true" />
-                </a>
-              )}
-              {project.itchId && project.platforms && (
-                <Download itchId={project.itchId} platforms={project.platforms} text={page} />
-              )}
-            </dd>
-          </div>
         </dl>
       </div>
 
       {item.case && <CaseStudy project={project} content={item.case} text={text} />}
 
-      <Link className={s.next} href={pathFor(lang, "/projects/" + next.slug)}>
-        <span className="mono muted">{page.next}</span>
-        <span className={"display " + s.nextTitle}>{next.title}</span>
-        <ArrowRight size={36} aria-hidden="true" />
-      </Link>
+      <nav className={s.end}>
+        <Link className={s.all} href={pathFor(lang, "/projects")}>
+          <ArrowLeft size={28} aria-hidden="true" />
+          <span className={"display " + s.allTitle}>{page.back}</span>
+        </Link>
+        <Link className={s.next} href={pathFor(lang, "/projects/" + next.slug)}>
+          <span className="mono muted">{page.next}</span>
+          <span className={"display " + s.nextTitle} data-fit>
+            {next.title}
+          </span>
+          <ArrowRight size={36} aria-hidden="true" />
+        </Link>
+      </nav>
     </article>
   )
 }

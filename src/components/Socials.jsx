@@ -1,10 +1,11 @@
 import { Gamepad2, Github, Instagram, Linkedin } from "lucide-react"
 import { links } from "@/content/site"
+import TerminalButton from "@/components/TerminalButton"
 import s from "./Socials.module.css"
 
 const ICONS = { GitHub: Github, LinkedIn: Linkedin, "itch.io": Gamepad2, Instagram: Instagram }
 
-export default function Socials({ size = 17 }) {
+export default function Socials({ size = 17, terminal = null }) {
   return (
     <div className={s.socials}>
       {links.map((link) => {
@@ -15,6 +16,7 @@ export default function Socials({ size = 17 }) {
           </a>
         )
       })}
+      {terminal && <TerminalButton label={terminal} size={size} />}
     </div>
   )
 }

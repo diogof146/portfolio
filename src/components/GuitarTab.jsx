@@ -31,6 +31,7 @@ export default function GuitarTab({ riff, text }) {
   const guitar = useRef(null)
   const ticking = useRef(null)
   const [playing, setPlaying] = useState(false)
+  const [current, setCurrent] = useState(0)
 
   const parsed = useMemo(
     function () {
@@ -108,15 +109,25 @@ export default function GuitarTab({ riff, text }) {
     ticking.current = tick
   }
 
+  function moveFrom(index, event) {
+    const last = parsed.notes.length - 1
+    let next = index
+    if (event.key === "ArrowRight") next = Math.min(last, index + 1)
+    else if (event.key === "ArrowLeft") next = Math.max(0, index - 1)
+    else if (event.key === "Home") next = 0
+    else if (event.key === "End") next = last
+    else return
+    event.preventDefault()
+    setCurrent(next)
+    staff.current.querySelectorAll("[data-note]")[next].focus()
+  }
+
   useEffect(function () {
     return function () {
       if (ticking.current) gsap.ticker.remove(ticking.current)
       if (guitar.current) guitar.current.stop()
     }
   }, [])
-
-  const reversed = []
-  for (let i = names.length - 1; i >= 0; i--) reversed.push(names[i])
 
   return (
     <div>
@@ -144,6 +155,13 @@ export default function GuitarTab({ riff, text }) {
                 data-note
                 data-cursor={text.pluck}
                 aria-label={describe(text, note, names[note.string])}
+                tabIndex={index === current ? 0 : -1}
+                onFocus={function () {
+                  setCurrent(index)
+                }}
+                onKeyDown={function (event) {
+                  moveFrom(index, event)
+                }}
                 onClick={function (event) {
                   pluck(note, 0, false)
                   flash(event.currentTarget)
@@ -163,7 +181,7 @@ export default function GuitarTab({ riff, text }) {
           {playing ? <Square size={15} aria-hidden="true" /> : <Play size={15} aria-hidden="true" />}
           {playing ? text.stop : text.play}
         </button>
-        <span className="mono muted">{riff.tuning + " · " + reversed.join(" ")}</span>
+        <span className="mono muted">{riff.tuning}</span>
         <span className="mono muted">{text.hint}</span>
       </div>
     </div>

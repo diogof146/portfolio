@@ -1,13 +1,20 @@
-import { experience, yearsOf } from "@/content/experience"
-import Print from "@/components/Print"
-import InkLayer from "@/components/InkLayer"
+import { experience, highlights, yearsOf } from "@/content/experience"
+import Highlights from "@/components/Highlights"
 import s from "./Experience.module.css"
 
-export default function Experience({ title, text }) {
-  const withPhotos = []
-  for (const item of experience) {
-    if (item.photo) withPhotos.push(item)
+function highlightsOf(text) {
+  const list = []
+  for (const id of highlights) {
+    for (const item of experience) {
+      if (item.id !== id) continue
+      const words = text.items[id].photo
+      list.push({ id: id, photo: item.photo, title: words.title, people: words.people })
+    }
   }
+  return list
+}
+
+export default function Experience({ title, text }) {
 
   return (
     <section id="experience" className={s.experience} data-theme="mist">
@@ -32,19 +39,7 @@ export default function Experience({ title, text }) {
         </ol>
 
         <div className={s.photos}>
-          {withPhotos.map((item) => (
-            <figure key={item.id} className={s.figure} data-reveal="up">
-              <div className={s.picture} style={{ aspectRatio: item.photo.width + " / " + item.photo.height }}>
-                <Print src={item.photo} alt={text.items[item.id].photo.title} sizes="(min-width: 768px) 400px, 90vw">
-                  <InkLayer src={item.photo.src} scrub />
-                </Print>
-              </div>
-              <figcaption>
-                <span className="mono">{text.items[item.id].photo.title}</span>
-                <span>{text.items[item.id].photo.people}</span>
-              </figcaption>
-            </figure>
-          ))}
+          <Highlights items={highlightsOf(text)} label={text.highlights} />
         </div>
       </div>
     </section>

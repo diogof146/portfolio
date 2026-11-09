@@ -33,7 +33,7 @@ export default function Work({ lang, title, text, allProjects, projects, project
             </div>
             <div className={s.picture}>
               <Print src={project.image} sizes="(min-width: 1100px) 460px, 78vw">
-                <InkLayer src={project.image.src} />
+                <InkLayer />
               </Print>
             </div>
             <div className={s.title}>

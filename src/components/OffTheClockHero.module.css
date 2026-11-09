@@ -5,7 +5,6 @@
   position: relative;
   height: 100svh;
   min-height: 560px;
-  background: var(--blue);
   color: var(--fg);
 }
 

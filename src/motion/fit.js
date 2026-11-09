@@ -39,7 +39,7 @@ function fit(title) {
 
 export function fitTitles(root) {
   const titles = []
-  for (const el of root.querySelectorAll(".display[data-reveal]")) {
+  for (const el of root.querySelectorAll(".display[data-reveal], .display[data-fit]")) {
     titles.push({ el: el, words: el.innerText.split(/\s+/) })
   }
 

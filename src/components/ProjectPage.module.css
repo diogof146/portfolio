@@ -65,6 +65,11 @@
   border-bottom: 1.5px solid var(--fg);
 }
 
+.intro {
+  display: grid;
+  gap: 28px;
+}
+
 .description {
   font-size: clamp(1.15rem, 1.6vw, 1.4rem);
   line-height: 1.5;
@@ -91,8 +96,13 @@
 }
 
 .stack {
-  display: grid;
-  gap: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+.stack li {
+  white-space: nowrap;
 }
 
 .links {
@@ -101,16 +111,51 @@
   gap: 10px;
 }
 
+.end {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr);
+  gap: 12px;
+  margin-top: clamp(48px, 7vw, 96px);
+}
+
+.all,
+.next {
+  border: 1.5px solid var(--fg);
+  text-decoration: none;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s;
+}
+
+.all {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: clamp(20px, 2.4vw, 32px);
+}
+
+.allTitle {
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+}
+
+.all svg {
+  flex-shrink: 0;
+  transition: transform 0.4s var(--ease);
+}
+
+.all:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.all:hover svg {
+  transform: translateX(-6px);
+}
+
 .next {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 6px 24px;
-  margin-top: clamp(48px, 7vw, 96px);
   padding: clamp(24px, 3vw, 40px);
-  border: 1.5px solid var(--fg);
-  text-decoration: none;
-  transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s;
 }
 
 .next span:first-child {
@@ -119,7 +164,6 @@
 
 .nextTitle {
   font-size: clamp(1.8rem, 4.4vw, 3.6rem);
-  overflow-wrap: anywhere;
 }
 
 .next svg {
@@ -139,5 +183,13 @@
 @media (max-width: 767px) {
   .overview {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .end {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .all {
+    order: 1;
   }
 }

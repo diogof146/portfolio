@@ -3,11 +3,20 @@
   gap: 14px;
 }
 
-.socials a {
+.socials a,
+.socials button {
   display: inline-flex;
   transition: color 0.2s;
 }
 
-.socials a:hover {
+.socials button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+.socials a:hover,
+.socials button:hover {
   color: var(--cyan-ink);
 }

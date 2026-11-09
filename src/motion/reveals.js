@@ -15,7 +15,7 @@ function delayOf(el) {
 function revealUp(el) {
   gsap.from(el, {
     y: 28,
-    autoAlpha: 0,
+    opacity: 0,
     duration: 1,
     ease: "power3.out",
     delay: delayOf(el),
@@ -77,7 +77,7 @@ function revealFade(el) {
     onSplit(self) {
       return gsap.from(self.lines, {
         y: 18,
-        autoAlpha: 0,
+        opacity: 0,
         duration: 0.9,
         ease: "power3.out",
         stagger: 0.07,

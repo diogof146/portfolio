@@ -37,7 +37,23 @@
   }
 
   .weather {
-    justify-items: start;
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: center;
+    gap: 12px;
     text-align: left;
+  }
+
+  .weather svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .weather b {
+    font-size: 1.6rem;
+  }
+
+  .map {
+    margin-top: 24px;
   }
 }

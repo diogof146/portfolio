@@ -1,7 +1,12 @@
 import { NextResponse } from 'next/server';
 import { getDownloadUrl } from '@/lib/itch';
+import { allowed } from '@/lib/limit';
 
 export async function GET(request) {
+  if (!(await allowed('itch'))) {
+    return NextResponse.json({ error: 'Too many downloads, try again in a minute' }, { status: 429 });
+  }
+
   const { searchParams } = new URL(request.url);
   const gameId = searchParams.get('gameId');
   const platform = searchParams.get('platform');

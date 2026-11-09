@@ -4,6 +4,7 @@ import { getLastPlayedGame, getMostPlayedGame, getPlayingNow } from '@/lib/steam
 import { getWeather } from '@/lib/weather';
 import { getLatestPush } from '@/lib/github';
 import { getManga } from '@/lib/anilist';
+import { allowed } from '@/lib/limit';
 import { reading } from '@/content/personal';
 
 async function getListening() {
@@ -23,6 +24,10 @@ async function getRecentGame() {
 }
 
 export async function GET() {
+  if (!(await allowed('terminal'))) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+  }
+
   const [listening, artists, song, mostPlayed, recent, weather, push, manga] = await Promise.all([
     getListening(),
     getTopArtists(),

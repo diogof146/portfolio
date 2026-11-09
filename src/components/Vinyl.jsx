@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { useLenis } from "lenis/react"
-import { autoSize, covered, fullscreenShader, loadCover, makeTexture } from "@/gl/gl"
+import { autoSize, covered, fullscreenShader, coverFromImage, makeTexture } from "@/gl/gl"
 import s from "./Vinyl.module.css"
 
 const FRAGMENT = `
@@ -42,7 +42,8 @@ void main() {
     vec3 label = mix(BLANK, texture2D(uLabel, uv).rgb, uShow);
     label *= 0.9 + 0.12 * pow(align, 8.0);
     label *= 1.0 - 0.25 * smoothstep(LABEL - 4.0 * px, LABEL, r);
-    gl_FragColor = vec4(label, smoothstep(0.024, 0.024 + px, r));
+    float hole = smoothstep(0.024, 0.024 + px, r);
+    gl_FragColor = vec4(label * hole, hole);
     return;
   }
 
@@ -62,13 +63,14 @@ void main() {
   col += SHINE * 0.35 * gap * pow(align, 120.0) * falloff;
   col += SHINE * 0.18 * smoothstep(R - 0.016, R - 0.004, r);
 
-  gl_FragColor = vec4(col, 1.0 - smoothstep(R - px, R + px, r));
+  float rim = 1.0 - smoothstep(R - px, R + px, r);
+  gl_FragColor = vec4(col * rim, rim);
 }
 `
 
 const TURN_SECONDS = 1.8
 
-export default function Vinyl({ label, className = "" }) {
+export default function Vinyl({ className = "" }) {
   const canvas = useRef(null)
   const velocity = useRef(0)
 
@@ -98,7 +100,7 @@ export default function Vinyl({ label, className = "" }) {
       const fade = { show: 0 }
       let alive = true
       let changed = true
-      loadCover(label, 1, 512)
+      coverFromImage(element.closest("[data-record]").querySelector("img"), 1, 512)
         .then(function (image) {
           if (!alive) return
           gl.bindTexture(gl.TEXTURE_2D, texture)
@@ -176,7 +178,7 @@ export default function Vinyl({ label, className = "" }) {
         window.removeEventListener("pointermove", move)
       }
     },
-    [label],
+    [],
   )
 
   return <canvas ref={canvas} className={s.vinyl + " " + className} aria-hidden="true" />

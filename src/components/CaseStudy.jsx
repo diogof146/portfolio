@@ -2,8 +2,6 @@ import { stackKinds } from "@/content/stack"
 import Exploded from "@/components/Exploded"
 import s from "./CaseStudy.module.css"
 
-const SECTIONS = ["brief", "built", "hard", "next"]
-
 function Paragraphs({ items }) {
   return items.map((text) => {
     let className = s.paragraph
@@ -26,17 +24,17 @@ export default function CaseStudy({ project, content, text }) {
 
   return (
     <div className={s.case}>
-      {SECTIONS.map((key, index) => (
-        <section key={key} className={s.section}>
+      {content.sections.map((section, index) => (
+        <section key={section.title} className={s.section}>
           <header className={s.sectionHead}>
             <span className={"mono " + s.number}>{"0" + (index + 1)}</span>
             <h2 className={"display " + s.title} data-reveal="title">
-              {text.page.sections[key]}
+              {section.title}
             </h2>
           </header>
           <div className={s.body}>
-            <Paragraphs items={content[key]} />
-            {key === "built" && <Exploded layers={layers} />}
+            <Paragraphs items={section.body} />
+            {section.stack && <Exploded layers={layers} />}
           </div>
         </section>
       ))}

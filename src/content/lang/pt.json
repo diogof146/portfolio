@@ -13,7 +13,7 @@
     "toOther": "O outro lado",
     "toHome": "Início",
     "short": "Segura",
-    "toOtherLabel": "Carrega sem soltar para ir para Off the clock",
+    "toOtherLabel": "Carrega sem soltar para ir para o Off the clock",
     "toHomeLabel": "Carrega sem soltar para voltar ao início",
     "hint": "Segura em qualquer lado: o outro lado"
   },
@@ -24,28 +24,28 @@
     "pages": "Páginas"
   },
   "home": {
-    "role": "Software engineer in the making",
-    "lead": "I build across the stack: web platforms, games, backend systems and my own tools.",
-    "status": "Open to internships, junior roles & freelance",
+    "role": "Engenheiro de Software Júnior",
+    "lead": "Desenvolvo em toda a stack: plataformas web, jogos, sistemas de backend e as minhas próprias ferramentas.",
+    "status": "Disponível para estágios, cargos júnior e freelance",
     "hero": {
       "edition": "Portfólio 2026",
-      "seeWork": "Ver o trabalho",
+      "seeWork": "Ver os projetos",
       "getInTouch": "Falar comigo",
-      "scroll": "Scroll",
+      "scroll": "Desliza",
       "box": {
         "status": "Estado",
         "open": "Disponível",
         "place": "Porto, PT",
         "listening": "A ouvir agora",
-        "onRepeat": "Em repeat",
-        "findMe": "Onde estou"
+        "onRepeat": "Este Mês",
+        "findMe": "Encontra-me"
       },
       "light": "Luz"
     },
     "statementLabel": "Em resumo",
-    "statement": "Third year of *Computer Engineering* in Porto, an *academic merit* scholarship and an Erasmus project at *Fontys*. So far: *games*, *web platforms*, a site for a *real client*, and the *Neovim config* that started it all.",
+    "statement": "Estou no terceiro ano de *Engenharia Informática* no Porto, com uma bolsa de *mérito académico* e um projeto Erasmus na *Fontys* no currículo. Faço *jogos* e *plataformas web*, já fiz um site para um *cliente*, e agora estou a aprender *cibersegurança*, a área que mais me interessa.",
     "sections": {
-      "work": "Trabalho",
+      "work": "Projetos",
       "experience": "Experiência",
       "toolbox": "Ferramentas",
       "now": "Agora",
@@ -53,10 +53,10 @@
     },
     "contact": {
       "heading": [
-        "Vamos construir",
+        "Vamos criar",
         "algo"
       ],
-      "intro": "Internships, junior roles, freelance work or just a good idea: tell me about it.",
+      "intro": "Estágios, cargos júnior, trabalho freelance ou só uma boa ideia: conta-me.",
       "placeholders": {
         "name": "O teu nome",
         "email": "tu@exemplo.com",
@@ -74,10 +74,11 @@
         "missing": "Preenche todos os campos, por favor.",
         "email": "Esse email não parece estar certo.",
         "long": "Um dos campos é demasiado longo.",
-        "failed": "Algo correu mal no envio. Tenta outra vez."
+        "failed": "Algo correu mal no envio. Tenta outra vez.",
+        "limited": "Demasiadas mensagens em pouco tempo. Espera uns minutos e tenta outra vez."
       }
     },
-    "latestPush": "Último push",
+    "latestPush": "Último commit",
     "nextExam": {
       "label": "Próximo exame",
       "today": "Hoje. Deseja-me sorte.",
@@ -90,53 +91,58 @@
       "allProjects": "Todos os projetos",
       "openMenu": "Abrir menu",
       "closeMenu": "Fechar menu",
-      "stir": "Mexer"
+      "stir": "Mexe"
     },
     "work": {
-      "intro": "A few favourites, from games to backend. Everything else lives in the archive.",
+      "intro": "Alguns favoritos, dos jogos ao backend. O resto está no arquivo.",
       "archive": "O arquivo",
       "view": "Ver"
     },
-    "offTheClock": "Music, games and guitar have their own page."
+    "offTheClock": "A música, os jogos e a guitarra têm uma página só deles."
   },
   "experience": {
-    "intro": "Studies, recognition and real work.",
+    "intro": "Estudos, prémios e trabalho.",
+    "highlights": "Destaques",
     "kinds": {
       "education": "Educação",
       "erasmus": "Erasmus",
       "award": "Prémio",
       "freelance": "Freelance",
-      "summerSchool": "Summer school"
+      "summerSchool": "Summer School"
     },
     "items": {
       "degree": {
-        "short": "Computer Engineering, UPT",
-        "text": "Computer Engineering at Universidade Portucalense, Porto. 3rd year, 18/20 average."
+        "short": "Engenharia Informática, UPT",
+        "text": "Engenharia Informática na Universidade Portucalense, Porto. 3.º ano, média de 18/20."
       },
       "erasmus": {
         "short": "Erasmus BIP, Fontys (NL)",
-        "text": "Erasmus BIP Data and AI at Fontys University of Applied Sciences (NL): an international team project on European data spaces for smart, sustainable cities. Certificate."
+        "text": "Erasmus BIP Data and AI na Fontys University of Applied Sciences (Países Baixos): um projeto internacional em equipa sobre Data Spaces europeus para cidades inteligentes e sustentáveis. Certificado.",
+        "photo": {
+          "title": "Erasmus BIP Data and AI 2026",
+          "people": "O grupo todo na Fontys, Eindhoven"
+        }
       },
       "scholarship": {
-        "short": "Academic merit scholarship",
-        "text": "Academic merit scholarship, +Sucesso@UPortucalense.",
+        "short": "Bolsa de mérito académico",
+        "text": "Bolsa de mérito académico, +Sucesso@UPortucalense.",
         "photo": {
-          "title": "Academic merit scholarship 2024/25",
-          "people": "With Rector Fernando Ramos and Vice-Rector Elizabeth Real"
+          "title": "Bolsa de mérito académico 2024/25",
+          "people": "Com o Reitor Fernando Ramos e a Vice-Reitora Elizabeth Real"
         }
       },
       "pepe": {
-        "short": "PePe Tours & Travels website",
-        "text": "Website for PePe Tours & Travels, a local tourism company."
+        "short": "Site da PePe Tours & Travels",
+        "text": "Site para a PePe Tours & Travels, uma empresa de turismo local."
       },
       "summer-school": {
         "short": "Summer School +Sucesso",
-        "text": "Summer School +Sucesso: a three-day excellence programme at Universidade Portucalense."
+        "text": "Summer School +Sucesso: um programa de excelência de três dias na Universidade Portucalense."
       }
     }
   },
   "toolbox": {
-    "intro": "Pick an area to see the tools, and the projects where I actually used them.",
+    "intro": "Escolhe uma área para ver as ferramentas e os projetos onde as usei.",
     "tools": "ferramentas",
     "usedIn": "Usado em",
     "open": "Abrir",
@@ -161,104 +167,461 @@
       "cli": "CLI"
     },
     "links": {
-      "code": "Código",
-      "live": "Ver online"
+      "code": "GitHub",
+      "live": "Visitar"
     },
     "items": {
       "forsaken-elegy": {
-        "line": "3D action RPG with MMO-style raids",
-        "description": "Single Player 3D Action RPG with MMO-style raid mechanics and fast-paced action combat. Built with Unity and C#.",
+        "line": "3D Action RPG com mecânicas ao estilo MMO",
+        "description": "Um Action RPG 3D single-player com mecânicas de raid ao estilo MMO, uma história e combate rápido. Feito com Unity e C#.",
         "case": {
-          "role": "[TBW: your role, e.g. solo developer: design, code, art?]",
-          "brief": [
-            "[TBW: what Forsaken Elegy is and why you made it; the MMO-raid idea in a single-player game.]"
-          ],
-          "built": [
-            "[TBW: how it's put together in Unity: the combat system, the bosses' raid mechanics, the tools you built.]"
-          ],
-          "hard": [
-            "[TBW: the hardest problems and how you solved them.]"
-          ],
-          "next": [
-            "[TBW: what's next for it.]"
+          "role": "Sozinho: design, código, efeitos, animação, música",
+          "sections": [
+            {
+              "title": "A ideia",
+              "stack": true,
+              "body": [
+                "Forsaken Elegy é um RPG de ação single-player construído à volta de um único combate com um boss, inspirado nas raids Ultimate do Final Fantasy XIV. Jogas como um demónio sem memória, preso num deserto. O guardião da única saída não pode ser derrotado logo de início: tens de explorar o mundo e reunir as páginas da Elegy, um livro que conta a história, antes de teres alguma hipótese.",
+                "Fi-lo para a unidade curricular de Laboratório de Aplicações Multimédia, no 2.º ano. Foi o meu primeiro jogo 3D e a primeira vez que usei uma Game Engine, por isso aproveitei os requisitos da cadeira para fazer um jogo que já queria fazer há muito tempo.",
+                "A maior parte dos modelos e alguns efeitos vêm da Unity Asset Store. O resto é meu: o código, o design do jogo, a arena do boss, a própria Elegy (uma gunblade que modelei porque precisava de um visual muito específico), a maior parte das animações, os efeitos feitos de raiz e a música."
+              ]
+            },
+            {
+              "title": "Combate",
+              "body": [
+                "O combate gira à volta de animation cancelling. Os combos (tap, hold, tap-tap-hold) podem ser cortados por habilidades e as habilidades por outras habilidades, andar interrompe um cast e saltar interrompe um channel. Utilizar estas mecânicas de animation cancelling é a forma de fazer o máximo de dano, o que é importante para derrotar o boss final antes do enrage.",
+                "O dano, o healing e os efeitos disparam em frames exatos de cada animação. Se uma animação for cancelada antes do frame do hit, o script calcula quanto tempo faltava e põe o hit em fila, para que acerte na mesma. Cada hit também regista o que já atingiu, por isso um inimigo grande com vários colliders só leva o dano uma vez.",
+                "No Animator, todas as habilidades entram por um estado vazio e saem por um estado de limpeza que apaga os inputs carregados durante o cast. Sem eles, o idle precisaria de uma seta para cada habilidade e o grafo já era demasiado denso."
+              ]
+            },
+            {
+              "title": "O boss",
+              "body": [
+                "O combate dura seis minutos e corre sempre da mesma forma. Há sete mecânicas: Twista, Fireburst, Pandemonium, Oblivion, Frost Spiral, Ultra Flares e, por fim, Enrage, que te atira com todas ao mesmo tempo. Correm numa linha temporal fixa, por isso aprendes o combate de cor, como numa raid.",
+                "Cada mecânica tem uma barra de cast controlada pela animação do boss, por isso a barra enche exatamente quando a mecânica começa. Modelei a arena especificamente à volta das Ultra Flares, a mecânica mais difícil: explosões avançam em linha a partir de marcadores, e o padrão no chão mostra onde vão atravessar. Fiz as flares e os seus indicadores de raiz no VFX Graph, a aprender com os tutoriais do Gabriel Aguiar.",
+                "Se entrares antes de encontrar a Elegy, o boss leva um décimo do dano e bate cinco vezes mais forte. A ideia é perderes essa primeira visita."
+              ]
+            },
+            {
+              "title": "Mundo e história",
+              "body": [
+                "A história é contada sobretudo através da Elegy. Parte da ideia veio de \"Answers\", uma música de Final Fantasy XIV cuja letra explica coisas que a história ainda não tinha revelado. A Elegy faz algo parecido: depois de a leres toda, o resto do jogo faz muito mais sentido.",
+                "As sete páginas estão escondidas num deserto de ruínas (um cemitério, um palácio, uma aldeia a arder, uma floresta), cada uma num sítio que combina com o que conta. Cada página também dá pontos para a skill tree, que tem especializações de dano, defesa e healing. Nunca há pontos para tudo, por isso escolhes uma build, e podes mudá-la depois. O jogo guarda em cada página, e só a zona onde estás é renderizada, o que mantém o frame rate alto nos combates."
+              ]
+            },
+            {
+              "title": "Música",
+              "body": [
+                "Compus as quatro músicas da banda sonora no Dreams, um jogo que vem com as suas próprias ferramentas para fazer música: Forsaken Elegy (o tema principal), Liminality, The Gate e Anamnesis of a Fallen Angel. Partilham leitmotivs e são sobretudo coro e sintetizadores, com acordes atonais aqui e ali e sem bateria nenhuma, de propósito, para terem menos estrutura. Bloodborne e Silent Hill foram as principais referências."
+              ]
+            },
+            {
+              "title": "Em retrospetiva",
+              "body": [
+                "Fui demasiado ambicioso para o tempo que tinha, com exames e outros projetos ao mesmo tempo, e o fim de semana da entrega deixou isso bem claro. Se o fizesse outra vez, gastava menos tempo no open world e mais nas mecânicas. O combate com o boss é só mecânicas, e sinceramente é bem divertido.",
+                "Cheguei a pensar num Forsaken Elegy 2 em Unreal Engine, sobretudo para aprender Unreal, mas a história não dá bem para uma sequela, por isso prefiro fazer um jogo novo."
+              ]
+            }
           ],
           "layers": {
-            "Unity": "[TBW: what Unity does here.]",
-            "C#": "[TBW: what you wrote in C#.]"
+            "Unity": "O motor: renderização, física, o Animator, a navegação dos inimigos e o VFX Graph para os efeitos.",
+            "C#": "86 scripts: combate, a linha temporal do boss, a IA dos inimigos, a árvore de habilidades, gravação, menus e áudio.",
+            "Blender": "A Elegy, a arena do boss, objetos mais pequenos como árvores e as páginas, e as animações por keyframes do jogador e do boss."
           }
         }
       },
       "wano-university": {
-        "line": "Campus platform with its own mini-language",
-        "description": "A campus management platform designed to monitor and optimize university resources in real time. Built with React, Express, PostgreSQL, Prisma, and a custom System Specific Language parsed via Python's PLY.",
+        "line": "Plataforma de campus com a sua própria mini-linguagem",
+        "description": "Uma plataforma de campus para reservar salas, estacionamento e refeições, com dashboards de sensores em direto e uma linguagem específica do sistema. Feita por uma equipa de cinco com React, Express e PostgreSQL.",
         "case": {
-          "role": "[TBW: your role in the team.]",
-          "brief": [
-            "[TBW: what Wano University is, who it's for, and the problem it solves. The project report can help here.]"
-          ],
-          "built": [
-            "[TBW: the architecture, and the platform's own mini-language parsed with PLY.]"
-          ],
-          "hard": [
-            "[TBW: the hardest problems and how the team solved them.]"
-          ],
-          "next": [
-            "[TBW: what's next, or what you'd do differently.]"
+          "role": "Equipa de cinco: liderei a aplicação web, setup do projeto, code review",
+          "sections": [
+            {
+              "title": "O enunciado",
+              "body": [
+                "Wano University é uma plataforma de gestão de campus. Estudantes e docentes reservam salas, laboratórios e equipamentos, encontram um lugar de estacionamento, bicicleta ou trotinete livre e compram refeições na cantina. Os funcionários validam senhas e acessos às salas. Os administradores gerem utilizadores, permissões e os sensores do campus, com dashboards e alertas de temperatura, consumo energético e qualidade do ar.",
+                "Foi um projeto para três cadeiras do 2.º ano ao mesmo tempo: Engenharia de Software, Laboratório de Tecnologias Web e Compiladores, que pedia uma pequena linguagem de comandos para a plataforma, a LSS. Éramos uma equipa de cinco.",
+                "Liderei a aplicação web. Fiz o setup do projeto, ensinei React, Express e Prisma ao resto da equipa e revi todos os pull requests. Trabalhei em quase todas as camadas, da base de dados e da API à interface e à LSS."
+              ]
+            },
+            {
+              "title": "Como foi feito",
+              "stack": true,
+              "body": [
+                "Começou no Figma. Antes de qualquer código, fizemos a análise de utilizadores (duas personas, um estudante e um administrador) e um protótipo navegável dos ecrãs da aplicação, e o lado dos estudantes e o dos funcionários acabaram por ser duas interfaces diferentes. A aplicação foi feita a partir desses ecrãs.",
+                "O frontend é uma single-page app em React, feita com Vite, com React Router, Tailwind e componentes do shadcn. Fala com uma API em Express, que lê e escreve numa base de dados PostgreSQL através do Prisma. As passwords são guardadas com hash bcrypt. O login devolve um JSON Web Token, e um middleware verifica-o, juntamente com o papel do utilizador (estudante, docente, funcionário ou administrador), em todas as rotas protegidas. Sempre tinha usado sessões, por isso JWT foi novidade para mim.",
+                "Os mapas do campus são Leaflet por cima de uma imagem da planta, e os administradores clicam num ponto da planta para registar ali uma sala, um sensor ou um lugar de estacionamento. O Leaflet foi provavelmente o mais difícil de aprender. As dashboards usam Chart.js e atualizam sozinhas com SWR, que volta a pedir os dados de tempos a tempos e quando voltas ao separador. Não há hardware a sério, por isso as leituras dos sensores são números aleatórios.",
+                "A LSS vive num terminal em popup que abres em qualquer página depois do login. Um comando como rent lab: 4, 09:00, 11:00, 15/06/2026 vai para um pequeno serviço em Python (FastAPI), onde um lexer e um parser em PLY o leem e chamam a mesma API em Express com o teu token, por isso o terminal não consegue fazer nada que o teu papel não possa. Tem variáveis e aceita palavras-chave em inglês ou em português.",
+                "O frontend está na Vercel, o backend no Render e a base de dados na Neon. O plano gratuito do Render adormece o servidor quando ninguém o usa, por isso a demo demora um ou dois minutos a acordar. Foi também por isso que nunca pusemos o serviço da linguagem online: só corre localmente."
+              ]
+            },
+            {
+              "title": "Para além do enunciado",
+              "body": [
+                "O enunciado não pedia pagamentos, mas eu queria experimentar, por isso acrescentámos uma cantina à aplicação. Tem uma ementa e podem-se comprar senhas de refeição com o Stripe em test mode, que simula pagamentos com números de cartão de teste. Cada senha é um QR code que os funcionários leem com o telemóvel para a validar, e as reservas funcionam da mesma forma à porta da sala.",
+                "A aplicação também é uma PWA, por isso instala-se no telemóvel como uma app normal, e tem português e inglês e temas de cores personalizáveis. Os pagamentos, os QR codes e a PWA foram ideias minhas; os mapas interativos saíram dos protótipos em Figma."
+              ]
+            },
+            {
+              "title": "Em retrospetiva",
+              "body": [
+                "A maior parte do que usei aqui aprendi para este projeto: JWT, QR codes, pagamentos e ligar um serviço em Python a uma API em Express. A gestão do tempo foi difícil, pois a Wano foi feita no mesmo mês que o Forsaken Elegy, com exames pelo meio.",
+                "Se o fizesse outra vez, dava um prazo a cada parte do trabalho logo na primeira semana, para que menos coisas se acumulassem no fim. Não há planos para continuar o projeto."
+              ]
+            }
           ],
           "layers": {
-            "React": "The campus app people actually use, in the browser.",
-            "Express.js": "The server the app talks to.",
-            "Prisma": "Turns database rows into JavaScript objects (and back).",
-            "PostgreSQL": "Where everything is stored.",
-            "PLY": "Lexer and parser for the platform's own mini-language (Python)."
+            "Figma": "A análise de utilizadores e o protótipo navegável a partir do qual a aplicação foi feita.",
+            "React": "A aplicação: páginas para cada papel, os mapas, as dashboards e o terminal em popup.",
+            "Express.js": "A API: login, papéis, reservas, pagamentos e senhas.",
+            "Prisma": "Transforma linhas da base de dados em objetos JavaScript (e vice-versa).",
+            "PostgreSQL": "Onde tudo fica guardado.",
+            "PLY": "Lexer e parser da LSS, a linguagem de comandos da plataforma.",
+            "FastAPI": "O pequeno serviço em Python que corre os comandos da LSS contra a API em Express."
           }
         }
       },
       "nvim-config": {
-        "line": "The editor that got me into all this",
-        "description": "This is my favourite project, as it was the spark that ignited my passion for programming and obsession with customization."
+        "line": "O editor que me trouxe até aqui",
+        "description": "O meu projeto favorito: a configuração do editor que uso para quase tudo desde o primeiro ano.",
+        "case": {
+          "role": "Sozinho, em curso",
+          "sections": [
+            {
+              "title": "Como começou",
+              "body": [
+                "No meu primeiro semestre vi alguém a programar só com o teclado, a saltar entre ficheiros e a correr comandos àquela velocidade, e quis logo aprender a trabalhar assim. Passei as férias de Natal antes do segundo semestre a montar a minha configuração do Neovim, e desde então uso-a para quase tudo.",
+                "Parte do encanto é que simplesmente gosto de carregar em muitas teclas depressa. A outra parte é poder pô-lo com o aspeto e o funcionamento que eu quiser; o meu até tem um wallpaper animado por trás. E nunca está acabado: vou-o sempre ajustando ao que estiver a fazer."
+              ]
+            },
+            {
+              "title": "Levá-lo para todo o lado",
+              "body": [
+                "Sempre que uma cadeira ou um projeto trazia uma linguagem nova, pus o Neovim a tratar dela em vez de mudar de editor. O Java foi o que deu mais trabalho: só o setup do jdtls tem mais de 300 linhas, encontra projetos Maven e Gradle e escolhe entre os JDKs que tenho instalados. Para uma cadeira cheguei a escrever um pequeno plugin, o java-project-creator.nvim, que cria projetos Java e Maven, mas já não o uso. O C# corre pelo Roslyn e, com um script dos meus dotfiles, o Unity abre os scripts no Neovim. Fiz o Vivre Bar, uma app em Swift, aqui com o xcodebuild.nvim em vez do Xcode."
+              ]
+            },
+            {
+              "title": "Como está montado",
+              "stack": true,
+              "body": [
+                "Está escrito em Lua: o lazy.nvim carrega os plugins e o Mason instala os language servers. Além disso: Telescope para encontrar coisas, Treesitter, ferramentas do Git, debugging com o nvim-dap, LaTeX com o VimTeX e dicionários em inglês e português. As keybinds têm um ficheiro só para elas, porque são muitas. Está sempre a mudar, por isso parte disto provavelmente já está desatualizado."
+              ]
+            }
+          ],
+          "layers": {
+            "Lua": "A configuração toda: opções, atalhos, autocomandos e o setup de cada plugin.",
+            "Neovim": "O editor em si, com os plugins e os language servers por cima.",
+            "Unix": "A base: o ripgrep para pesquisar, a shell e o terminal onde corre."
+          }
+        }
       },
       "animal-care-centre": {
-        "line": "Pet-adoption REST API",
-        "description": "A pet adoption portal REST API built with Spring."
+        "line": "Plataforma para abrigos de animais: API e app de desktop",
+        "description": "Uma plataforma para abrigos de animais: uma API em Spring Boot protegida com Spring Security e uma app de desktop em JavaFX.",
+        "case": {
+          "role": "Equipa de quatro: co-liderei, setup do projeto, segurança, a app em JavaFX",
+          "sections": [
+            {
+              "title": "A ideia",
+              "body": [
+                "O Animal Care Centre junta numa só app os abrigos de animais e as pessoas que os querem ajudar. Os abrigos registam os seus animais com fotos e respondem a pedidos de adoção e de acolhimento. Os utilizadores pesquisam animais, adotam ou acolhem um, apadrinham um animal com um valor mensal ou fazem doações a um abrigo. Há também uma secção de perdidos e achados, onde qualquer pessoa pode registar um animal perdido ou um que encontrou. Os administradores aprovam os novos abrigos antes de estes poderem fazer login.",
+                "Foi o projeto de Laboratório de Programação no 1.º semestre do 2.º ano, feito por quatro de nós entre outubro e dezembro de 2025, em três componentes. A cadeira tinha outro tema em mente. Fui eu que tive esta ideia, o grupo gostou, e quando a apresentámos a professora adorou.",
+                "Liderei o projeto em conjunto com uma colega: ela revia os meus pull requests e eu revia os de todos os outros. Fiz o setup do projeto, a segurança, a app em JavaFX e os seus componentes, e uma grande parte da API."
+              ]
+            },
+            {
+              "title": "Três componentes, um backend",
+              "body": [
+                "As três componentes fazem crescer a mesma app. A primeira corria no terminal e guardava tudo em MySQL através do Hibernate. Na segunda dividimo-la numa API REST em Spring Boot e num cliente que a chama, a nossa primeira vez a trabalhar com cliente e servidor. A terceira trocou esse cliente por uma app em JavaFX, para vermos o mesmo backend a continuar a funcionar com um cliente novo."
+              ]
+            },
+            {
+              "title": "Meio terminal, meio JavaFX",
+              "body": [
+                "Já tínhamos usado JavaFX no 1.º ano como extra e sabíamos que a última componente ia precisar dele, por isso começámos a primeira logo em JavaFX (login, criar conta, mudar a password) sem perguntar. A professora queria o terminal. Como esses ecrãs já estavam feitos, deixou-nos mantê-los para não desperdiçarmos trabalho e pediu o resto no terminal.",
+                "Isso significou uma app com duas interfaces ao mesmo tempo, ou seja, duas threads. O JavaFX desenha a janela na sua própria thread, e ler do terminal bloqueia até escreveres alguma coisa, por isso os menus do terminal tinham de correr numa segunda thread, senão a janela congelava. Enquanto um menu estava aberto no terminal, a janela só mostrava um botão de logout, e mudar de menu criava novas threads no terminal enquanto as antigas ainda podiam estar à espera de input. Os dois lados lutavam pelo input e output da consola, e a app crashava vezes sem conta.",
+                "A solução foi um pequeno sistema de semáforos. Cada leitura da consola tem primeiro de obter um lock no Scanner partilhado, por isso só uma thread lê de cada vez, e antes de ler a thread verifica se lhe pediram para parar. Abrir um menu novo interrompe a thread do anterior, que pára sem erros, e tudo o que muda a janela volta à thread do JavaFX através do Platform.runLater.",
+                "Ninguém faz uma app mista destas de propósito, por isso não era fácil encontrar a solução para o problema. No fim, aprendi o suficiente para o explicar à professora. Quando a última componente passou toda para JavaFX, o main antigo ficou no repositório como legacy, todo comentado."
+              ]
+            },
+            {
+              "title": "Como foi feito",
+              "stack": true,
+              "body": [
+                "A API é em Spring Boot, dividida em controllers para os endpoints HTTP, services para as regras e repositories para a base de dados. O Hibernate mapeia as classes Java para tabelas em MySQL. Os abrigos e os animais aceitam fotos até 10 MB.",
+                "A segurança não fazia parte do enunciado; acrescentei-a por iniciativa própria porque é o que mais me interessa. O login passa pelo Spring Security e mantém uma sessão, todas as rotas exceto o registo, o login e a recuperação da password precisam dela, e cada endpoint verifica o role: utilizador, abrigo ou administrador. As passwords e as respostas de segurança são guardadas com hash BCrypt, e uma password precisa de 8 a 16 caracteres com uma maiúscula, um número e um caractere especial. Os administradores precisam de um código secreto para se registarem, e os abrigos esperam pela aprovação de um administrador. Hoje parece-me básico, mas foi onde começou.",
+                "Para a terceira componente, ecrãs brancos simples com caixas de texto chegavam para o enunciado. Fiz uma pequena biblioteca de componentes: botões, caixas de texto, cartões, uma grelha com páginas, um carrossel de fotos, popovers e uma barra de navegação, todos no mesmo estilo. Os animais, os abrigos e os animais perdidos partilham uma interface Displayable, por isso a mesma grelha mostra qualquer um deles. Uma classe Navigator muda de página, e uma única classe ApiClient fala com a API e guarda o cookie da sessão."
+              ]
+            },
+            {
+              "title": "Em retrospetiva",
+              "body": [
+                "Quase tudo aqui foi novidade para mim: Spring, Hibernate, APIs REST, cliente e servidor, Spring Security e threads. O JavaFX não, e o Maven mais ou menos. Tínhamos usado uma vez no 1.º ano porque a minha config do Neovim precisava dele para correr o projeto, sem sabermos bem o que era uma build tool. Aqui aprendi a usá-lo como deve ser.",
+                "Se o fizesse outra vez, não misturava JavaFX com o terminal. Mas o projeto não acabou: há planos para o transformar numa plataforma a sério."
+              ]
+            }
+          ],
+          "layers": {
+            "Java": "A linguagem da API e da app de desktop.",
+            "Spring Boot": "A API REST: controllers, services e repositories.",
+            "Hibernate": "Mapeia as classes Java para tabelas em MySQL (e vice-versa).",
+            "MySQL": "Onde tudo fica guardado.",
+            "Spring Security": "Sessões de login, hashing com BCrypt e o que cada papel pode fazer.",
+            "JavaFX": "A app de desktop, feita com o seu próprio conjunto de componentes."
+          }
+        }
       },
       "pepe-tours": {
-        "line": "Website for a local tourism company",
-        "description": "A website developed as a freelance project for a local tourism company."
+        "line": "Site para uma empresa de turismo local",
+        "description": "Um site feito como projeto freelance para uma empresa de turismo local.",
+        "case": {
+          "role": "Sozinho, freelance",
+          "sections": [
+            {
+              "title": "O site",
+              "body": [
+                "A PePe Tours & Travels faz tours privadas a partir do Porto: a cidade, o Vale do Douro, Braga e Guimarães, Coimbra e Aveiro, Fátima e mais. O site tem uma página inicial com vídeos, as tours, uma página sobre a empresa e contacto por WhatsApp ou email. Foi o meu primeiro site, feito no verão de 2025."
+              ]
+            },
+            {
+              "title": "Como foi feito",
+              "stack": true,
+              "body": [
+                "É HTML, CSS e JavaScript em cima do Bootstrap, alojado no GitHub Pages. As doze tours partilham uma página de detalhes: o script lê a tour do URL e preenche as fotos, os destaques, o que está incluído e o preço, que depende do tamanho do grupo, de duas a sete pessoas. Grupos maiores entram em contacto. Os vídeos só carregam quando estão prestes a aparecer no ecrã, e tocar num abre-o em ecrã inteiro.",
+                "Ainda acho que está bonito, no entanto, hoje fazia-o muito melhor. Foi uma boa experiência onde aprendi a lidar com clientes e como um site se monta."
+              ]
+            }
+          ],
+          "layers": {
+            "HTML/CSS": "As páginas, e os estilos do próprio site por cima dos do Bootstrap.",
+            "Bootstrap": "A grelha, a barra de navegação e o layout em telemóvel.",
+            "JavaScript": "As páginas das tours preenchidas a partir de um ficheiro de dados, o carregamento dos vídeos e o ecrã inteiro."
+          }
+        }
       },
       "dotfiles": {
-        "line": "My macOS / Unix configuration",
-        "description": "My macOS/Unix configuration files."
+        "line": "A minha configuração de macOS / Unix",
+        "description": "Os meus ficheiros de configuração de macOS/Unix.",
+        "case": {
+          "role": "Sozinho, em curso",
+          "sections": [
+            {
+              "title": "O que tem",
+              "body": [
+                "A configuração de tudo no meu Mac exceto o Neovim, que é demasiado grande, daí ter o seu próprio repositório. Zsh com Starship, os terminais Ghostty e kitty (o Ghostty com alguns shaders GLSL), tmux, Karabiner para o teclado, IdeaVim para ter atalhos de Vim nos IDEs da JetBrains, bordas nas janelas, um tema para o Spotify e outro para o Discord, e cheat sheets do navi. Há também um pequeno script que faz o Unity abrir os ficheiros no Neovim. Está tudo nesta pasta, e cada ficheiro tem um symlink de volta para onde a sua app o espera encontrar, como ~/.zshrc ou ~/.config/ghostty, por isso o repositório é a única cópia.",
+                "A maior parte do histórico são window managers. Passei do yabai com skhd para o AeroSpace, depois para o HyprSpace, e desde julho de 2026 uso o OmniWM. A configuração de cada um continua lá."
+              ]
+            },
+            {
+              "title": "Porque está aqui",
+              "stack": true,
+              "body": [
+                "É sobretudo para outros programadores. Quando alguém me pergunta como configurei alguma coisa, posso mandar-lhe o repositório. É também o que facilita o setup de um computador novo."
+              ]
+            }
+          ],
+          "layers": {
+            "Bash": "Os scripts, como o que faz o Unity abrir ficheiros no Neovim.",
+            "Unix": "Os ficheiros de configuração da shell, dos terminais, dos window managers e do resto."
+          }
+        }
       },
       "vivre-bar": {
-        "line": "GIFs in the macOS menu bar",
-        "description": "A delightfully useless macOS menu bar app that brings GIFs to the menu bar with customizable effects and colours."
+        "line": "GIFs na barra de menus do macOS",
+        "description": "Uma app que põe GIFs na barra de menus do macOS, com efeitos e cores personalizáveis.",
+        "case": {
+          "role": "Sozinho",
+          "sections": [
+            {
+              "title": "Porque existe",
+              "body": [
+                "Queria o Luffy a correr na minha barra de menus e não encontrei forma de lá pôr um GIF, por isso escrevi uma app para isso. Quando funcionou, acrescentei uma forma de usar qualquer GIF. Ainda a uso todos os dias."
+              ]
+            },
+            {
+              "title": "O que faz",
+              "stack": true,
+              "body": [
+                "Vem com dois GIFs do One Piece e permite dar upload dos teus. Há quatro modos de cor: as cores do próprio GIF, System (fica igual aos outros ícones da barra), Fill e Tint. Podes mudar o tamanho e a velocidade e juntar um efeito, como glow, blur, pixelizar ou twirl. É Swift e AppKit, cerca de mil linhas, escritas no Neovim em vez do Xcode.",
+                "A versão 1.0.0 está no GitHub e instala-se pelo meu próprio tap do Homebrew, mas fiquei por aí e nunca a divulguei. Ainda a quero melhorar: as cores e os efeitos têm de funcionar muito melhor, e precisa de imagens muito melhores."
+              ]
+            }
+          ],
+          "layers": {
+            "Swift": "O código todo da app: carregar GIFs, os modos de cor, os efeitos e as definições.",
+            "AppKit": "O item na barra de menus e o seu menu de definições.",
+            "macOS": "Onde corre; instala-se pelo Homebrew."
+          }
+        }
       },
       "portfolio": {
-        "line": "The site you're on",
-        "description": "A custom-designed personal portfolio built with Next.js Tailwind CSS and Shadcn UI."
+        "line": "O site onde estás",
+        "description": "Um portfólio pessoal desenhado de raiz, feito com Next.js, WebGL e GSAP.",
+        "case": {
+          "role": "Sozinho: design, código e conteúdo",
+          "sections": [
+            {
+              "title": "Recomeçar",
+              "body": [
+                "Esta é a segunda versão do meu site. Fiz a primeira em março de 2026, com Next.js, Tailwind e shadcn. Tinha o Spotify e a Steam numa página sobre mim, um terminal e um contador de likes, e funcionava, mas parecia-se com muitos outros sites.",
+                "Em outubro comecei de novo. Fiquei com o conteúdo, os dados em direto e a ideia do terminal, e reescrevi tudo o resto."
+              ]
+            },
+            {
+              "title": "Dez protótipos",
+              "body": [
+                "Antes de escrever código a sério, fiz muita pesquisa. Vi vários sites de que gostava, tentei perceber o que funcionava neles e o que não funcionava, e aprendi as ferramentas de que ia precisar, como o GSAP e escrever os meus próprios shaders.",
+                "Depois escolhi uma direção e fiz dez protótipos rápidos dela. A direção é a cianotipia, o processo antigo das plantas em azul: azul escuro, branco de papel e ciano como a luz. As imagens dos projetos começam azuis e revelam-se a cores, a página muda de cor à medida que passas pelas secções, e carregar sem soltar em qualquer sítio inunda o ecrã de azul e leva-te ao lado pessoal, o Off the clock.",
+                "O segundo protótipo tornou-se o site, e a maioria dos outros foram incorporados em partes: o stack explodido nestas páginas de projeto, a tinta na água do painel lateral, o ambiente de trabalho por trás do terminal."
+              ]
+            },
+            {
+              "title": "Como foi feito",
+              "stack": true,
+              "body": [
+                "É Next.js com o App Router, em JavaScript simples, com um CSS Module por componente. O GSAP trata do movimento: ScrollTrigger para tudo o que depende do scroll, SplitText para os títulos, Flip para os filtros do arquivo. O Lenis suaviza o scroll, e desliga-se para quem pede ao sistema menos movimento.",
+                "O WebGL é escrito à mão, sem biblioteca. As curvas de nível do fundo, a tinta que se espalha sobre uma prova quando passas o rato, as imagens que se derretem umas nas outras no arquivo, o fluido no painel lateral, o disco no Off the clock e as formas da caixa de ferramentas são todos pequenos fragment shaders, e cada um deixa de desenhar quando o seu canvas sai do ecrã.",
+                "As partes em direto (o que estou a ouvir e a jogar, a manga que estou a ler, o meu último commit, o meu próximo exame, o tempo no Porto) são pedidas no servidor e guardadas em cache. Se uma delas falhar, a página mostra uma alternativa em vez de um erro. O site está em inglês e em português europeu, a partir de um ficheiro JSON por língua, e o formulário de contacto é uma server action que envia o email pelo Resend, com rate limits em tudo o que custa um pedido."
+              ]
+            },
+            {
+              "title": "O terminal",
+              "body": [
+                "Carrega em Cmd+K (ou Ctrl+K) em qualquer página e ela transforma-se num ambiente de trabalho como um tiling window manager de Linux: uma shell, o fastfetch, a minha biblioteca da Steam, os meus artistas mais ouvidos e um explorador de ficheiros com todos os projetos, com Alt+h/j/k/l para mudar de janela. O segundo workspace tem a tablatura de guitarra aberta no Neovim. E toca. A shell mantém os comandos do site antigo e tem oito jogos, entre eles o snake, o minesweeper, o 2048 e um jogo da forca com 251 palavras de One Piece."
+              ]
+            },
+            {
+              "title": "O que os testes encontraram",
+              "body": [
+                "Da primeira vez que o abri no iPhone, todas as secções escuras estavam desbotadas, num ciano pálido. No computador estava tudo bem, até no motor do Safari. A culpa era do canvas que desenha as curvas de nível, que cobre a página toda. Entre as linhas, desenhava a cor das linhas com opacidade zero. Os outros browsers tratavam isso como invisível, mas o Safari no iPhone somava a cor na mesma, e o ciano pálido espalhava-se por tudo. Agora os canvases guardam cada cor já multiplicada pela sua opacidade (alpha pré-multiplicado), por isso opacidade zero quer dizer cor nenhuma. Essa correção pôs as imagens dos projetos a preto no Safari, por isso o canvas que desenha a tinta continua a funcionar da forma antiga.",
+                "Percorrer todas as páginas só com o teclado encontrou um pior: no computador, o Tab não chegava a nada depois das Ferramentas. As animações que revelam as coisas quando fazes scroll escondiam-nas de uma forma que também as punha fora do alcance do Tab, por isso agora só as fazem aparecer aos poucos. Só a tablatura de guitarra tinha mais de 60 paragens de Tab; agora tem uma, e as setas passam de nota em nota. O Lighthouse dá 100 de acessibilidade em todas as páginas exceto a inicial, onde as palavras esbatidas da frase de abertura estão esbatidas de propósito."
+              ]
+            }
+          ],
+          "layers": {
+            "Next.js": "As páginas nas duas línguas, geradas e guardadas em cache no servidor, mais as rotas da API e o formulário de contacto.",
+            "React": "Cada secção é um componente; o movimento, os canvases e o terminal correm no browser.",
+            "GSAP": "Todo o movimento: animação ligada ao scroll, secções fixas, as entradas dos títulos e os filtros do arquivo.",
+            "WebGL": "Os shaders: curvas de nível, tinta, o derreter, o fluido, o disco, as formas da caixa de ferramentas e o mapa do Porto."
+          }
+        }
       },
       "riff-hero": {
-        "line": "A Guitar Hero clone",
-        "description": "A Guitar Hero clone built in Java with FXGL."
+        "line": "Um jogo de ritmo para as tuas músicas",
+        "description": "Um jogo de ritmo que transforma ficheiros MIDI em notas. Java com FXGL, em pausa.",
+        "case": {
+          "role": "Sozinho, em pausa",
+          "sections": [
+            {
+              "title": "A ideia",
+              "body": [
+                "Um jogo como o Guitar Hero onde podes tocar as tuas próprias músicas. Adoro jogos de ritmo, e em todos eles é outra pessoa que escolhe as músicas. As notas descem por cinco pistas, tocadas com A, D, J, K e L, e cada acerto ou falha mexe na pontuação."
+              ]
+            },
+            {
+              "title": "Tirar as notas",
+              "stack": true,
+              "body": [
+                "A parte difícil é transformar uma música em notas. O meu primeiro script ouvia o áudio com o librosa e tentava encontrar as notas nele, e os resultados não eram fiáveis. Por isso passei para ficheiros MIDI. Um script em Python com o Mido dá uma pontuação a cada faixa pelo número de notas, pela amplitude e por quão aguda é, o que deixa de fora a bateria e o baixo e encontra a melodia. Depois converte essa faixa para JSON, com o tempo de cada nota em segundos calculado a partir das mudanças de andamento da música, e o jogo, em Java com FXGL, lê o JSON.",
+                "Mesmo com as notas certas, a música desfasava-se das notas no ecrã, e não consegui perceber porquê. Foi aí que parei. Um jogo de ritmo onde posso tocar qualquer música é algo a que vou voltar, e quando voltar começo do zero, provavelmente não em Java. Só usei o FXGL porque era Java que estávamos a aprender na universidade na altura."
+              ]
+            }
+          ],
+          "layers": {
+            "Java": "O jogo: as faixas, as notas, a deteção de acertos e a pontuação.",
+            "FXGL": "O motor de jogo por cima do JavaFX: o loop, o input e os menus.",
+            "Mido": "Lê os ficheiros MIDI em Python, para o script escolher a melodia e exportá-la em JSON."
+          }
+        }
       },
       "farmers-market": {
-        "line": "Marketplace app, built as a SCRUM team",
-        "description": "A Farmers Marketplace GUI App developed as a group using the SCRUM framework."
+        "line": "App de marketplace, feita em equipa SCRUM",
+        "description": "Um marketplace para agricultores biológicos, com interface em JavaFX, feito por uma equipa Scrum de quatro.",
+        "case": {
+          "role": "Equipa de quatro, a maior parte do código",
+          "sections": [
+            {
+              "title": "O projeto",
+              "body": [
+                "O Farmers Market liga agricultores biológicos a quem lhes quer comprar. Os agricultores registam os produtos, definem preços e stock e descrevem como cultivam. Os clientes pesquisam por agricultor ou por categoria, enchem um carrinho e compram, e os administradores gerem a plataforma.",
+                "Foi a minha primeira app orientada a objetos, feita por um grupo de quatro elementos de abril a junho de 2025, no segundo semestre do meu primeiro ano. Contou para duas cadeiras: Programação Orientada a Objetos, e Sistemas de Informação, onde trabalhámos em sprints de Scrum a partir de um backlog com cerca de 40 user stories."
+              ]
+            },
+            {
+              "title": "Apontar alto",
+              "stack": true,
+              "body": [
+                "Queríamos que ficasse bom, por isso começámos a ver como fazê-la como uma web app de página única, o que era muito para alunos do primeiro ano. A professora convenceu-nos a não o fazer e sugeriu JavaFX para uma interface gráfica, e emprestou-nos um livro e alguns PDFs da cadeira do segundo ano. Eu e uma colega do grupo aprendemos isso como um extra, sobretudo porque, até então, só tínhamos feito apps de terminal durante todo o primeiro semestre e queríamos algo mais bonito. Guardar tudo em ficheiros CSV também não era pedido; foi outro extra."
+              ]
+            }
+          ],
+          "layers": {
+            "Java": "O modelo (utilizadores, agricultores, produtos, carrinhos e encomendas) e as regras, guardados em CSV.",
+            "JavaFX": "A interface gráfica, aprendida com material do segundo ano como um extra.",
+            "SCRUM": "Como trabalhámos: um backlog de user stories, dividido em sprints."
+          }
+        }
       },
       "fbsim": {
-        "line": "Learning game dev with Pygame",
-        "description": "A 2D penalty shootout simulator built with Python/Pygame to learn the fundamentals of game development."
+        "line": "A aprender game dev com Pygame",
+        "description": "Um simulador de penáltis 2D feito com Python/Pygame para aprender as bases do desenvolvimento de jogos.",
+        "case": {
+          "role": "Sozinho, primeiro semestre",
+          "sections": [
+            {
+              "title": "Porque o fiz",
+              "body": [
+                "Não sabia programar antes da universidade. No meu primeiro semestre os exercícios saíam-me com facilidade, por isso usei o tempo livre para aprender a fazer algo que não fosse um programa de terminal, como um jogo. Python era a linguagem que estávamos a aprender, por isso encontrei o Pygame, li a documentação e fiz isto."
+              ]
+            },
+            {
+              "title": "Como se joga",
+              "stack": true,
+              "body": [
+                "Dois jogadores escolhem uma equipa cada e rematam à vez, com as regras reais dos penáltis, morte súbita incluída. Apontas com as setas e rematas com o espaço. O guarda-redes engana-se uma vez em cada três e atira-se a uma velocidade aleatória, por isso mesmo quando acerta no lado pode chegar tarde. Um golo toca um \"SIUUU\".",
+                "A única parte difícil foi a direção do remate, que precisou de seno e cosseno para transformar um ângulo na velocidade da bola. Foi assim que descobri quanta matemática há nos jogos."
+              ]
+            }
+          ],
+          "layers": {
+            "Python": "A lógica do jogo: os turnos, o resultado e as regras dos penáltis.",
+            "Pygame": "A janela, o desenho, o teclado e o som."
+          }
+        }
       },
       "pms": {
-        "line": "My first program",
-        "description": "A terminal-based Python application that helps manage and analyze pollution data. This was my first programming project."
+        "line": "O meu primeiro programa",
+        "description": "Uma aplicação de terminal em Python que ajuda a gerir e analisar dados de poluição. Foi o meu primeiro projeto de programação.",
+        "case": {
+          "role": "Grupo de três, o código todo",
+          "sections": [
+            {
+              "title": "O enunciado",
+              "body": [
+                "O projeto final de Algoritmos e Programação, a minha primeira cadeira de programação. É uma app de terminal para as medições de poluição da Agência Portuguesa do Ambiente: cada ficheiro tem uma grelha de medições de uma cidade, e o programa transforma-a num mapa de alertas (moderado, alto, extremo ou severo). Depois trabalha sobre ele, ajustando níveis, espalhando a poluição com vento de norte, encontrando a área 3×3 onde um purificador ajudaria mais e comparando duas medições ao longo do tempo."
+              ]
+            },
+            {
+              "title": "Além do enunciado",
+              "stack": true,
+              "body": [
+                "Havia doze tarefas obrigatórias e cinco extras, e um grupo do nosso tamanho tinha de fazer pelo menos dois extras. Fizemos os cinco: focos de poluição, um ficheiro com o mapa de calor, linhas e colunas com o mesmo nível de alerta, vento de várias direções e uma previsão para a hora seguinte. Também acrescentei alguns meus. O programa só lia ficheiros num formato exato, o que se tornou chato, por isso dá para criar e guardar ficheiros de dados dentro da app e repor os dados como foram carregados."
+              ]
+            }
+          ],
+          "layers": {
+            "Python": "Todas as tarefas, desde ler os ficheiros às simulações de vento, em Python simples sem bibliotecas.",
+            "CLI": "O menu que corre cada tarefa e volta a aparecer no fim."
+          }
+        }
       }
     },
     "stackKinds": {
-      "engine": "Motor",
+      "engine": "Engine",
+      "modelling": "Modelação 3D",
+      "prototyping": "Prototipagem",
       "language": "Linguagem",
-      "client": "Cliente",
+      "client": "Client",
       "api": "API",
       "orm": "ORM",
       "database": "Base de dados",
@@ -269,13 +632,13 @@
       "security": "Segurança",
       "ui": "Interface",
       "markup": "Markup",
-      "styling": "Estilo",
+      "styling": "Style",
       "library": "Biblioteca",
       "method": "Método",
       "interface": "Interface"
     },
     "archive": {
-      "intro": "Everything I've built, from my first Python program to the games I make now.",
+      "intro": "Tudo o que construí, do meu primeiro programa em Python ao trabalho que faço agora.",
       "all": "Todos",
       "filter": "Filtrar por tipo",
       "projects": "projetos",
@@ -292,7 +655,6 @@
       "kind": "Tipo",
       "role": "Papel",
       "stack": "Stack",
-      "links": "Links",
       "play": "Jogar",
       "download": "Descarregar",
       "platform": "Escolhe a plataforma",
@@ -302,13 +664,7 @@
         "linux": "Linux"
       },
       "next": "Próximo projeto",
-      "tbw": "Por escrever",
-      "sections": {
-        "brief": "Resumo",
-        "built": "Como está feito",
-        "hard": "Partes difíceis",
-        "next": "O que vem a seguir"
-      }
+      "tbw": "Por escrever"
     }
   },
   "about": {
@@ -322,14 +678,14 @@
         "partlyCloudy": "Parcialmente nublado",
         "overcast": "Nublado",
         "fog": "Nevoeiro",
-        "drizzle": "Chuvisco",
+        "drizzle": "Chuva fraca",
         "rain": "Chuva",
         "snow": "Neve",
         "thunder": "Trovoada"
       }
     },
     "soundtrack": {
-      "title": "Banda sonora",
+      "title": "Música",
       "note": "De sempre, segundo o Spotify",
       "artist": "Artista n.º ",
       "song": "A música mais ouvida de sempre",
@@ -337,29 +693,50 @@
     },
     "games": {
       "title": "Jogos",
-      "intro": "Diretamente da minha biblioteca do Steam.",
+      "intro": "Diretamente da minha biblioteca da Steam.",
       "mostPlayed": "Mais jogado",
       "lastPlayed": "Jogado recentemente",
-      "unavailable": "Os dados do Steam não estão disponíveis agora."
+      "unavailable": "Os dados da Steam não estão disponíveis agora."
     },
-    "heading": ["Off the", "clock"],
+    "heading": [
+      "Off the",
+      "clock"
+    ],
     "lede": "Música, jogos, guitarra, xadrez e demasiadas noites no Neovim.",
     "back": "Voltar ao trabalho",
     "side": "O outro lado",
     "light": "Luz",
-    "interestsTitle": "Também gosto de",
+    "interestsTitle": "Mais interesses",
     "interests": {
-      "guitar": { "title": "Guitarra", "text": "Back to playing after a long break." },
-      "chess": { "title": "Xadrez", "text": "Mostly online games and puzzles." },
-      "games": { "title": "Jogos", "text": "Raids, RPGs, and making my own." },
-      "manga": { "title": "Manga", "text": "One Piece, and whatever's next on the list." },
-      "gym": { "title": "Ginásio", "text": "Placeholder line." },
-      "setup": { "title": "Setup", "text": "Neovim, dotfiles, a terminal I keep rebuilding." }
+      "guitar": {
+        "title": "Guitarra",
+        "text": "De volta à guitarra depois de uma longa pausa."
+      },
+      "chess": {
+        "title": "Xadrez",
+        "text": "Sobretudo partidas online e puzzles."
+      },
+      "games": {
+        "title": "Jogos",
+        "text": "Raids, RPGs, e fazer os meus."
+      },
+      "manga": {
+        "title": "Manga",
+        "text": "One Piece, Attack on Titan, Death Note, e outros."
+      },
+      "gym": {
+        "title": "Ginásio",
+        "text": "A skippar pernas, obviamente."
+      },
+      "setup": {
+        "title": "Setup",
+        "text": "Neovim, dotfiles e um terminal que estou sempre a refazer."
+      }
     },
     "now": {
       "title": "Agora",
       "listening": "A ouvir agora",
-      "onRepeat": "Em repeat este mês",
+      "onRepeat": "Mais ouvida este mês",
       "playing": "A jogar agora",
       "played": "Jogado recentemente",
       "reading": "A ler",
@@ -371,7 +748,7 @@
       "by": "de",
       "play": "Tocar",
       "stop": "Parar",
-      "hint": "Ou toca numa nota. Só há som quando clicas.",
+      "hint": "Ou toca numa nota.",
       "pluck": "Tocar",
       "note": "Tocar a casa # na corda %",
       "bent": ", com bend"

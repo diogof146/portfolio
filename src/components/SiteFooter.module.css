@@ -55,20 +55,65 @@
   color: var(--accent);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .end .touchOnly {
-    display: none;
+@media (max-width: 1099px) {
+  .footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "sign pages"
+      "icons end";
+    gap: 14px 24px;
+  }
+
+  .sign {
+    grid-area: sign;
+  }
+
+  .pages {
+    grid-area: pages;
+    justify-content: flex-end;
+  }
+
+  .icons {
+    grid-area: icons;
+  }
+
+  .end {
+    grid-area: end;
+    justify-self: end;
   }
 }
 
 @media (max-width: 767px) {
   .footer {
-    justify-content: flex-start;
+    display: flex;
+    justify-content: center;
+    gap: 14px 28px;
+    text-align: center;
+  }
+
+  .sign,
+  .pages {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .pages {
+    order: 1;
+  }
+
+  .icons,
+  .end {
+    order: 2;
   }
 }
 
 @media (max-width: 399px) {
   .sign {
     white-space: normal;
+  }
+
+  .sign > span {
+    white-space: nowrap;
   }
 }

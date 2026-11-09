@@ -2,6 +2,7 @@
 
 import { Redis } from "@upstash/redis";
 import { cacheLife, cacheTag, updateTag } from "next/cache";
+import { allowed } from "@/lib/limit";
 
 const redis = Redis.fromEnv();
 
@@ -27,6 +28,9 @@ export async function getLikeCount() {
 
 export async function incrementLike() {
   try {
+    if (!(await allowed("like"))) {
+      return await redis.get("like_count");
+    }
     const count = await redis.incr("like_count");
     updateTag("likes");
     return count;

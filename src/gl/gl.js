@@ -16,8 +16,10 @@ function compile(gl, type, source) {
 export function fullscreenShader(canvas, fragment, options) {
   let derivatives = false
   if (options && options.derivatives) derivatives = true
+  let premultiplied = true
+  if (options && options.offscreen) premultiplied = false
 
-  const gl = canvas.getContext("webgl", { alpha: true, premultipliedAlpha: false, antialias: false })
+  const gl = canvas.getContext("webgl", { alpha: true, premultipliedAlpha: premultiplied, antialias: false })
   if (!gl) return null
   if (derivatives && !gl.getExtension("OES_standard_derivatives")) return null
 
@@ -104,21 +106,44 @@ export function makeTexture(gl) {
   return texture
 }
 
+function cropToCanvas(image, aspect, width) {
+  const canvas = document.createElement("canvas")
+  canvas.width = width
+  canvas.height = Math.round(width / aspect)
+  const context = canvas.getContext("2d")
+  const scale = Math.max(canvas.width / image.naturalWidth, canvas.height / image.naturalHeight)
+  const drawWidth = image.naturalWidth * scale
+  const drawHeight = image.naturalHeight * scale
+  context.drawImage(image, (canvas.width - drawWidth) / 2, (canvas.height - drawHeight) / 2, drawWidth, drawHeight)
+  return canvas
+}
+
+export function whenLoaded(image) {
+  return new Promise(function (resolve, reject) {
+    if (image.complete && image.naturalWidth > 0) {
+      resolve(image)
+      return
+    }
+    image.addEventListener("load", function () {
+      resolve(image)
+    }, { once: true })
+    image.addEventListener("error", reject, { once: true })
+  })
+}
+
+export function coverFromImage(image, aspect, width) {
+  return whenLoaded(image).then(function () {
+    return cropToCanvas(image, aspect, width)
+  })
+}
+
 export function loadCover(src, aspect, width) {
   return new Promise(function (resolve, reject) {
     const image = new Image()
     image.crossOrigin = "anonymous"
     image.decoding = "async"
     image.onload = function () {
-      const canvas = document.createElement("canvas")
-      canvas.width = width
-      canvas.height = Math.round(width / aspect)
-      const context = canvas.getContext("2d")
-      const scale = Math.max(canvas.width / image.naturalWidth, canvas.height / image.naturalHeight)
-      const drawWidth = image.naturalWidth * scale
-      const drawHeight = image.naturalHeight * scale
-      context.drawImage(image, (canvas.width - drawWidth) / 2, (canvas.height - drawHeight) / 2, drawWidth, drawHeight)
-      resolve(canvas)
+      resolve(cropToCanvas(image, aspect, width))
     }
     image.onerror = reject
     if (src.startsWith("/")) {

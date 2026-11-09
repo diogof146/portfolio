@@ -15,8 +15,8 @@ export default function TopButton({ label, className }) {
   }
 
   return (
-    <button type="button" className={className} onClick={toTop}>
-      {label} <ArrowUp size={14} aria-hidden="true" />
+    <button type="button" className={className} onClick={toTop} aria-label={label} data-cursor={label}>
+      <ArrowUp size={16} aria-hidden="true" />
     </button>
   )
 }

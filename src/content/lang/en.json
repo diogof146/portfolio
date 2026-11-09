@@ -24,7 +24,7 @@
     "pages": "Pages"
   },
   "home": {
-    "role": "Software engineer in the making",
+    "role": "Junior Software Engineer",
     "lead": "I build across the stack: web platforms, games, backend systems and my own tools.",
     "status": "Open to internships, junior roles & freelance",
     "hero": {
@@ -37,13 +37,13 @@
         "open": "Open to work",
         "place": "Porto, PT",
         "listening": "Listening now",
-        "onRepeat": "On repeat",
+        "onRepeat": "This Month",
         "findMe": "Find me"
       },
       "light": "Light"
     },
     "statementLabel": "In short",
-    "statement": "Third year of *Computer Engineering* in Porto, an *academic merit* scholarship and an Erasmus project at *Fontys*. So far: *games*, *web platforms*, a site for a *real client*, and the *Neovim config* that started it all.",
+    "statement": "I'm in my third year of *Computer Engineering* in Porto, with an *academic merit* scholarship and an Erasmus project at *Fontys* behind me. I build *games* and *web platforms*, I've made a site for a *client*, and right now I'm learning *cybersecurity*, the part of all this that interests me most.",
     "sections": {
       "work": "Selected work",
       "experience": "Experience",
@@ -74,10 +74,11 @@
         "missing": "Please fill in every field.",
         "email": "That email doesn't look right.",
         "long": "One of the fields is too long.",
-        "failed": "Something went wrong sending it. Please try again."
+        "failed": "Something went wrong sending it. Please try again.",
+        "limited": "Too many messages in a short time. Please wait a few minutes and try again."
       }
     },
-    "latestPush": "Latest push",
+    "latestPush": "Latest commit",
     "nextExam": {
       "label": "Next exam",
       "today": "Today. Wish me luck.",
@@ -101,6 +102,7 @@
   },
   "experience": {
     "intro": "Studies, recognition and real work.",
+    "highlights": "Highlights",
     "kinds": {
       "education": "Education",
       "erasmus": "Erasmus",
@@ -115,7 +117,11 @@
       },
       "erasmus": {
         "short": "Erasmus BIP, Fontys (NL)",
-        "text": "Erasmus BIP Data and AI at Fontys University of Applied Sciences (NL): an international team project on European data spaces for smart, sustainable cities. Certificate."
+        "text": "Erasmus BIP Data and AI at Fontys University of Applied Sciences (NL): an international team project on European data spaces for smart, sustainable cities. Certificate.",
+        "photo": {
+          "title": "Erasmus BIP Data and AI 2026",
+          "people": "The whole group at Fontys, Eindhoven"
+        }
       },
       "scholarship": {
         "short": "Academic merit scholarship",
@@ -136,7 +142,7 @@
     }
   },
   "toolbox": {
-    "intro": "Pick an area to see the tools, and the projects where I actually used them.",
+    "intro": "Pick an area to see the tools, and the projects where I used them.",
     "tools": "tools",
     "usedIn": "Used in",
     "open": "Open",
@@ -161,102 +167,459 @@
       "cli": "CLI"
     },
     "links": {
-      "code": "Code",
-      "live": "Live"
+      "code": "GitHub",
+      "live": "Visit"
     },
     "items": {
       "forsaken-elegy": {
-        "line": "3D action RPG with MMO-style raids",
-        "description": "Single Player 3D Action RPG with MMO-style raid mechanics and fast-paced action combat. Built with Unity and C#.",
+        "line": "3D action RPG with MMO-style mechanics",
+        "description": "A single-player 3D action RPG with MMO-style raid mechanics, a story and fast-paced combat. Built with Unity and C#.",
         "case": {
-          "role": "[TBW: your role, e.g. solo developer: design, code, art?]",
-          "brief": [
-            "[TBW: what Forsaken Elegy is and why you made it; the MMO-raid idea in a single-player game.]"
-          ],
-          "built": [
-            "[TBW: how it's put together in Unity: the combat system, the bosses' raid mechanics, the tools you built.]"
-          ],
-          "hard": [
-            "[TBW: the hardest problems and how you solved them.]"
-          ],
-          "next": [
-            "[TBW: what's next for it.]"
+          "role": "Solo: design, code, effects, animation, music",
+          "sections": [
+            {
+              "title": "The idea",
+              "stack": true,
+              "body": [
+                "Forsaken Elegy is a single-player action RPG built around one boss fight, inspired by the Ultimate raids in Final Fantasy XIV. You play as a demon with no memory, stuck in a desert purgatory. The gatekeeper guarding the only exit can't be beaten at first: you have to explore the world and collect the pages of the Elegy, a book that tells the story, before you stand a chance.",
+                "I made it for the Multimedia Applications Lab module in my second year. It was my first 3D game and my first time using a game engine, so I used the module's requirements to make a game I was really passionate about.",
+                "Most of the models and some of the effects come from the Unity Asset Store. The rest is mine: the code, the game design, the boss arena, the Elegy itself (a gunblade I modelled because I needed a very specific look), most of the animations, the custom effects and the music."
+              ]
+            },
+            {
+              "title": "Combat",
+              "body": [
+                "Combat is built around animation cancelling. Combos (tap, hold, tap-tap-hold) can be cut into abilities and abilities into other abilities, moving interrupts a cast and jumping interrupts a channel. Mastering animation cancelling is how you get the most damage out, which is very important in order to defeat the boss before enrage.",
+                "Damage, healing and effects fire on exact frames of each animation. If an animation is cancelled before its hit frame, the script works out how much time was left and queues the hit, so it still lands. Each swing also keeps track of what it already hit, so a big enemy with several colliders only takes the damage once.",
+                "In the Animator, every ability goes in through one empty state and out through a clean-up state that clears any inputs mashed during the cast. Without them, idle would need its own arrow to every ability. The graph was dense enough already."
+              ]
+            },
+            {
+              "title": "The boss",
+              "body": [
+                "The fight lasts six minutes and plays out the same way every time. There are seven mechanics: Twista, Fireburst, Pandemonium, Oblivion, Frost Spiral, Ultra Flares and finally Enrage, which throws all of them at you at once. They run on a fixed timeline, so you learn the fight by heart, like a raid.",
+                "Every mechanic has a cast bar driven by the boss's animation, so the bar fills exactly when the mechanic starts. I modelled the arena around Ultra Flares, the hardest mechanic: lines of explosions march out from markers, and the pattern on the floor shows which tiles they'll cross. I made the flares and their indicators from scratch in VFX Graph, learning from Gabriel Aguiar's tutorials.",
+                "If you walk in before finding the Elegy, the boss takes a tenth of the damage and hits five times harder. You're meant to lose that first visit."
+              ]
+            },
+            {
+              "title": "World and story",
+              "body": [
+                "The story is told mostly through the Elegy. Part of the idea came from \"Answers\", a song from Final Fantasy XIV whose lyrics explain things the story hadn't revealed yet. The Elegy does something similar: once you've read all of it, the rest of the game makes a lot more sense.",
+                "Its seven pages are hidden across a desert of ruins (a graveyard, a palace, a burning village, a forest), each in a place that fits what it tells. Every page also gives skill points for the skill tree, which has damage, defence and healing specialisations. There are never enough points for everything, so you pick a build, and you can change it later. The game saves at every page, and only the area you're in gets rendered, which keeps the frame rate up in fights."
+              ]
+            },
+            {
+              "title": "Music",
+              "body": [
+                "I composed the four tracks of the soundtrack in Dreams, a game that comes with its own music-making tools: Forsaken Elegy (the main theme), Liminality, The Gate and Anamnesis of a Fallen Angel. They share leitmotifs and are mostly choir and synths, with atonal chords in places and no drums at all, which I did on purpose to give them less structure. Bloodborne and Silent Hill were the main references."
+              ]
+            },
+            {
+              "title": "Looking back",
+              "body": [
+                "I was way too ambitious for the time I had, with exams and other projects on top, and the delivery weekend made that very clear. If I did it again, I'd spend less time laying out the open world and more on mechanics. The boss fight is all mechanics, and it's honestly quite fun.",
+                "I did consider a Forsaken Elegy 2 in Unreal Engine, mostly to learn Unreal, but the story doesn't really allow a sequel, so I'd rather make a new game."
+              ]
+            }
           ],
           "layers": {
-            "Unity": "[TBW: what Unity does here.]",
-            "C#": "[TBW: what you wrote in C#.]"
+            "Unity": "The engine: rendering, physics, the Animator, enemy navigation, and VFX Graph for the effects.",
+            "C#": "86 scripts: combat, the boss's timeline, enemy AI, the skill tree, saving, menus and audio.",
+            "Blender": "The Elegy, the boss arena, smaller props like trees and the pages, and keyframed animations for the player and the boss."
           }
         }
       },
       "wano-university": {
         "line": "Campus platform with its own mini-language",
-        "description": "A campus management platform designed to monitor and optimize university resources in real time. Built with React, Express, PostgreSQL, Prisma, and a custom System Specific Language parsed via Python's PLY.",
+        "description": "A campus platform for booking rooms, parking and meals, with live sensor dashboards and a system-specific language. Built by a team of five with React, Express and PostgreSQL.",
         "case": {
-          "role": "[TBW: your role in the team.]",
-          "brief": [
-            "[TBW: what Wano University is, who it's for, and the problem it solves. The project report can help here.]"
-          ],
-          "built": [
-            "[TBW: the architecture, and the platform's own mini-language parsed with PLY.]"
-          ],
-          "hard": [
-            "[TBW: the hardest problems and how the team solved them.]"
-          ],
-          "next": [
-            "[TBW: what's next, or what you'd do differently.]"
+          "role": "Team of five: led the web app, project setup, code review",
+          "sections": [
+            {
+              "title": "The brief",
+              "body": [
+                "Wano University is a campus management platform. Students and teachers book rooms, labs and equipment, find a free parking spot, bike or scooter, and buy cafeteria meals. Staff validate tickets and access to rooms. Admins manage users, permissions and the campus sensors, with dashboards and alerts for temperature, energy use and air quality.",
+                "It was one project for three second-year modules at once: Software Engineering, Web Technologies Lab and Compilers, which asked for a small command language for the platform, the LSS. We were a team of five.",
+                "I led the web app. I set up the project, taught the team React, Express and Prisma, and reviewed every pull request they opened. Along the way I worked on nearly every layer, from the database and the API to the interface and the LSS."
+              ]
+            },
+            {
+              "title": "How it's built",
+              "stack": true,
+              "body": [
+                "It started in Figma. Before any code, we did the user research (two personas, a student and an admin) and a clickable prototype of the app's screens, and the student side and the staff side ended up as two different interfaces. The app was built from those screens.",
+                "The frontend is a React single-page app built with Vite, with React Router, Tailwind and shadcn components. It talks to an Express API, which reads and writes a PostgreSQL database through Prisma. Passwords are hashed with bcrypt. Logging in returns a JSON Web Token, and a middleware checks it and the user's role (student, teacher, staff or admin) on every protected route. I'd always used sessions before, so JWT was new to me.",
+                "The campus maps are Leaflet drawn over a floor plan image, and admins click a spot on the plan to register a room, sensor or parking space there. Leaflet was probably the trickiest thing to learn. The dashboards use Chart.js and refresh on their own with SWR, which refetches on a timer and when you come back to the tab. There's no real hardware, so the sensor readings are random numbers.",
+                "The LSS lives in a terminal popup you can open from any page once you're logged in. A command like rent lab: 4, 09:00, 11:00, 15/06/2026 goes to a small Python service (FastAPI), where a PLY lexer and parser read it and call the same Express API with your token, so the terminal can't do anything your role can't. It has variables and takes keywords in English or Portuguese.",
+                "The frontend is on Vercel, the backend on Render and the database on Neon. Render's free plan puts the server to sleep when nobody's using it, so the live demo takes a minute or two to wake up. That's also why we never hosted the language service: it only runs locally."
+              ]
+            },
+            {
+              "title": "Beyond the brief",
+              "body": [
+                "The requirements didn't ask for payments, but I wanted to try them, so the app got a cafeteria. You see the menu and buy meal tickets with Stripe in test mode, which fakes payments with test card numbers. Each ticket is a QR code that staff scan with their phone to validate it, and reservations work the same way at the door of a room.",
+                "The app is also a PWA, so it installs on a phone like a normal app, and it has Portuguese and English and custom colour themes. Payments, the QR codes and the PWA were my ideas; the interactive maps came out of the Figma prototypes."
+              ]
+            },
+            {
+              "title": "Looking back",
+              "body": [
+                "Most of what I used here I learned for this project: JWT, QR codes, payments, and wiring a Python service to an Express API. Time management was difficult, as Wano was built in the same month as Forsaken Elegy, with exams on top.",
+                "If I did it again, I'd give every part of the work a deadline from the first week, so less of it piles up at the end. There are no plans to continue it."
+              ]
+            }
           ],
           "layers": {
-            "React": "The campus app people actually use, in the browser.",
-            "Express.js": "The server the app talks to.",
+            "Figma": "The user research and the clickable prototype the app was built from.",
+            "React": "The app: pages for each role, the maps, the dashboards and the terminal popup.",
+            "Express.js": "The API: login, roles, reservations, payments and tickets.",
             "Prisma": "Turns database rows into JavaScript objects (and back).",
             "PostgreSQL": "Where everything is stored.",
-            "PLY": "Lexer and parser for the platform's own mini-language (Python)."
+            "PLY": "Lexer and parser for the LSS, the platform's command language.",
+            "FastAPI": "The small Python service that runs LSS commands against the Express API."
           }
         }
       },
       "nvim-config": {
         "line": "The editor that got me into all this",
-        "description": "This is my favourite project, as it was the spark that ignited my passion for programming and obsession with customization."
+        "description": "My favourite project: the editor setup I've used for almost everything since my first year.",
+        "case": {
+          "role": "Solo, ongoing",
+          "sections": [
+            {
+              "title": "Where it started",
+              "body": [
+                "In my first semester I watched someone write code with only the keyboard, jumping around files and running commands that fast, and I wanted to work like that. I spent the winter break before the second semester building my own Neovim configuration, and I've used it for almost everything since.",
+                "Part of the appeal is that I just like pressing keys fast. The other part is that I can make it look and work however I want; mine even has a live wallpaper behind it. It's never finished, either: I keep adjusting it to whatever I'm working on."
+              ]
+            },
+            {
+              "title": "Taking it everywhere",
+              "body": [
+                "Whenever a module or a project brought a new language, I made Neovim handle it instead of switching editors. Java took the most work: the jdtls setup alone is over 300 lines, finds Maven and Gradle projects and picks between the JDKs I have installed. For one module I even wrote a small plugin, java-project-creator.nvim, that sets up Java and Maven projects, though I don't use it any more. C# runs through Roslyn, and with a script from my dotfiles, Unity opens its scripts in Neovim. I built Vivre Bar, a Swift app, here with xcodebuild.nvim instead of Xcode."
+              ]
+            },
+            {
+              "title": "How it's put together",
+              "stack": true,
+              "body": [
+                "It's written in Lua: lazy.nvim loads the plugins and Mason installs the language servers. Around that: Telescope for finding things, Treesitter, Git signs and conflict tools, debugging through nvim-dap, LaTeX with VimTeX, and spell files in English and Portuguese. The keybinds have a file of their own, because there are a lot of them. It changes all the time, so some of this is probably out of date already."
+              ]
+            }
+          ],
+          "layers": {
+            "Lua": "The whole configuration: options, keymaps, autocommands and every plugin's setup.",
+            "Neovim": "The editor itself, with the plugins and language servers on top.",
+            "Unix": "What it leans on: ripgrep for searching, the shell and the terminal it runs in."
+          }
+        }
       },
       "animal-care-centre": {
-        "line": "Pet-adoption REST API",
-        "description": "A pet adoption portal REST API built with Spring."
+        "line": "Animal shelter platform: API and desktop app",
+        "description": "An animal shelter platform: a Spring Boot API secured with Spring Security, and a JavaFX desktop app.",
+        "case": {
+          "role": "Team of four: co-led, project setup, security, the JavaFX app",
+          "sections": [
+            {
+              "title": "The idea",
+              "body": [
+                "Animal Care Centre puts animal shelters and the people who want to help them in one app. Shelters register their animals with photos and answer adoption and foster requests. Users search for animals, adopt or foster one, sponsor an animal with a monthly amount or donate to a shelter. There's also a Lost & Found, where anyone can report a lost animal or one they found. Admins approve new shelters before they can log in.",
+                "It was the Programming Lab project in the first semester of my second year, built by four of us from October to December 2025, in three parts. The module had a different theme in mind. I came up with this one, the group liked it, and when we pitched it the teacher loved it.",
+                "One teammate and I led the project together: she reviewed my pull requests and I reviewed everyone else's. I set up the project, wrote the security, built the JavaFX app and its components, and wrote a large part of the API."
+              ]
+            },
+            {
+              "title": "Three parts, one backend",
+              "body": [
+                "The three parts grow the same app. The first ran in the terminal and saved everything to MySQL through Hibernate. In the second we split it into a Spring Boot REST API and a client that calls it, our first time doing client and server work. The third swapped that client for a JavaFX app, so we could see the same backend keep working with a new client."
+              ]
+            },
+            {
+              "title": "Half terminal, half JavaFX",
+              "body": [
+                "We'd used JavaFX in first year as an extra and knew the last part needed it, so we started the first part straight in JavaFX (login, creating an account, changing the password) without asking. The teacher wanted the terminal. Since those screens were already done, she let us keep them so the work wasn't wasted, and asked for the rest in the terminal.",
+                "That meant one app with two interfaces at the same time, which meant two threads. JavaFX draws the window on its own thread, and reading from the terminal blocks until you type something, so the terminal menus had to run on a second thread or the window would freeze. While a menu was open in the terminal, the window showed only a logout button, and moving between menus started new terminal threads while old ones could still be waiting for input. Both sides fought over the console's input and output, and the app crashed over and over.",
+                "The fix was a small semaphore system. Every read from the console has to take a lock on the shared Scanner first, so only one thread can read at a time, and before reading, the thread checks whether it's been told to stop. Opening a new menu interrupts the thread of the one before, which then stops quietly, and anything that changes the window goes back to the JavaFX thread through Platform.runLater.",
+                "Nobody builds a mixed app like that on purpose, so it was difficult to find the solution to the problem, as there was nothing to follow. By the end, I knew enough to explain it to the teacher. When the last part moved fully to JavaFX, the old main file stayed in the repo as legacy, all commented out."
+              ]
+            },
+            {
+              "title": "How it's built",
+              "stack": true,
+              "body": [
+                "The API is Spring Boot, split into controllers for the HTTP endpoints, services for the rules and repositories for the database. Hibernate maps the Java classes to MySQL tables. Shelters and animals take photo uploads of up to 10 MB.",
+                "Security wasn't in the brief; I added it on my own because it's what interests me most. Logging in goes through Spring Security and keeps a session, every route except sign-up, login and password recovery needs one, and each endpoint checks the role: user, shelter or admin. Passwords and security answers are hashed with BCrypt, and a password needs 8 to 16 characters with an uppercase letter, a number and a special character. Admins need a secret code to sign up, and shelters wait for an admin's approval. It's basic to me now, but it's where it started.",
+                "For the third part, plain white screens with text fields would have met the brief. I built a small component library: buttons, text fields, cards, a paged grid, a photo carousel, popovers and a navigation bar, all in the same style. Animals, shelters and lost animals share one Displayable interface, so the same grid shows any of them. A Navigator class moves between pages, and one ApiClient class talks to the API and keeps the session cookie."
+              ]
+            },
+            {
+              "title": "Looking back",
+              "body": [
+                "Almost all of this was new to me: Spring, Hibernate, REST APIs, client and server, Spring Security and threads. JavaFX wasn't, and Maven only sort of. We'd used it once in first year because my Neovim config needed it to run the project, without really knowing what a build tool was. Here I learned to use it properly.",
+                "If I did it again, I wouldn't mix JavaFX with the terminal. The project isn't over, though: there are plans to turn it into a real platform."
+              ]
+            }
+          ],
+          "layers": {
+            "Java": "The language of both the API and the desktop app.",
+            "Spring Boot": "The REST API: controllers, services and repositories.",
+            "Hibernate": "Maps the Java classes to MySQL tables (and back).",
+            "MySQL": "Where everything is stored.",
+            "Spring Security": "Login sessions, BCrypt hashing and what each role is allowed to do.",
+            "JavaFX": "The desktop app, built from its own set of components."
+          }
+        }
       },
       "pepe-tours": {
         "line": "Website for a local tourism company",
-        "description": "A website developed as a freelance project for a local tourism company."
+        "description": "A website developed as a freelance project for a local tourism company.",
+        "case": {
+          "role": "Solo, freelance",
+          "sections": [
+            {
+              "title": "The site",
+              "body": [
+                "PePe Tours & Travels runs private tours from Porto: the city, the Douro Valley, Braga and Guimarães, Coimbra and Aveiro, Fátima and more. The site has a home page with videos, the tours, an about page and contact by WhatsApp or email. It was my first website, built in the summer of 2025."
+              ]
+            },
+            {
+              "title": "How it's built",
+              "stack": true,
+              "body": [
+                "It's HTML, CSS and JavaScript on top of Bootstrap, hosted on GitHub Pages. The twelve tours share one details page: the script reads the tour from the URL and fills in the photos, the highlights, what's included and the price, which depends on the group size, from two people up to seven. Bigger groups get in touch. The videos only load when they're about to come on screen, and tapping one opens it in full screen.",
+                "I still think it looks good. I'd do it much better now, but it's where I learned how to work with a client and how a website fits together."
+              ]
+            }
+          ],
+          "layers": {
+            "HTML/CSS": "The pages, and the site's own styles on top of Bootstrap's.",
+            "Bootstrap": "The grid, the navigation bar and the layout on phones.",
+            "JavaScript": "The tour pages filled from one data file, the video loading and full screen."
+          }
+        }
       },
       "dotfiles": {
         "line": "My macOS / Unix configuration",
-        "description": "My macOS/Unix configuration files."
+        "description": "My macOS/Unix configuration files.",
+        "case": {
+          "role": "Solo, ongoing",
+          "sections": [
+            {
+              "title": "What's in it",
+              "body": [
+                "The configuration for everything on my Mac except Neovim, which is big enough to have its own repository: zsh with Starship, the Ghostty and kitty terminals (Ghostty with a few GLSL shaders), tmux, Karabiner for the keyboard, IdeaVim for Vim keys in JetBrains IDEs, window borders, a Spotify and a Discord theme, and navi cheat sheets. There's also a small script that makes Unity open its files in Neovim. Everything lives in this one folder, and each file is symlinked back to where its app expects to find it, like ~/.zshrc or ~/.config/ghostty.",
+                "Most of the history is window managers. I went from yabai with skhd to AeroSpace, then HyprSpace, and since July 2026 OmniWM. The config for each one is still there."
+              ]
+            },
+            {
+              "title": "Why it's here",
+              "stack": true,
+              "body": [
+                "It's mostly for other developers. When someone asks how I set something up, I can send them the repo. It's also what makes setting up a new machine easy."
+              ]
+            }
+          ],
+          "layers": {
+            "Bash": "The scripts, like the one that makes Unity open files in Neovim.",
+            "Unix": "The config files for the shell, the terminals, the window managers and the rest."
+          }
+        }
       },
       "vivre-bar": {
         "line": "GIFs in the macOS menu bar",
-        "description": "A delightfully useless macOS menu bar app that brings GIFs to the menu bar with customizable effects and colours."
+        "description": "A delightfully useless macOS menu bar app that brings GIFs to the menu bar with customizable effects and colours.",
+        "case": {
+          "role": "Solo",
+          "sections": [
+            {
+              "title": "Why it exists",
+              "body": [
+                "I wanted Luffy running around in my menu bar, and I couldn't find a way to put a GIF there, so I wrote an app for it. Once it worked, I added a way to use any GIF. I still use it every day."
+              ]
+            },
+            {
+              "title": "What it does",
+              "stack": true,
+              "body": [
+                "It comes with two One Piece GIFs and lets you add your own. There are four colour modes: the GIF's own colours, System (it matches the other menu bar icons), Fill and Tint. You can change the size and the speed and add an effect, like glow, blur, pixelate or twirl. It's Swift and AppKit, about a thousand lines, written in Neovim instead of Xcode.",
+                "Version 1.0.0 is out on GitHub and installs through my own Homebrew tap, but I stopped there and never promoted it. I still plan to improve it: the tints and the effects need to work a lot better, and it needs much better pictures."
+              ]
+            }
+          ],
+          "layers": {
+            "Swift": "All of the app's code: loading GIFs, the colour modes, the effects and the settings.",
+            "AppKit": "The menu bar item and its settings menu.",
+            "macOS": "Where it runs; it installs through Homebrew."
+          }
+        }
       },
       "portfolio": {
         "line": "The site you're on",
-        "description": "A custom-designed personal portfolio built with Next.js Tailwind CSS and Shadcn UI."
+        "description": "A custom-designed personal portfolio built with Next.js, WebGL and GSAP.",
+        "case": {
+          "role": "Solo: design, code and content",
+          "sections": [
+            {
+              "title": "Starting over",
+              "body": [
+                "This is the second version of my site. I made the first in March 2026 with Next.js, Tailwind and a shadcn theme. It had Spotify and Steam on an about page, a terminal and a like counter, and it worked, but it looked like a lot of other sites.",
+                "In October I started over. I kept the content, the live data and the terminal idea, and rewrote everything else."
+              ]
+            },
+            {
+              "title": "Ten prototypes",
+              "body": [
+                "Before writing any real code, I did a lot of research. I went through various websites that I liked, worked out what made them work and what didn't, and learned the tools I'd need, like GSAP and writing my own shaders.",
+                "Then I picked a direction and built ten rough prototypes of it. The direction is a cyanotype, the old blueprint process: deep blue, paper white, and cyan as the light. Project pictures start as blue prints and develop into colour, the page changes colour as you move through the sections, and holding anywhere floods the screen in blue and takes you to the personal side, Off the clock.",
+                "The second prototype became the site, and most of the others gave it one piece: the exploded stack on these project pages, the ink in water in the side panel, the desktop behind the terminal."
+              ]
+            },
+            {
+              "title": "How it's built",
+              "stack": true,
+              "body": [
+                "It's Next.js with the App Router, in plain JavaScript, with one CSS Module per component. GSAP runs the motion: ScrollTrigger for anything tied to scrolling, SplitText for the titles, Flip for the archive's filters. Lenis smooths the scroll, and it's off for anyone who asks their system for reduced motion.",
+                "The WebGL is written by hand, without a library. The contour lines in the background, the ink that bleeds over a print on hover, the pictures melting into each other in the archive, the fluid in the side panel, the record on Off the clock and the shapes in the toolbox are all small fragment shaders, and every one of them stops drawing when its canvas is off screen.",
+                "The live parts (what I'm listening to and playing, the manga I'm reading, my latest commit, my next exam, Porto's weather) are fetched on the server and cached. If one of them fails, the page shows a fallback instead of an error. The site is in English and European Portuguese, from one JSON file per language, and the contact form is a server action that sends the email through Resend, with rate limits on everything that costs a request."
+              ]
+            },
+            {
+              "title": "The terminal",
+              "body": [
+                "Press Cmd+K (or Ctrl+K) on any page and it turns into a desktop like a Linux tiling window manager: a shell, fastfetch, my Steam library, my top artists and a file browser with every project, with Alt+h/j/k/l to move between windows. The second workspace has the guitar tab open in Neovim. It plays. The shell keeps the old site's commands and has eight games, among them snake, minesweeper, 2048 and a hangman with 251 One Piece words."
+              ]
+            },
+            {
+              "title": "What testing found",
+              "body": [
+                "The first time I opened it on my iPhone, every dark section was washed out to a pale cyan. On my computer it looked fine, even in Safari's engine. The cause was the canvas that draws the contour lines, which covers the whole page. Between the lines, it drew the line colour at zero opacity. Every other browser treated that as invisible, but Safari on the iPhone still added the colour, so the pale cyan spread over everything. Now the canvases store each colour already multiplied by its opacity (premultiplied alpha), so zero opacity means no colour at all. That fix turned the project pictures black in Safari, so the one canvas that draws the ink still works the old way.",
+                "Going through every page with only the keyboard found a worse one: on a computer, Tab couldn't reach anything after the toolbox. The animations that reveal things as you scroll hid them in a way that also put them out of Tab's reach, so now they only fade them in. The guitar tab alone was over 60 Tab stops; now it's one, and the arrow keys move between notes. Lighthouse gives accessibility 100 on every page except home, where the faint words in the statement are faint on purpose."
+              ]
+            }
+          ],
+          "layers": {
+            "Next.js": "The pages in two languages, rendered and cached on the server, plus the API routes and the contact form.",
+            "React": "Every section is a component; the motion, the canvases and the terminal run in the browser.",
+            "GSAP": "All the motion: scroll-linked animation, pinned sections, the title reveals and the archive's filters.",
+            "WebGL": "The hand-written shaders: contour lines, ink, the melt, the fluid, the record, the toolbox shapes and the Porto map."
+          }
+        }
       },
       "riff-hero": {
-        "line": "A Guitar Hero clone",
-        "description": "A Guitar Hero clone built in Java with FXGL."
+        "line": "A rhythm game for your own songs",
+        "description": "A rhythm game that turns MIDI files into notes. Java with FXGL, on hold.",
+        "case": {
+          "role": "Solo, on hold",
+          "sections": [
+            {
+              "title": "The idea",
+              "body": [
+                "A game like Guitar Hero where you can play your own songs. I love rhythm games, and in all of them someone else picks the songs. Notes come down five lanes, played with A, D, J, K and L, and every hit or miss moves the score."
+              ]
+            },
+            {
+              "title": "Getting the notes",
+              "stack": true,
+              "body": [
+                "The hard part is turning a song into notes. My first script listened to the audio with librosa and tried to find the notes in it, and the results weren't reliable. So I switched to MIDI files. A Python script with Mido scores every track by how many notes it has, how wide its range is and how high it sits, which skips the drums and the bass and finds the melody. Then it converts that track to JSON, with each note's time in seconds worked out from the song's tempo changes, and the game, in Java with FXGL, reads the JSON.",
+                "Even with the right notes, the music drifted away from the notes on screen, and I couldn't find why. That's where I stopped. A rhythm game where I can play any song is something I'll come back to, and when I do, I'll start over, probably not in Java. I only used FXGL because Java was what we were learning at university at the time."
+              ]
+            }
+          ],
+          "layers": {
+            "Java": "The game: the lanes, the notes, hit detection and the score.",
+            "FXGL": "The game engine on top of JavaFX: the loop, the input and the menus.",
+            "Mido": "Reads the MIDI files in Python, so the script can pick the melody and export it as JSON."
+          }
+        }
       },
       "farmers-market": {
         "line": "Marketplace app, built as a SCRUM team",
-        "description": "A Farmers Marketplace GUI App developed as a group using the SCRUM framework."
+        "description": "A marketplace for organic farmers, with a JavaFX interface, built by a Scrum team of four.",
+        "case": {
+          "role": "Team of four, most of the code",
+          "sections": [
+            {
+              "title": "The project",
+              "body": [
+                "Farmers Market connects organic farmers with people who want to buy from them. Farmers register their products, set prices and stock and describe how they farm. Clients search by farmer or by category, fill a cart and buy, and admins run the platform.",
+                "It was my first object-oriented app, built by four of us from April to June 2025, in the second semester of my first year. It counted for two modules: Object-Oriented Programming, and Information Systems, where we worked in Scrum sprints from a backlog of about 40 user stories."
+              ]
+            },
+            {
+              "title": "Aiming high",
+              "stack": true,
+              "body": [
+                "We wanted it to be good, so we started looking at building it as a single-page web app, which was a lot for first-year students. The teacher talked us out of it and suggested JavaFX for a graphical interface instead, and lent us a book and some PDFs from the second-year module. A teammate and I learned it from those as an extra, mostly because we'd made terminal apps all of the first semester and wanted something nicer. Saving everything to CSV files wasn't asked for either; that was another extra."
+              ]
+            }
+          ],
+          "layers": {
+            "Java": "The model (users, farmers, products, carts and orders) and the rules, saved to CSV.",
+            "JavaFX": "The graphical interface, learned from second-year material as an extra.",
+            "SCRUM": "How we worked: a backlog of user stories, split into sprints."
+          }
+        }
       },
       "fbsim": {
         "line": "Learning game dev with Pygame",
-        "description": "A 2D penalty shootout simulator built with Python/Pygame to learn the fundamentals of game development."
+        "description": "A 2D penalty shootout simulator built with Python/Pygame to learn the fundamentals of game development.",
+        "case": {
+          "role": "Solo, first semester",
+          "sections": [
+            {
+              "title": "Why I made it",
+              "body": [
+                "I didn't know how to program before university. In my first semester the exercises came easily, so I used the spare time to learn how you make something that isn't a terminal program, like a game. Python was the language we were learning, so I found Pygame, read its documentation and built this."
+              ]
+            },
+            {
+              "title": "How it plays",
+              "stack": true,
+              "body": [
+                "Two players pick a team each and take turns shooting, with the real shootout rules, sudden death included. You aim with the arrow keys and shoot with space. The keeper guesses wrong one time in three and dives at a random speed, so even a right guess can be too slow. A goal plays a \"SIUUU\".",
+                "The only tricky part was aiming, which needed sine and cosine to turn an angle into the ball's speed. It's how I found out how much maths there is in games."
+              ]
+            }
+          ],
+          "layers": {
+            "Python": "The game's logic: the turns, the score and the shootout rules.",
+            "Pygame": "The window, the drawing, the keyboard and the sound."
+          }
+        }
       },
       "pms": {
         "line": "My first program",
-        "description": "A terminal-based Python application that helps manage and analyze pollution data. This was my first programming project."
+        "description": "A terminal-based Python application that helps manage and analyze pollution data. This was my first programming project.",
+        "case": {
+          "role": "Group of three, all of the code",
+          "sections": [
+            {
+              "title": "The brief",
+              "body": [
+                "The final project of Algorithms and Programming, my first programming module. It's a terminal app for the pollution readings of the Portuguese Environment Agency: each file holds a grid of measurements for a city, and the program turns it into an alert map (moderate, high, extreme or severe). Then it works on it, adjusting levels, spreading pollution with a north wind, finding the 3×3 area where a purifier would help most and comparing two readings over time."
+              ]
+            },
+            {
+              "title": "Beyond the brief",
+              "stack": true,
+              "body": [
+                "There were twelve required tasks and five extras, and a group our size had to do at least two extras. We did all five: pollution hotspots, a heatmap file, rows and columns with the same alert level, wind from several directions and a prediction for the next hour. I added a few of my own as well. The program could only read files in one exact format, which got annoying, so you can create and save data files from inside the app and reset the data to what was loaded."
+              ]
+            }
+          ],
+          "layers": {
+            "Python": "Every task, from reading the files to the wind simulations, in plain Python with no libraries.",
+            "CLI": "The menu that runs each task and comes back after it."
+          }
+        }
       }
     },
     "stackKinds": {
       "engine": "Engine",
+      "modelling": "3D modelling",
+      "prototyping": "Prototyping",
       "language": "Language",
       "client": "Client",
       "api": "API",
@@ -275,7 +638,7 @@
       "interface": "Interface"
     },
     "archive": {
-      "intro": "Everything I've built, from my first Python program to the games I make now.",
+      "intro": "Everything I've built, from my first Python program to the work I now do.",
       "all": "All",
       "filter": "Filter by kind",
       "projects": "projects",
@@ -292,7 +655,6 @@
       "kind": "Kind",
       "role": "Role",
       "stack": "Stack",
-      "links": "Links",
       "play": "Play it",
       "download": "Download",
       "platform": "Pick your platform",
@@ -302,13 +664,7 @@
         "linux": "Linux"
       },
       "next": "Next project",
-      "tbw": "To be written",
-      "sections": {
-        "brief": "Brief",
-        "built": "How it's built",
-        "hard": "Hard parts",
-        "next": "What's next"
-      }
+      "tbw": "To be written"
     }
   },
   "about": {
@@ -342,24 +698,45 @@
       "lastPlayed": "Recently played",
       "unavailable": "Steam data unavailable right now."
     },
-    "heading": ["Off the", "clock"],
+    "heading": [
+      "Off the",
+      "clock"
+    ],
     "lede": "Music, games, guitar, chess, and too many evenings in Neovim.",
     "back": "Back to work",
     "side": "The other side",
     "light": "Light",
     "interestsTitle": "Also into",
     "interests": {
-      "guitar": { "title": "Guitar", "text": "Back to playing after a long break." },
-      "chess": { "title": "Chess", "text": "Mostly online games and puzzles." },
-      "games": { "title": "Games", "text": "Raids, RPGs, and making my own." },
-      "manga": { "title": "Manga", "text": "One Piece, and whatever's next on the list." },
-      "gym": { "title": "Gym", "text": "Placeholder line." },
-      "setup": { "title": "Setup", "text": "Neovim, dotfiles, a terminal I keep rebuilding." }
+      "guitar": {
+        "title": "Guitar",
+        "text": "Back to playing after a long break."
+      },
+      "chess": {
+        "title": "Chess",
+        "text": "Mostly online games and puzzles."
+      },
+      "games": {
+        "title": "Games",
+        "text": "Raids, RPGs, and making my own."
+      },
+      "manga": {
+        "title": "Manga",
+        "text": "One Piece, Attack on Titan, Death Note, and more."
+      },
+      "gym": {
+        "title": "Gym",
+        "text": "Skipping legs, obviously."
+      },
+      "setup": {
+        "title": "Setup",
+        "text": "Neovim, dotfiles, a terminal I keep rebuilding."
+      }
     },
     "now": {
       "title": "Right now",
       "listening": "Listening now",
-      "onRepeat": "On repeat this month",
+      "onRepeat": "Top Track this month",
       "playing": "Playing now",
       "played": "Recently played",
       "reading": "Reading",
@@ -371,7 +748,7 @@
       "by": "by",
       "play": "Play it",
       "stop": "Stop",
-      "hint": "Or tap any note. Sound only plays when you click.",
+      "hint": "Or tap any note.",
       "pluck": "Pluck",
       "note": "Play fret # on the % string",
       "bent": ", bent"
