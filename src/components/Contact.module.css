@@ -97,7 +97,8 @@
 
 @media (min-width: 1100px) {
   .contact {
-    margin-right: calc(-1 * (var(--panel-width) + var(--gutter) * 2));
+    margin-left: calc(-1 * var(--edge));
+    margin-right: calc(-1 * (var(--panel-width) + var(--gutter) * 2 + var(--edge)));
   }
 }
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useSyncExternalStore } from "react"
 import Link from "next/link"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -10,6 +10,24 @@ import s from "./Toolbox.module.css"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
+const WIDE = "(min-width: 900px)"
+
+function watchWide(onChange) {
+  const query = window.matchMedia(WIDE)
+  query.addEventListener("change", onChange)
+  return function () {
+    query.removeEventListener("change", onChange)
+  }
+}
+
+function readWide() {
+  return window.matchMedia(WIDE).matches
+}
+
+function readWideOnServer() {
+  return false
+}
+
 function twoDigits(number) {
   if (number < 10) return "0" + number
   return String(number)
@@ -18,6 +36,7 @@ function twoDigits(number) {
 export default function Toolbox({ title, text, groups }) {
   const [open, setOpen] = useState(0)
   const list = useRef(null)
+  const wide = useSyncExternalStore(watchWide, readWide, readWideOnServer)
 
   useGSAP(
     function () {
@@ -56,7 +75,7 @@ export default function Toolbox({ title, text, groups }) {
         <div className={s.stage}>
           <div className={s.object}>
             <span className={s.shadow} aria-hidden="true" />
-            <ToolMorph index={open} />
+            {wide && <ToolMorph index={open} />}
           </div>
           <p className={"mono " + s.now} aria-live="polite">
             <span>{twoDigits(open + 1)}</span>

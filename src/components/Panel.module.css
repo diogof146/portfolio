@@ -11,7 +11,7 @@
 .dock {
   position: fixed;
   top: var(--gutter);
-  right: var(--gutter);
+  right: calc(var(--gutter) + var(--edge));
   bottom: var(--gutter);
   width: var(--panel-width);
   visibility: hidden;

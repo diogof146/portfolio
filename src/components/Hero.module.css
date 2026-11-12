@@ -3,7 +3,7 @@
   min-height: calc(var(--screen) - 56px);
   display: grid;
   grid-template-rows: auto 1fr auto;
-  padding: 28px var(--pad) 32px;
+  padding: 28px calc(var(--pad) + var(--edge)) 32px;
 }
 
 .top {

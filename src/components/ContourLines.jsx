@@ -44,8 +44,9 @@ export default function ContourLines() {
     if (!shader) return
     const gl = shader.gl
 
+    const touch = window.matchMedia("(hover: none), (pointer: coarse)").matches
     let scale = 0.75
-    if (window.matchMedia("(hover: none), (pointer: coarse)").matches) scale = 0.5
+    if (touch) scale = 0.5
     const stopSizing = autoSize(element, gl, scale)
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
@@ -68,10 +69,17 @@ export default function ContourLines() {
     }
 
     let time = 12
+    let drawn = ""
     function render(now, deltaMs) {
       if (covered()) return
-      if (!reduce) time = time + Math.min(deltaMs, 50) / 1000
-      mouse.strength = mouse.strength + (mouse.target - mouse.strength) * 0.05
+      if (touch) {
+        const frame = [element.width, element.height, look.r, look.g, look.b, look.alpha].join()
+        if (frame === drawn) return
+        drawn = frame
+      } else {
+        if (!reduce) time = time + Math.min(deltaMs, 50) / 1000
+        mouse.strength = mouse.strength + (mouse.target - mouse.strength) * 0.05
+      }
       gl.uniform2f(shader.uniform("uRes"), element.width, element.height)
       gl.uniform1f(shader.uniform("uTime"), time)
       gl.uniform3f(shader.uniform("uMouse"), mouse.x, mouse.y, mouse.strength)
@@ -84,8 +92,10 @@ export default function ContourLines() {
 
     gsap.ticker.add(render)
     window.addEventListener("themechange", onTheme)
-    window.addEventListener("pointermove", move, { passive: true })
-    document.documentElement.addEventListener("pointerleave", leave)
+    if (!touch) {
+      window.addEventListener("pointermove", move, { passive: true })
+      document.documentElement.addEventListener("pointerleave", leave)
+    }
 
     return function () {
       gsap.ticker.remove(render)

@@ -93,11 +93,17 @@
 
 @media (min-width: 1100px) {
   .work {
-    margin-right: calc(-1 * (var(--panel-width) + var(--gutter) * 2));
+    margin-left: calc(-1 * var(--edge));
+    margin-right: calc(-1 * (var(--panel-width) + var(--gutter) * 2 + var(--edge)));
+  }
+
+  .head {
+    padding-left: calc(var(--pad) + var(--edge));
   }
 
   .track {
-    padding-right: calc(var(--panel-width) + var(--gutter) * 2 + var(--pad));
+    padding-left: calc(var(--pad) + var(--edge));
+    padding-right: calc(var(--panel-width) + var(--gutter) * 2 + var(--pad) + var(--edge));
   }
 }
 

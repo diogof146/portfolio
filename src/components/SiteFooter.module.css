@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px 28px;
-  padding: 16px var(--pad);
+  padding: 16px calc(var(--pad) + var(--edge));
   border-top: 1px solid var(--line);
   color: var(--fg);
 }

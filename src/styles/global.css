@@ -11,6 +11,8 @@
   --pad: clamp(20px, 5vw, 72px);
   --gutter: 24px;
   --panel-width: 300px;
+  --frame: 1680px;
+  --edge: max(0px, (100vw - var(--frame)) / 2);
   --screen: 100svh;
 
   --bg: var(--paper);

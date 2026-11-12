@@ -147,34 +147,15 @@
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "head"
-      "stage"
       "list";
   }
 
   .stage {
-    position: relative;
-    top: auto;
-    margin-bottom: 24px;
-  }
-
-  .object {
-    max-width: 300px;
+    display: none;
   }
 }
 
 @media (max-width: 767px) {
-  .now {
-    display: none;
-  }
-
-  .object {
-    max-width: 220px;
-  }
-
-  .stage {
-    margin-bottom: 8px;
-  }
-
   .inner {
     gap: 16px;
     padding-left: 58px;

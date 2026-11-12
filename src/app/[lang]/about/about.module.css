@@ -46,5 +46,5 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: clamp(64px, 10vw, 140px);
-  padding: 40px var(--pad) clamp(64px, 10vw, 120px);
+  padding: 40px calc(var(--pad) + var(--edge)) clamp(64px, 10vw, 120px);
 }
