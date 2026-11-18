@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react"
 import { pathFor } from "@/content/lang/languages"
 import Print from "@/components/Print"
 import InkLayer from "@/components/InkLayer"
+import LoopVideo from "@/components/LoopVideo"
 import WorkStrip from "@/components/WorkStrip"
 import s from "./Work.module.css"
 
@@ -34,6 +35,7 @@ export default function Work({ lang, title, text, allProjects, projects, project
             <div className={s.picture}>
               <Print src={project.image} sizes="(min-width: 1100px) 460px, 78vw">
                 <InkLayer />
+                {project.loop && <LoopVideo src={project.loop} />}
               </Print>
             </div>
             <div className={s.title}>

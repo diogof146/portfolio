@@ -5,6 +5,7 @@ import { stackKinds } from "@/content/stack"
 import LanguageSwitch from "@/components/LanguageSwitch"
 import Print from "@/components/Print"
 import InkLayer from "@/components/InkLayer"
+import ProjectVideo from "@/components/ProjectVideo"
 import CaseStudy from "@/components/CaseStudy"
 import Download from "@/components/Download"
 import s from "./ProjectPage.module.css"
@@ -47,9 +48,13 @@ export default function ProjectPage({ lang, project, text, nav, position, total,
       </header>
 
       <div className={s.hero}>
-        <Print src={project.image} alt={project.title} sizes="(min-width: 1200px) 1140px, 100vw" preload>
-          <InkLayer scrub />
-        </Print>
+        {project.video ? (
+          <ProjectVideo src={project.video.src} poster={project.video.poster} label={project.title} />
+        ) : (
+          <Print src={project.image} alt={project.title} sizes="(min-width: 1200px) 1140px, 100vw" preload>
+            <InkLayer scrub />
+          </Print>
+        )}
       </div>
 
       <div className={s.overview}>
